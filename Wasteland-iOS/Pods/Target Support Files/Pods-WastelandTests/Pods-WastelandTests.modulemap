@@ -1,6 +1,0 @@
-framework module Pods_WastelandTests {
-  umbrella header "Pods-WastelandTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
