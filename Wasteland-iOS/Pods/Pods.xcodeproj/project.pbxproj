@@ -51,19 +51,19 @@
 		455E573BE66B77924BFB7D93EEE97FED /* Pods-Wasteland-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Wasteland-acknowledgements.plist"; sourceTree = "<group>"; };
 		4741B44792FE2AFDD4BB112DE6081388 /* Pods-WastelandUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WastelandUITests-Info.plist"; sourceTree = "<group>"; };
 		4D3F8B8B53170087AAC7FF235BC20221 /* Pods-WastelandTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WastelandTests-umbrella.h"; sourceTree = "<group>"; };
-		4F44B181D2E3DDFBE1BC2B5DF7A7458F /* Pods_WastelandTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WastelandTests.framework; path = "Pods-WastelandTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F44B181D2E3DDFBE1BC2B5DF7A7458F /* Pods_WastelandTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WastelandTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51BC056A40A18726D9B77846813347F5 /* Pods-Wasteland-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Wasteland-Info.plist"; sourceTree = "<group>"; };
 		5A094C777C63BAA75A3E8A924B0FB46C /* Pods-Wasteland-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Wasteland-umbrella.h"; sourceTree = "<group>"; };
 		66EED1ABB4FBF12F2E37BB828F0718E8 /* Pods-Wasteland-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Wasteland-acknowledgements.markdown"; sourceTree = "<group>"; };
 		68A2CB9040B99EA0C1EE928E25678B6E /* Pods-WastelandUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WastelandUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		6FB2A08BBA89BDB4FECC781F9BA5DA43 /* Pods-WastelandTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WastelandTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D2E28DDC07087C9892A8BCF0BF6B1833 /* Pods-WastelandUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WastelandUITests-dummy.m"; sourceTree = "<group>"; };
-		D4498CE8E0289E18091AFFA80A0BBF89 /* Pods_Wasteland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Wasteland.framework; path = "Pods-Wasteland.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4498CE8E0289E18091AFFA80A0BBF89 /* Pods_Wasteland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wasteland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBC88BC482118B2DDF0BFB398C337A4C /* Pods-WastelandTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WastelandTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		EE157D3E0AC8A4A00E14868AB60FBD8B /* Pods-WastelandUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WastelandUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0BCA2E484D5109F8294CD6EBECA412D /* Pods-WastelandTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WastelandTests-dummy.m"; sourceTree = "<group>"; };
-		F11AEDE198C956A34F248964F16C73F4 /* Pods_WastelandUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WastelandUITests.framework; path = "Pods-WastelandUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F11AEDE198C956A34F248964F16C73F4 /* Pods_WastelandUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WastelandUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F585AC5CB33AD1B854BBAC15D54BD323 /* Pods-WastelandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WastelandUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -290,6 +290,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 57A3ED88F94E2D4D4DF315E545BC14B7 /* Products */;

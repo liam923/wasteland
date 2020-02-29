@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 /// A drink had by someone.
-protocol Drink: ObservableObject {
+protocol Drink: ObservableObject, Refreshable {
     associatedtype GDrinkingSession: DrinkingSession
     
     /// The type of drink. (nil if unknown)

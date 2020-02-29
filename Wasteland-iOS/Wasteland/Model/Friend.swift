@@ -10,8 +10,11 @@ import MapKit
 protocol Friend: Account {
     associatedtype GBlackout: Blackout
     associatedtype GDrinkingSession: DrinkingSession
+    
     /// The person's current location.
-    var location: CLLocationCoordinate2D { get }
+    var location: CLLocationCoordinate2D? { get }
+    /// The time the person's location was last updated.
+    var locationAsOf: Date? { get }
     /// The person's current drinking session, if they have one.
     var currentDrinkingSession: GDrinkingSession? { get }
     /// The person's current blackout, if they have one.

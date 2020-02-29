@@ -11,7 +11,7 @@ import MapKit
 import Combine
 
 /// An object representing a time a user is blacked out.
-protocol Blackout: ObservableObject {
+protocol Blackout: ObservableObject, Refreshable {
     associatedtype GAccount: Account
     
     /// The time of the first blackout report.

@@ -8,7 +8,7 @@ import MapKit
 import UIKit
 
 /// The account of the current user.
-protocol AppUser: Friend where GDrinkingSession: MutableDrinkingSession {
+protocol AppUser: Friend where GDrinkingSession: MutableDrinkingSession, GBlackout: UserBlackout {
     associatedtype GFriend: Friend
     associatedtype GAccount: Account
     associatedtype GAppUser: AppUser
@@ -26,7 +26,7 @@ protocol AppUser: Friend where GDrinkingSession: MutableDrinkingSession {
     func logout(completion: (Error?) -> Void)
     
     /// The user's current location.
-    var location: CLLocationCoordinate2D { get set }
+    var location: CLLocationCoordinate2D? { get set }
     /// The user's current drinking session, if they have one.
     var currentDrinkingSession: GDrinkingSession? { get set }
     /// The user's friend list.
@@ -48,4 +48,10 @@ protocol AppUser: Friend where GDrinkingSession: MutableDrinkingSession {
     ///   - accepted: true if the request is accepted, false if denied
     ///   - completion: completion handler
     func replyToFriendRequest(_ user: GAccount, accepted: Bool, completion: ((Error?) -> Void)?)
+    
+    /// Record the user's location.
+    /// - Parameters:
+    ///   - location: the current location of the user
+    ///   - completion: completion handler
+    func record(location: CLLocationCoordinate2D, completion: ((Error?) -> Void)?)
 }
