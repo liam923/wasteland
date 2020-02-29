@@ -10,9 +10,7 @@ import Foundation
 import MapKit
 
 /// A drink had by someone.
-protocol MutableDrink: Drink {
-    associatedtype GMutableDrinkingSession: MutableDrinkingSession
-    
+protocol MutableDrink: Drink, MutableRefreshable {
     /// The type of drink. (nil if unknown)
     var type: DrinkType? { get set }
     /// The location the drink was had.
@@ -21,6 +19,4 @@ protocol MutableDrink: Drink {
     var time: Date { get set }
     /// `true` iff the time and location were inferred rather than explicitely set / recorded.
     var inferredSpacetime: Bool { get set }
-    /// The drinking session this drink is connected to.
-    var drinkingSession: GMutableDrinkingSession! { get set }
 }

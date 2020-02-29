@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 /// An session of drinking
-protocol MutableDrinkingSession: DrinkingSession {
+protocol MutableDrinkingSession: DrinkingSession, MutableRefreshable {
     associatedtype GMutableDrink: MutableDrink
     
     /// The time that the drinking session began at.

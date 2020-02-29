@@ -18,6 +18,17 @@
 		9826B4EB23EA72F900B11793 /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9826B4EA23EA72F900B11793 /* DrinkType.swift */; };
 		985582F6240B1CFB00CEA6D4 /* Refreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985582F5240B1CFB00CEA6D4 /* Refreshable.swift */; };
 		985582F8240B206C00CEA6D4 /* UserBlackout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985582F7240B206C00CEA6D4 /* UserBlackout.swift */; };
+		98558308240B26C800CEA6D4 /* FIRBlackout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985582FE240B26C800CEA6D4 /* FIRBlackout.swift */; };
+		98558309240B26C800CEA6D4 /* FIRImmutableDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985582FF240B26C800CEA6D4 /* FIRImmutableDrink.swift */; };
+		9855830A240B26C800CEA6D4 /* FIRUserBlackout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98558300240B26C800CEA6D4 /* FIRUserBlackout.swift */; };
+		9855830B240B26C800CEA6D4 /* FIRFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98558301240B26C800CEA6D4 /* FIRFriend.swift */; };
+		9855830C240B26C800CEA6D4 /* FIRAppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98558302240B26C800CEA6D4 /* FIRAppUser.swift */; };
+		9855830D240B26C800CEA6D4 /* FIRMutableDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98558303240B26C800CEA6D4 /* FIRMutableDrink.swift */; };
+		9855830E240B26C800CEA6D4 /* FIRMutableDrinkingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98558304240B26C800CEA6D4 /* FIRMutableDrinkingSession.swift */; };
+		9855830F240B26C800CEA6D4 /* FIRImmutableDrinkingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98558305240B26C800CEA6D4 /* FIRImmutableDrinkingSession.swift */; };
+		98558310240B26C800CEA6D4 /* FIRAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98558306240B26C800CEA6D4 /* FIRAccount.swift */; };
+		98558311240B26C800CEA6D4 /* FIRRefreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98558307240B26C800CEA6D4 /* FIRRefreshable.swift */; };
+		98558313240B2A6D00CEA6D4 /* MutableRefreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98558312240B2A6D00CEA6D4 /* MutableRefreshable.swift */; };
 		9881B22623E3A72700D970B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B22523E3A72700D970B8 /* AppDelegate.swift */; };
 		9881B22823E3A72700D970B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B22723E3A72700D970B8 /* SceneDelegate.swift */; };
 		9881B22A23E3A72700D970B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B22923E3A72700D970B8 /* ContentView.swift */; };
@@ -63,6 +74,17 @@
 		9826B4EA23EA72F900B11793 /* DrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
 		985582F5240B1CFB00CEA6D4 /* Refreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refreshable.swift; sourceTree = "<group>"; };
 		985582F7240B206C00CEA6D4 /* UserBlackout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBlackout.swift; sourceTree = "<group>"; };
+		985582FE240B26C800CEA6D4 /* FIRBlackout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRBlackout.swift; sourceTree = "<group>"; };
+		985582FF240B26C800CEA6D4 /* FIRImmutableDrink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRImmutableDrink.swift; sourceTree = "<group>"; };
+		98558300240B26C800CEA6D4 /* FIRUserBlackout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRUserBlackout.swift; sourceTree = "<group>"; };
+		98558301240B26C800CEA6D4 /* FIRFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFriend.swift; sourceTree = "<group>"; };
+		98558302240B26C800CEA6D4 /* FIRAppUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRAppUser.swift; sourceTree = "<group>"; };
+		98558303240B26C800CEA6D4 /* FIRMutableDrink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRMutableDrink.swift; sourceTree = "<group>"; };
+		98558304240B26C800CEA6D4 /* FIRMutableDrinkingSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRMutableDrinkingSession.swift; sourceTree = "<group>"; };
+		98558305240B26C800CEA6D4 /* FIRImmutableDrinkingSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRImmutableDrinkingSession.swift; sourceTree = "<group>"; };
+		98558306240B26C800CEA6D4 /* FIRAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRAccount.swift; sourceTree = "<group>"; };
+		98558307240B26C800CEA6D4 /* FIRRefreshable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRRefreshable.swift; sourceTree = "<group>"; };
+		98558312240B2A6D00CEA6D4 /* MutableRefreshable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableRefreshable.swift; sourceTree = "<group>"; };
 		9881B22223E3A72700D970B8 /* Wasteland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wasteland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9881B22523E3A72700D970B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9881B22723E3A72700D970B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,7 +148,9 @@
 		8FCAE2B2DB94BC3612762708 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				985582FD240B26C800CEA6D4 /* Firebase */,
 				985582F5240B1CFB00CEA6D4 /* Refreshable.swift */,
+				98558312240B2A6D00CEA6D4 /* MutableRefreshable.swift */,
 				9823BE1723EA6BC400A15482 /* Account.swift */,
 				8FCAE51308561A4C75340541 /* Friend.swift */,
 				8FCAED84DB70877E01BF8752 /* AppUser.swift */,
@@ -139,6 +163,23 @@
 				985582F7240B206C00CEA6D4 /* UserBlackout.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		985582FD240B26C800CEA6D4 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				98558307240B26C800CEA6D4 /* FIRRefreshable.swift */,
+				98558306240B26C800CEA6D4 /* FIRAccount.swift */,
+				98558301240B26C800CEA6D4 /* FIRFriend.swift */,
+				98558302240B26C800CEA6D4 /* FIRAppUser.swift */,
+				98558305240B26C800CEA6D4 /* FIRImmutableDrinkingSession.swift */,
+				98558304240B26C800CEA6D4 /* FIRMutableDrinkingSession.swift */,
+				985582FF240B26C800CEA6D4 /* FIRImmutableDrink.swift */,
+				98558303240B26C800CEA6D4 /* FIRMutableDrink.swift */,
+				985582FE240B26C800CEA6D4 /* FIRBlackout.swift */,
+				98558300240B26C800CEA6D4 /* FIRUserBlackout.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		9881B21923E3A72700D970B8 = {
@@ -421,15 +462,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				980ED300240B05E900C9BE21 /* MutableDrinkingSession.swift in Sources */,
+				9855830B240B26C800CEA6D4 /* FIRFriend.swift in Sources */,
+				9855830E240B26C800CEA6D4 /* FIRMutableDrinkingSession.swift in Sources */,
 				9881B22623E3A72700D970B8 /* AppDelegate.swift in Sources */,
+				98558309240B26C800CEA6D4 /* FIRImmutableDrink.swift in Sources */,
 				9881B22823E3A72700D970B8 /* SceneDelegate.swift in Sources */,
 				98F2291023ECEF4300B94CCD /* Blackout.swift in Sources */,
 				985582F8240B206C00CEA6D4 /* UserBlackout.swift in Sources */,
+				9855830F240B26C800CEA6D4 /* FIRImmutableDrinkingSession.swift in Sources */,
+				98558310240B26C800CEA6D4 /* FIRAccount.swift in Sources */,
 				9881B22A23E3A72700D970B8 /* ContentView.swift in Sources */,
 				985582F6240B1CFB00CEA6D4 /* Refreshable.swift in Sources */,
 				8FCAE69599E1FA9EB45939C6 /* Friend.swift in Sources */,
 				980ED302240B05F400C9BE21 /* MutableDrink.swift in Sources */,
 				8FCAE5DF3D117C08EDB1DC3E /* AppUser.swift in Sources */,
+				9855830C240B26C800CEA6D4 /* FIRAppUser.swift in Sources */,
+				98558308240B26C800CEA6D4 /* FIRBlackout.swift in Sources */,
+				9855830A240B26C800CEA6D4 /* FIRUserBlackout.swift in Sources */,
+				98558313240B2A6D00CEA6D4 /* MutableRefreshable.swift in Sources */,
+				9855830D240B26C800CEA6D4 /* FIRMutableDrink.swift in Sources */,
+				98558311240B26C800CEA6D4 /* FIRRefreshable.swift in Sources */,
 				9826B4E723EA6EC800B11793 /* DrinkingSession.swift in Sources */,
 				9826B4E923EA727300B11793 /* Drink.swift in Sources */,
 				9826B4EB23EA72F900B11793 /* DrinkType.swift in Sources */,

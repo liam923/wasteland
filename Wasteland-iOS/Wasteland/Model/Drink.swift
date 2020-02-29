@@ -11,8 +11,6 @@ import MapKit
 
 /// A drink had by someone.
 protocol Drink: ObservableObject, Refreshable {
-    associatedtype GDrinkingSession: DrinkingSession
-    
     /// The type of drink. (nil if unknown)
     var type: DrinkType? { get }
     /// The location the drink was had.
@@ -21,6 +19,4 @@ protocol Drink: ObservableObject, Refreshable {
     var time: Date { get }
     /// `true` iff the time and location were inferred rather than explicitely set / recorded.
     var inferredSpacetime: Bool { get }
-    /// The drinking session this drink is connected to.
-    var drinkingSession: GDrinkingSession! { get }
 }
