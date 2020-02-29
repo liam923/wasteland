@@ -8,9 +8,12 @@
 
 import Foundation
 
-/// An object that can be refreshed and mutaded.
-protocol MutableRefreshable: Refreshable {
-    /// Send any changes made to the object
+/// An object that can be mutaded and refreshed.
+protocol MutableRefreshable {
+    /// `true` iff the object is continuously updating; this will be paused from when the object is mutated until changes are sent
+    var active: Bool { get }
+    
+    /// Send any changes made to the object and continue refreshing
     /// - Parameter completion: completion handler
     func sendChanges(completion: ((Error?) -> Void)?)
 }
