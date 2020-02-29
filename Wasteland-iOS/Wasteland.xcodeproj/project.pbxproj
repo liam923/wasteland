@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F7435D880022DBED3941FFB /* Pods_WastelandTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFFD1CEAE074B34A436A32B4 /* Pods_WastelandTests.framework */; };
+		812AED4DFA6C0C46A4848A0E /* Pods_Wasteland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F0F076C16BF30B97EDAB29 /* Pods_Wasteland.framework */; };
+		8FCAE5DF3D117C08EDB1DC3E /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAED84DB70877E01BF8752 /* AppUser.swift */; };
+		8FCAE69599E1FA9EB45939C6 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCAE51308561A4C75340541 /* Friend.swift */; };
+		9823BE1823EA6BC400A15482 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9823BE1723EA6BC400A15482 /* Account.swift */; };
+		9826B4E723EA6EC800B11793 /* DrinkingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9826B4E623EA6EC800B11793 /* DrinkingSession.swift */; };
+		9826B4E923EA727300B11793 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9826B4E823EA727300B11793 /* Drink.swift */; };
+		9826B4EB23EA72F900B11793 /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9826B4EA23EA72F900B11793 /* DrinkType.swift */; };
 		9881B22623E3A72700D970B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B22523E3A72700D970B8 /* AppDelegate.swift */; };
 		9881B22823E3A72700D970B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B22723E3A72700D970B8 /* SceneDelegate.swift */; };
 		9881B22A23E3A72700D970B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B22923E3A72700D970B8 /* ContentView.swift */; };
@@ -16,8 +22,9 @@
 		9881B23223E3A72800D970B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9881B23023E3A72800D970B8 /* LaunchScreen.storyboard */; };
 		9881B23D23E3A72800D970B8 /* WastelandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B23C23E3A72800D970B8 /* WastelandTests.swift */; };
 		9881B24823E3A72800D970B8 /* WastelandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B24723E3A72800D970B8 /* WastelandUITests.swift */; };
-		AEFFA4AA8DF409B614322677 /* Pods_Wasteland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C440C12232F2E61D5A4F93 /* Pods_Wasteland.framework */; };
-		F86DFE6CF61201A634B78CEA /* Pods_WastelandUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944F40C839D369FDCC4AD22F /* Pods_WastelandUITests.framework */; };
+		98F2291023ECEF4300B94CCD /* Blackout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F2290F23ECEF4300B94CCD /* Blackout.swift */; };
+		B1694ECD01F7EA99735DFB66 /* Pods_WastelandTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC44CA4A5E8B70B94A4B954D /* Pods_WastelandTests.framework */; };
+		EDD9EA079528865F210B01C6 /* Pods_WastelandUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D767267BB47E9C3FDA9B11 /* Pods_WastelandUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,11 +45,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		14DB1514E25067B761597F4E /* Pods-WastelandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandUITests.release.xcconfig"; path = "Target Support Files/Pods-WastelandUITests/Pods-WastelandUITests.release.xcconfig"; sourceTree = "<group>"; };
-		3B20242A04CA6D1382CD1995 /* Pods-WastelandTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandTests.release.xcconfig"; path = "Target Support Files/Pods-WastelandTests/Pods-WastelandTests.release.xcconfig"; sourceTree = "<group>"; };
-		7ED36EC84782B6596C0EAF1D /* Pods-Wasteland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wasteland.release.xcconfig"; path = "Target Support Files/Pods-Wasteland/Pods-Wasteland.release.xcconfig"; sourceTree = "<group>"; };
-		91B7F1AB28321F726126B243 /* Pods-Wasteland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wasteland.debug.xcconfig"; path = "Target Support Files/Pods-Wasteland/Pods-Wasteland.debug.xcconfig"; sourceTree = "<group>"; };
-		944F40C839D369FDCC4AD22F /* Pods_WastelandUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WastelandUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BE955654A223692C45C333B /* Pods-WastelandTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandTests.release.xcconfig"; path = "Target Support Files/Pods-WastelandTests/Pods-WastelandTests.release.xcconfig"; sourceTree = "<group>"; };
+		140F3401552D04DBAF5E5E13 /* Pods-WastelandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandUITests.release.xcconfig"; path = "Target Support Files/Pods-WastelandUITests/Pods-WastelandUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4F4D7D4F444C3F93A4205746 /* Pods-Wasteland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wasteland.debug.xcconfig"; path = "Target Support Files/Pods-Wasteland/Pods-Wasteland.debug.xcconfig"; sourceTree = "<group>"; };
+		613C43F2CFDD5DFC0ADCAE7D /* Pods-WastelandUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandUITests.debug.xcconfig"; path = "Target Support Files/Pods-WastelandUITests/Pods-WastelandUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8FCAE51308561A4C75340541 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		8FCAED84DB70877E01BF8752 /* AppUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		9823BE1723EA6BC400A15482 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		9826B4E623EA6EC800B11793 /* DrinkingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingSession.swift; sourceTree = "<group>"; };
+		9826B4E823EA727300B11793 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		9826B4EA23EA72F900B11793 /* DrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
 		9881B22223E3A72700D970B8 /* Wasteland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wasteland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9881B22523E3A72700D970B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9881B22723E3A72700D970B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,10 +69,12 @@
 		9881B24323E3A72800D970B8 /* WastelandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WastelandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9881B24723E3A72800D970B8 /* WastelandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WastelandUITests.swift; sourceTree = "<group>"; };
 		9881B24923E3A72800D970B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0C440C12232F2E61D5A4F93 /* Pods_Wasteland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wasteland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C74D4C6121DB7D9C62338AAB /* Pods-WastelandUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandUITests.debug.xcconfig"; path = "Target Support Files/Pods-WastelandUITests/Pods-WastelandUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		C7FFA97E03A06E75F8C35577 /* Pods-WastelandTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandTests.debug.xcconfig"; path = "Target Support Files/Pods-WastelandTests/Pods-WastelandTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FFFD1CEAE074B34A436A32B4 /* Pods_WastelandTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WastelandTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98F2290F23ECEF4300B94CCD /* Blackout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blackout.swift; sourceTree = "<group>"; };
+		A992A8DD9661388CD120E8D6 /* Pods-WastelandTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandTests.debug.xcconfig"; path = "Target Support Files/Pods-WastelandTests/Pods-WastelandTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D5F0F076C16BF30B97EDAB29 /* Pods_Wasteland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wasteland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9AE1E4CBEC4854DA76584A5 /* Pods-Wasteland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wasteland.release.xcconfig"; path = "Target Support Files/Pods-Wasteland/Pods-Wasteland.release.xcconfig"; sourceTree = "<group>"; };
+		DC44CA4A5E8B70B94A4B954D /* Pods_WastelandTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WastelandTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D767267BB47E9C3FDA9B11 /* Pods_WastelandUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WastelandUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEFFA4AA8DF409B614322677 /* Pods_Wasteland.framework in Frameworks */,
+				812AED4DFA6C0C46A4848A0E /* Pods_Wasteland.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F7435D880022DBED3941FFB /* Pods_WastelandTests.framework in Frameworks */,
+				B1694ECD01F7EA99735DFB66 /* Pods_WastelandTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,13 +98,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F86DFE6CF61201A634B78CEA /* Pods_WastelandUITests.framework in Frameworks */,
+				EDD9EA079528865F210B01C6 /* Pods_WastelandUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7AB5D31247BA508D69C3C872 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5F0F076C16BF30B97EDAB29 /* Pods_Wasteland.framework */,
+				DC44CA4A5E8B70B94A4B954D /* Pods_WastelandTests.framework */,
+				E1D767267BB47E9C3FDA9B11 /* Pods_WastelandUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FCAE2B2DB94BC3612762708 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9823BE1723EA6BC400A15482 /* Account.swift */,
+				8FCAE51308561A4C75340541 /* Friend.swift */,
+				8FCAED84DB70877E01BF8752 /* AppUser.swift */,
+				9826B4E623EA6EC800B11793 /* DrinkingSession.swift */,
+				9826B4E823EA727300B11793 /* Drink.swift */,
+				9826B4EA23EA72F900B11793 /* DrinkType.swift */,
+				98F2290F23ECEF4300B94CCD /* Blackout.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9881B21923E3A72700D970B8 = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +137,7 @@
 				9881B24623E3A72800D970B8 /* WastelandUITests */,
 				9881B22323E3A72700D970B8 /* Products */,
 				EA789DCFFB29E3018FBBC2A3 /* Pods */,
-				B577C7DB4A6A1558AB03D7AF /* Frameworks */,
+				7AB5D31247BA508D69C3C872 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +154,7 @@
 		9881B22423E3A72700D970B8 /* Wasteland */ = {
 			isa = PBXGroup;
 			children = (
+				8FCAE2B2DB94BC3612762708 /* Model */,
 				9881B22523E3A72700D970B8 /* AppDelegate.swift */,
 				9881B22723E3A72700D970B8 /* SceneDelegate.swift */,
 				9881B22923E3A72700D970B8 /* ContentView.swift */,
@@ -153,27 +192,16 @@
 			path = WastelandUITests;
 			sourceTree = "<group>";
 		};
-		B577C7DB4A6A1558AB03D7AF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B0C440C12232F2E61D5A4F93 /* Pods_Wasteland.framework */,
-				FFFD1CEAE074B34A436A32B4 /* Pods_WastelandTests.framework */,
-				944F40C839D369FDCC4AD22F /* Pods_WastelandUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		EA789DCFFB29E3018FBBC2A3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				91B7F1AB28321F726126B243 /* Pods-Wasteland.debug.xcconfig */,
-				7ED36EC84782B6596C0EAF1D /* Pods-Wasteland.release.xcconfig */,
-				C7FFA97E03A06E75F8C35577 /* Pods-WastelandTests.debug.xcconfig */,
-				3B20242A04CA6D1382CD1995 /* Pods-WastelandTests.release.xcconfig */,
-				C74D4C6121DB7D9C62338AAB /* Pods-WastelandUITests.debug.xcconfig */,
-				14DB1514E25067B761597F4E /* Pods-WastelandUITests.release.xcconfig */,
+				4F4D7D4F444C3F93A4205746 /* Pods-Wasteland.debug.xcconfig */,
+				D9AE1E4CBEC4854DA76584A5 /* Pods-Wasteland.release.xcconfig */,
+				A992A8DD9661388CD120E8D6 /* Pods-WastelandTests.debug.xcconfig */,
+				0BE955654A223692C45C333B /* Pods-WastelandTests.release.xcconfig */,
+				613C43F2CFDD5DFC0ADCAE7D /* Pods-WastelandUITests.debug.xcconfig */,
+				140F3401552D04DBAF5E5E13 /* Pods-WastelandUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -184,7 +212,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9881B24C23E3A72800D970B8 /* Build configuration list for PBXNativeTarget "Wasteland" */;
 			buildPhases = (
-				78DA20502D062C0D70AE81A0 /* [CP] Check Pods Manifest.lock */,
+				6879CB1858269A8278572069 /* [CP] Check Pods Manifest.lock */,
 				9881B21E23E3A72700D970B8 /* Sources */,
 				9881B21F23E3A72700D970B8 /* Frameworks */,
 				9881B22023E3A72700D970B8 /* Resources */,
@@ -202,7 +230,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9881B24F23E3A72800D970B8 /* Build configuration list for PBXNativeTarget "WastelandTests" */;
 			buildPhases = (
-				A772509B9C9F83277CB28504 /* [CP] Check Pods Manifest.lock */,
+				B8B0A9E5B41BEC45A0C5CD70 /* [CP] Check Pods Manifest.lock */,
 				9881B23423E3A72800D970B8 /* Sources */,
 				9881B23523E3A72800D970B8 /* Frameworks */,
 				9881B23623E3A72800D970B8 /* Resources */,
@@ -221,7 +249,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9881B25223E3A72800D970B8 /* Build configuration list for PBXNativeTarget "WastelandUITests" */;
 			buildPhases = (
-				2BDB100C68B93FEC9D2FB73B /* [CP] Check Pods Manifest.lock */,
+				96CF4F7F1F5A74C8098DD358 /* [CP] Check Pods Manifest.lock */,
 				9881B23F23E3A72800D970B8 /* Sources */,
 				9881B24023E3A72800D970B8 /* Frameworks */,
 				9881B24123E3A72800D970B8 /* Resources */,
@@ -307,29 +335,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2BDB100C68B93FEC9D2FB73B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WastelandUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		78DA20502D062C0D70AE81A0 /* [CP] Check Pods Manifest.lock */ = {
+		6879CB1858269A8278572069 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -351,7 +357,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A772509B9C9F83277CB28504 /* [CP] Check Pods Manifest.lock */ = {
+		96CF4F7F1F5A74C8098DD358 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WastelandUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8B0A9E5B41BEC45A0C5CD70 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -382,7 +410,14 @@
 			files = (
 				9881B22623E3A72700D970B8 /* AppDelegate.swift in Sources */,
 				9881B22823E3A72700D970B8 /* SceneDelegate.swift in Sources */,
+				98F2291023ECEF4300B94CCD /* Blackout.swift in Sources */,
 				9881B22A23E3A72700D970B8 /* ContentView.swift in Sources */,
+				8FCAE69599E1FA9EB45939C6 /* Friend.swift in Sources */,
+				8FCAE5DF3D117C08EDB1DC3E /* AppUser.swift in Sources */,
+				9826B4E723EA6EC800B11793 /* DrinkingSession.swift in Sources */,
+				9826B4E923EA727300B11793 /* Drink.swift in Sources */,
+				9826B4EB23EA72F900B11793 /* DrinkType.swift in Sources */,
+				9823BE1823EA6BC400A15482 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +580,7 @@
 		};
 		9881B24D23E3A72800D970B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91B7F1AB28321F726126B243 /* Pods-Wasteland.debug.xcconfig */;
+			baseConfigurationReference = 4F4D7D4F444C3F93A4205746 /* Pods-Wasteland.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -553,6 +588,7 @@
 				DEVELOPMENT_TEAM = 536W5472QR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Wasteland/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,7 +602,7 @@
 		};
 		9881B24E23E3A72800D970B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7ED36EC84782B6596C0EAF1D /* Pods-Wasteland.release.xcconfig */;
+			baseConfigurationReference = D9AE1E4CBEC4854DA76584A5 /* Pods-Wasteland.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -574,6 +610,7 @@
 				DEVELOPMENT_TEAM = 536W5472QR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Wasteland/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -587,7 +624,7 @@
 		};
 		9881B25023E3A72800D970B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7FFA97E03A06E75F8C35577 /* Pods-WastelandTests.debug.xcconfig */;
+			baseConfigurationReference = A992A8DD9661388CD120E8D6 /* Pods-WastelandTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -610,7 +647,7 @@
 		};
 		9881B25123E3A72800D970B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B20242A04CA6D1382CD1995 /* Pods-WastelandTests.release.xcconfig */;
+			baseConfigurationReference = 0BE955654A223692C45C333B /* Pods-WastelandTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -633,7 +670,7 @@
 		};
 		9881B25323E3A72800D970B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C74D4C6121DB7D9C62338AAB /* Pods-WastelandUITests.debug.xcconfig */;
+			baseConfigurationReference = 613C43F2CFDD5DFC0ADCAE7D /* Pods-WastelandUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -654,7 +691,7 @@
 		};
 		9881B25423E3A72800D970B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14DB1514E25067B761597F4E /* Pods-WastelandUITests.release.xcconfig */;
+			baseConfigurationReference = 140F3401552D04DBAF5E5E13 /* Pods-WastelandUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
