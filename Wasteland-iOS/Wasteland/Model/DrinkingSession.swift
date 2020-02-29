@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 /// An session of drinking
-protocol DrinkingSession: ObservableObject {
+protocol DrinkingSession: ObservableObject, Refreshable {
     associatedtype GDrink: Drink
     
     /// The time that the drinking session began at.
