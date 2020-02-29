@@ -6,7 +6,7 @@
 import Foundation
 
 /// A person/account on the app.
-protocol Account {
+protocol Account: ObservableObject {
     /// The unique, unchanging identifier of the person.
     var id: String { get }
     /// The display name of the user.

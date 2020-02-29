@@ -8,9 +8,13 @@ import MapKit
 import UIKit
 
 /// The account of the current user.
-protocol AppUser: Friend {
+protocol AppUser: Friend where GDrinkingSession: MutableDrinkingSession {
+    associatedtype GFriend: Friend
+    associatedtype GAccount: Account
+    associatedtype GAppUser: AppUser
+    
     /// The user currently signed in.
-    static var current: AppUser? { get }
+    static var current: GAppUser? { get }
     
     /// Present a login page and attempt to login a user.
     /// - Parameter handler: the view controller presenting the login screen
@@ -23,23 +27,25 @@ protocol AppUser: Friend {
     
     /// The user's current location.
     var location: CLLocationCoordinate2D { get set }
+    /// The user's current drinking session, if they have one.
+    var currentDrinkingSession: GDrinkingSession? { get set }
     /// The user's friend list.
-    var friends: [Friend] { get }
+    var friends: [GFriend] { get }
     /// The list of user's who this user has friend requested.
-    var sentFriendRequests: [Account] { get }
+    var sentFriendRequests: [GAccount] { get }
     /// The list of user's who friend requested this user.
-    var receivedFriendRequests: [Account] { get }
+    var receivedFriendRequests: [GAccount] { get }
     
     /// Send a friend request to the given user.
     /// - Parameters:
     ///   - user: the user to send the friend request to
     ///   - completion: completion handler
-    func sendFriendRequest(_ user: Account, completion: ((Error?) -> Void)?)
+    func sendFriendRequest(_ user: GAccount, completion: ((Error?) -> Void)?)
     
     /// Reply to a friend request from a given user.
     /// - Parameters:
     ///   - user: the user whose friend request is being replied to
     ///   - accepted: true if the request is accepted, false if denied
     ///   - completion: completion handler
-    func replyToFriendRequest(_ user: Account, accepted: Bool, completion: ((Error?) -> Void)?)
+    func replyToFriendRequest(_ user: GAccount, accepted: Bool, completion: ((Error?) -> Void)?)
 }

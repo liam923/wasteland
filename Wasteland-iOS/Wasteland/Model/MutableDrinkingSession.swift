@@ -1,8 +1,8 @@
 //
-//  DrinkingSession.swift
+//  MutableDrinkingSession.swift
 //  Wasteland
 //
-//  Created by Liam Stevenson on 2/4/20.
+//  Created by Liam Stevenson on 2/29/20.
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
@@ -10,17 +10,17 @@ import Foundation
 import MapKit
 
 /// An session of drinking
-protocol DrinkingSession: ObservableObject {
-    associatedtype GDrink: Drink
+protocol MutableDrinkingSession: DrinkingSession {
+    associatedtype GMutableDrink: MutableDrink
     
     /// The time that the drinking session began at.
-    var openTime: Date { get }
+    var openTime: Date { get set }
     /// The location the drinking session was opened at.
-    var openLocation: CLLocationCoordinate2D { get }
+    var openLocation: CLLocationCoordinate2D { get set }
     /// The time the drinking session closed or is scheduled to close.
-    var closeTime: Date { get }
+    var closeTime: Date { get set }
     /// The location the drinking session was closed at. (nil if still open)
-    var closeLocation: CLLocationCoordinate2D? { get }
+    var closeLocation: CLLocationCoordinate2D? { get set }
     /// The list of drinks had within the drinking session.
-    var drinks: [GDrink] { get }
+    var drinks: [GMutableDrink] { get set }
 }
