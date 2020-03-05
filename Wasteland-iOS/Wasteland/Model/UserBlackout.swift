@@ -10,7 +10,20 @@ import Foundation
 import MapKit
 
 /// An object representing a time the logged user is blacked out.
-protocol UserBlackout: Blackout {
+class UserBlackout: Blackout {
     /// The blacked-out user's location history during the blackout.
-    var locationHistory: [(location: CLLocationCoordinate2D, time: Date)] { get }
+    @Published private(set) var locationHistory: [(location: CLLocationCoordinate2D, time: Date)]
+    
+    /// package private
+    init(id:String,
+         startTime: Date,
+         endTime: Date,
+         reports: [(reporter: Account, time: Date, location: CLLocationCoordinate2D)],
+         dissents: [(reporter: Account, time: Date)],
+         blackoutUser: Account,
+         locationHistory: [(location: CLLocationCoordinate2D, time: Date)]) {
+        
+        self.locationHistory = locationHistory
+        super.init(id: id, startTime: startTime, endTime: endTime, reports: reports, dissents: dissents, blackoutUser: blackoutUser)
+    }
 }
