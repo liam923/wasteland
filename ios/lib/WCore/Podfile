@@ -1,0 +1,17 @@
+platform :ios, '13.0'
+
+target 'WCore' do
+  use_frameworks!
+
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
+  pod 'CodableFirebase'
+
+  target 'WCoreTests' do
+    inherit! :search_paths
+  end
+
+end

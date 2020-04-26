@@ -1,0 +1,807 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		28ACA4C989D3BEA77E4C6D34 /* Pods_Wasteland_WastelandUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63DFB7E1F46856F37178376C /* Pods_Wasteland_WastelandUITests.framework */; };
+		4DD643FDAEA53FB0DC335D1F /* Pods_WastelandTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2068DA601079A3A4E898161 /* Pods_WastelandTests.framework */; };
+		6ABF38A7B27FFEB57A1D5107 /* Pods_Wasteland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C48D8A4264520E0A6E1C7B6 /* Pods_Wasteland.framework */; };
+		98558315240B2E9300CEA6D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98558314240B2E9300CEA6D4 /* GoogleService-Info.plist */; };
+		9881B22623E3A72700D970B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B22523E3A72700D970B8 /* AppDelegate.swift */; };
+		9881B22823E3A72700D970B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B22723E3A72700D970B8 /* SceneDelegate.swift */; };
+		9881B22A23E3A72700D970B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B22923E3A72700D970B8 /* ContentView.swift */; };
+		9881B22C23E3A72800D970B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9881B22B23E3A72800D970B8 /* Assets.xcassets */; };
+		9881B22F23E3A72800D970B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9881B22E23E3A72800D970B8 /* Preview Assets.xcassets */; };
+		9881B23223E3A72800D970B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9881B23023E3A72800D970B8 /* LaunchScreen.storyboard */; };
+		9881B23D23E3A72800D970B8 /* WastelandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B23C23E3A72800D970B8 /* WastelandTests.swift */; };
+		9881B24823E3A72800D970B8 /* WastelandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B24723E3A72800D970B8 /* WastelandUITests.swift */; };
+		98BCDE342415ADC8004DC098 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98BCDE332415ADC8004DC098 /* SignInViewController.xib */; };
+		98FD91C0245000C90050AEF2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91BF245000C90050AEF2 /* Log.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9881B23923E3A72800D970B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9881B21A23E3A72700D970B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9881B22123E3A72700D970B8;
+			remoteInfo = Wasteland;
+		};
+		9881B24423E3A72800D970B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9881B21A23E3A72700D970B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9881B22123E3A72700D970B8;
+			remoteInfo = Wasteland;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0BE955654A223692C45C333B /* Pods-WastelandTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandTests.release.xcconfig"; path = "Target Support Files/Pods-WastelandTests/Pods-WastelandTests.release.xcconfig"; sourceTree = "<group>"; };
+		0C48D8A4264520E0A6E1C7B6 /* Pods_Wasteland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wasteland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		140F3401552D04DBAF5E5E13 /* Pods-WastelandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandUITests.release.xcconfig"; path = "Target Support Files/Pods-WastelandUITests/Pods-WastelandUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4F4D7D4F444C3F93A4205746 /* Pods-Wasteland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wasteland.debug.xcconfig"; path = "Target Support Files/Pods-Wasteland/Pods-Wasteland.debug.xcconfig"; sourceTree = "<group>"; };
+		613C43F2CFDD5DFC0ADCAE7D /* Pods-WastelandUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandUITests.debug.xcconfig"; path = "Target Support Files/Pods-WastelandUITests/Pods-WastelandUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		63DFB7E1F46856F37178376C /* Pods_Wasteland_WastelandUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wasteland_WastelandUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98558314240B2E9300CEA6D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9881B22223E3A72700D970B8 /* Wasteland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wasteland.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9881B22523E3A72700D970B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9881B22723E3A72700D970B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9881B22923E3A72700D970B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9881B22B23E3A72800D970B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9881B22E23E3A72800D970B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9881B23123E3A72800D970B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9881B23323E3A72800D970B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9881B23823E3A72800D970B8 /* WastelandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WastelandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9881B23C23E3A72800D970B8 /* WastelandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WastelandTests.swift; sourceTree = "<group>"; };
+		9881B23E23E3A72800D970B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9881B24323E3A72800D970B8 /* WastelandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WastelandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9881B24723E3A72800D970B8 /* WastelandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WastelandUITests.swift; sourceTree = "<group>"; };
+		9881B24923E3A72800D970B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98BCDE332415ADC8004DC098 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		98FD91BF245000C90050AEF2 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		9D9F4E6A586E18798C67B6E9 /* Pods-Wasteland-WastelandUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wasteland-WastelandUITests.debug.xcconfig"; path = "Target Support Files/Pods-Wasteland-WastelandUITests/Pods-Wasteland-WastelandUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E7A747470FEAA86EACDC19D /* Pods-Wasteland-WastelandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wasteland-WastelandUITests.release.xcconfig"; path = "Target Support Files/Pods-Wasteland-WastelandUITests/Pods-Wasteland-WastelandUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A992A8DD9661388CD120E8D6 /* Pods-WastelandTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandTests.debug.xcconfig"; path = "Target Support Files/Pods-WastelandTests/Pods-WastelandTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D9AE1E4CBEC4854DA76584A5 /* Pods-Wasteland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wasteland.release.xcconfig"; path = "Target Support Files/Pods-Wasteland/Pods-Wasteland.release.xcconfig"; sourceTree = "<group>"; };
+		E2068DA601079A3A4E898161 /* Pods_WastelandTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WastelandTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9881B21F23E3A72700D970B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6ABF38A7B27FFEB57A1D5107 /* Pods_Wasteland.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9881B23523E3A72800D970B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DD643FDAEA53FB0DC335D1F /* Pods_WastelandTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9881B24023E3A72800D970B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28ACA4C989D3BEA77E4C6D34 /* Pods_Wasteland_WastelandUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7AB5D31247BA508D69C3C872 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C48D8A4264520E0A6E1C7B6 /* Pods_Wasteland.framework */,
+				E2068DA601079A3A4E898161 /* Pods_WastelandTests.framework */,
+				63DFB7E1F46856F37178376C /* Pods_Wasteland_WastelandUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9881B21923E3A72700D970B8 = {
+			isa = PBXGroup;
+			children = (
+				9881B22423E3A72700D970B8 /* Wasteland */,
+				9881B23B23E3A72800D970B8 /* WastelandTests */,
+				9881B24623E3A72800D970B8 /* WastelandUITests */,
+				9881B22323E3A72700D970B8 /* Products */,
+				EA789DCFFB29E3018FBBC2A3 /* Pods */,
+				7AB5D31247BA508D69C3C872 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9881B22323E3A72700D970B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9881B22223E3A72700D970B8 /* Wasteland.app */,
+				9881B23823E3A72800D970B8 /* WastelandTests.xctest */,
+				9881B24323E3A72800D970B8 /* WastelandUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9881B22423E3A72700D970B8 /* Wasteland */ = {
+			isa = PBXGroup;
+			children = (
+				98FD91BF245000C90050AEF2 /* Log.swift */,
+				9881B22523E3A72700D970B8 /* AppDelegate.swift */,
+				9881B22723E3A72700D970B8 /* SceneDelegate.swift */,
+				9881B22923E3A72700D970B8 /* ContentView.swift */,
+				9881B22B23E3A72800D970B8 /* Assets.xcassets */,
+				9881B23023E3A72800D970B8 /* LaunchScreen.storyboard */,
+				9881B23323E3A72800D970B8 /* Info.plist */,
+				98558314240B2E9300CEA6D4 /* GoogleService-Info.plist */,
+				9881B22D23E3A72800D970B8 /* Preview Content */,
+				98BCDE332415ADC8004DC098 /* SignInViewController.xib */,
+			);
+			path = Wasteland;
+			sourceTree = "<group>";
+		};
+		9881B22D23E3A72800D970B8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9881B22E23E3A72800D970B8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9881B23B23E3A72800D970B8 /* WastelandTests */ = {
+			isa = PBXGroup;
+			children = (
+				9881B23C23E3A72800D970B8 /* WastelandTests.swift */,
+				9881B23E23E3A72800D970B8 /* Info.plist */,
+			);
+			path = WastelandTests;
+			sourceTree = "<group>";
+		};
+		9881B24623E3A72800D970B8 /* WastelandUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9881B24723E3A72800D970B8 /* WastelandUITests.swift */,
+				9881B24923E3A72800D970B8 /* Info.plist */,
+			);
+			path = WastelandUITests;
+			sourceTree = "<group>";
+		};
+		EA789DCFFB29E3018FBBC2A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F4D7D4F444C3F93A4205746 /* Pods-Wasteland.debug.xcconfig */,
+				D9AE1E4CBEC4854DA76584A5 /* Pods-Wasteland.release.xcconfig */,
+				A992A8DD9661388CD120E8D6 /* Pods-WastelandTests.debug.xcconfig */,
+				0BE955654A223692C45C333B /* Pods-WastelandTests.release.xcconfig */,
+				613C43F2CFDD5DFC0ADCAE7D /* Pods-WastelandUITests.debug.xcconfig */,
+				140F3401552D04DBAF5E5E13 /* Pods-WastelandUITests.release.xcconfig */,
+				9D9F4E6A586E18798C67B6E9 /* Pods-Wasteland-WastelandUITests.debug.xcconfig */,
+				9E7A747470FEAA86EACDC19D /* Pods-Wasteland-WastelandUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9881B22123E3A72700D970B8 /* Wasteland */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9881B24C23E3A72800D970B8 /* Build configuration list for PBXNativeTarget "Wasteland" */;
+			buildPhases = (
+				6879CB1858269A8278572069 /* [CP] Check Pods Manifest.lock */,
+				9881B21E23E3A72700D970B8 /* Sources */,
+				9881B21F23E3A72700D970B8 /* Frameworks */,
+				9881B22023E3A72700D970B8 /* Resources */,
+				EC66EAB4F5F14F9B006A3C80 /* [CP] Embed Pods Frameworks */,
+				7A5977672B52BCEBA7A31772 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wasteland;
+			productName = Wasteland;
+			productReference = 9881B22223E3A72700D970B8 /* Wasteland.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9881B23723E3A72800D970B8 /* WastelandTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9881B24F23E3A72800D970B8 /* Build configuration list for PBXNativeTarget "WastelandTests" */;
+			buildPhases = (
+				B8B0A9E5B41BEC45A0C5CD70 /* [CP] Check Pods Manifest.lock */,
+				9881B23423E3A72800D970B8 /* Sources */,
+				9881B23523E3A72800D970B8 /* Frameworks */,
+				9881B23623E3A72800D970B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9881B23A23E3A72800D970B8 /* PBXTargetDependency */,
+			);
+			name = WastelandTests;
+			productName = WastelandTests;
+			productReference = 9881B23823E3A72800D970B8 /* WastelandTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9881B24223E3A72800D970B8 /* WastelandUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9881B25223E3A72800D970B8 /* Build configuration list for PBXNativeTarget "WastelandUITests" */;
+			buildPhases = (
+				96CF4F7F1F5A74C8098DD358 /* [CP] Check Pods Manifest.lock */,
+				9881B23F23E3A72800D970B8 /* Sources */,
+				9881B24023E3A72800D970B8 /* Frameworks */,
+				9881B24123E3A72800D970B8 /* Resources */,
+				6C86BD45C3D21579D337972C /* [CP] Embed Pods Frameworks */,
+				4B9752FF7B5DFCAB97FAD2F0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9881B24523E3A72800D970B8 /* PBXTargetDependency */,
+			);
+			name = WastelandUITests;
+			productName = WastelandUITests;
+			productReference = 9881B24323E3A72800D970B8 /* WastelandUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9881B21A23E3A72700D970B8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Liam Stevenson";
+				TargetAttributes = {
+					9881B22123E3A72700D970B8 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					9881B23723E3A72800D970B8 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 9881B22123E3A72700D970B8;
+					};
+					9881B24223E3A72800D970B8 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 9881B22123E3A72700D970B8;
+					};
+				};
+			};
+			buildConfigurationList = 9881B21D23E3A72700D970B8 /* Build configuration list for PBXProject "Wasteland" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9881B21923E3A72700D970B8;
+			productRefGroup = 9881B22323E3A72700D970B8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9881B22123E3A72700D970B8 /* Wasteland */,
+				9881B23723E3A72800D970B8 /* WastelandTests */,
+				9881B24223E3A72800D970B8 /* WastelandUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9881B22023E3A72700D970B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9881B23223E3A72800D970B8 /* LaunchScreen.storyboard in Resources */,
+				98558315240B2E9300CEA6D4 /* GoogleService-Info.plist in Resources */,
+				9881B22F23E3A72800D970B8 /* Preview Assets.xcassets in Resources */,
+				9881B22C23E3A72800D970B8 /* Assets.xcassets in Resources */,
+				98BCDE342415ADC8004DC098 /* SignInViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9881B23623E3A72800D970B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9881B24123E3A72800D970B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B9752FF7B5DFCAB97FAD2F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wasteland-WastelandUITests/Pods-Wasteland-WastelandUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wasteland-WastelandUITests/Pods-Wasteland-WastelandUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wasteland-WastelandUITests/Pods-Wasteland-WastelandUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6879CB1858269A8278572069 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wasteland-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C86BD45C3D21579D337972C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wasteland-WastelandUITests/Pods-Wasteland-WastelandUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wasteland-WastelandUITests/Pods-Wasteland-WastelandUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wasteland-WastelandUITests/Pods-Wasteland-WastelandUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A5977672B52BCEBA7A31772 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wasteland/Pods-Wasteland-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wasteland/Pods-Wasteland-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wasteland/Pods-Wasteland-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96CF4F7F1F5A74C8098DD358 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wasteland-WastelandUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8B0A9E5B41BEC45A0C5CD70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WastelandTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC66EAB4F5F14F9B006A3C80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wasteland/Pods-Wasteland-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wasteland/Pods-Wasteland-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wasteland/Pods-Wasteland-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9881B21E23E3A72700D970B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9881B22623E3A72700D970B8 /* AppDelegate.swift in Sources */,
+				9881B22823E3A72700D970B8 /* SceneDelegate.swift in Sources */,
+				98FD91C0245000C90050AEF2 /* Log.swift in Sources */,
+				9881B22A23E3A72700D970B8 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9881B23423E3A72800D970B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9881B23D23E3A72800D970B8 /* WastelandTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9881B23F23E3A72800D970B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9881B24823E3A72800D970B8 /* WastelandUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9881B23A23E3A72800D970B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9881B22123E3A72700D970B8 /* Wasteland */;
+			targetProxy = 9881B23923E3A72800D970B8 /* PBXContainerItemProxy */;
+		};
+		9881B24523E3A72800D970B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9881B22123E3A72700D970B8 /* Wasteland */;
+			targetProxy = 9881B24423E3A72800D970B8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9881B23023E3A72800D970B8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9881B23123E3A72800D970B8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9881B24A23E3A72800D970B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9881B24B23E3A72800D970B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9881B24D23E3A72800D970B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F4D7D4F444C3F93A4205746 /* Pods-Wasteland.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Wasteland/Preview Content\"";
+				DEVELOPMENT_TEAM = 536W5472QR;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Wasteland/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.william-stevenson.Wasteland.dev";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9881B24E23E3A72800D970B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9AE1E4CBEC4854DA76584A5 /* Pods-Wasteland.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Wasteland/Preview Content\"";
+				DEVELOPMENT_TEAM = 536W5472QR;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Wasteland/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.william-stevenson.Wasteland.dev";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9881B25023E3A72800D970B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A992A8DD9661388CD120E8D6 /* Pods-WastelandTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 536W5472QR;
+				INFOPLIST_FILE = WastelandTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.william-stevenson.WastelandTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wasteland.app/Wasteland";
+			};
+			name = Debug;
+		};
+		9881B25123E3A72800D970B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BE955654A223692C45C333B /* Pods-WastelandTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 536W5472QR;
+				INFOPLIST_FILE = WastelandTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.william-stevenson.WastelandTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wasteland.app/Wasteland";
+			};
+			name = Release;
+		};
+		9881B25323E3A72800D970B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D9F4E6A586E18798C67B6E9 /* Pods-Wasteland-WastelandUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 536W5472QR;
+				INFOPLIST_FILE = WastelandUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.william-stevenson.WastelandUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wasteland;
+			};
+			name = Debug;
+		};
+		9881B25423E3A72800D970B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E7A747470FEAA86EACDC19D /* Pods-Wasteland-WastelandUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 536W5472QR;
+				INFOPLIST_FILE = WastelandUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.william-stevenson.WastelandUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wasteland;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9881B21D23E3A72700D970B8 /* Build configuration list for PBXProject "Wasteland" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9881B24A23E3A72800D970B8 /* Debug */,
+				9881B24B23E3A72800D970B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9881B24C23E3A72800D970B8 /* Build configuration list for PBXNativeTarget "Wasteland" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9881B24D23E3A72800D970B8 /* Debug */,
+				9881B24E23E3A72800D970B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9881B24F23E3A72800D970B8 /* Build configuration list for PBXNativeTarget "WastelandTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9881B25023E3A72800D970B8 /* Debug */,
+				9881B25123E3A72800D970B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9881B25223E3A72800D970B8 /* Build configuration list for PBXNativeTarget "WastelandUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9881B25323E3A72800D970B8 /* Debug */,
+				9881B25423E3A72800D970B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9881B21A23E3A72700D970B8 /* Project object */;
+}
