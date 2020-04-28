@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-fastlane scan -w ios/app/Wasteland.xcworkspace -s Wasteland
+cd "${0%/*}"
+
+fastlane scan -w lib/WCore/WCore.xcworkspace -s WCore --clean --output_directory lib_test_output
+fastlane scan -w app/Wasteland.xcworkspace -s Wasteland --clean --output_directory app_test_output
+

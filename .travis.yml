@@ -12,6 +12,7 @@ before_install:
 
 install:
 - pod install --project-directory=ios/app
+- pod install --project-directory=ios/lib/WCore
 
 jobs:
   include:
