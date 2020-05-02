@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+cd "${0%/*}"
+
+openssl aes-256-cbc -K $1 -iv $2 -in GoogleService-Info.plist.enc -out GoogleService-Info.plist -d || exit 1
+cp GoogleService-Info.plist app/Wasteland/GoogleService-Info.plist
+cp GoogleService-Info.plist lib/WCore/WCore/GoogleService-Info.plist

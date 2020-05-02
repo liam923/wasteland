@@ -6,9 +6,7 @@ git:
   depth: 1
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_fed384a525d6_key -iv $encrypted_fed384a525d6_iv
-  -in ios/app/Wasteland/GoogleService-Info.plist.enc -out ios/app/Wasteland/GoogleService-Info.plist
-  -d
+- ios/decrypt $encrypted_fed384a525d6_key $encrypted_fed384a525d6_iv
 
 install:
 - pod install --project-directory=ios/app
