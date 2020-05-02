@@ -137,7 +137,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
                  closeLocation: CLLocationCoordinate2D,
                  drinker: Account,
                  drinks: [Drink.Builder]) {
-        let document = Document<Model>(document: AppModel.model.db
+        let document = Document<Model>(document: App.core.db
             .collection("users")
             .document(drinker.id)
             .collection("sessions")
@@ -210,7 +210,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
         self._deleted = false
         self.status = .tied
 
-        self.document = Document(document: AppModel.model.db
+        self.document = Document(document: App.core.db
             .collection("users")
             .document(model.drinkerID)
             .collection("sessions")
@@ -282,7 +282,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
     /// - Parameter completion: callback for completion of sending
     public func sendChanges(completion: ((Error?) -> Void)?) {
         if !self.deleted {
-            AppModel.model.db.runTransaction({ (transaction, _) -> Any? in
+            App.core.db.runTransaction({ (transaction, _) -> Any? in
                 let model = Model(openTime: self.openTime.timestamp,
                                   openLocation: self.openLocation.geopoint,
                                   closeTime: self.closeTime.timestamp,

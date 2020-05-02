@@ -73,7 +73,7 @@ public class Friend: Account {
                   displayName: String? = nil,
                   photoURL: URL? = nil) {
 
-        self.document = Document(document: AppModel.model.db.collection("users").document(id), className: "Friend")
+        self.document = Document(document: App.core.db.collection("users").document(id), className: "Friend")
         self.status = .untied
 
         super.init(id: id, displayName: displayName, photoURL: photoURL)

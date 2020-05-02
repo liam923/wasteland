@@ -15,17 +15,17 @@ import FirebaseFirestore
 import FirebaseCore
 
 /// Manages the state of the app
-public class AppModel: ObservableObject {
+public class App: ObservableObject {
     private static var configured = false
     /// The universal app model
-    public static let model = AppModel()
+    public static let core = App()
 
-    let db = Firestore.firestore()
+    lazy var db = Firestore.firestore()
 
     private init() { }
 
-    public static func configure(test: Bool = false) {
-        if !configured {
+    public func configure(test: Bool = false) {
+        if !App.configured {
             FirebaseApp.configure()
 
             if test {
@@ -39,10 +39,10 @@ public class AppModel: ObservableObject {
             GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
             GIDSignIn.sharedInstance()?.delegate = SignInDelegate.shared
 
-            AppModel.model.updateCurrentUser()
+            App.core.updateCurrentUser()
         }
         
-        configured = true
+        App.configured = true
     }
 
     private var userCancellable: AnyCancellable?

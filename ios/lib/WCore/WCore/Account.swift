@@ -18,7 +18,7 @@ public class Account: Identifiable, ObservableObject {
         if let account = existingAccounts.first(where: { $0.obj?.id == id })?.obj {
             return account
         } else {
-            if let user = AppModel.model.user {
+            if let user = App.core.user {
                 if user.id == id {
                     existingAccounts.append(Pointer(user))
                     return user

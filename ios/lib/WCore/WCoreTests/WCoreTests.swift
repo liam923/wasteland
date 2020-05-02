@@ -13,7 +13,7 @@ class WCoreTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        AppModel.configure(test: true)
+        App.core.configure(test: true)
     }
 
     override func tearDown() {

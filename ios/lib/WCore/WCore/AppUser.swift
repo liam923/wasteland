@@ -231,7 +231,7 @@ public class AppUser: Friend {
     }
 
     private func makeBlackoutQuery(forFriends friends: [String]) -> DocumentQuery<Blackout.Model> {
-        let query = AppModel.model.db.collectionGroup("blackouts")
+        let query = App.core.db.collectionGroup("blackouts")
             .whereField("blackoutUserID", in: friends)
             .whereField("startTime", isLessThanOrEqualTo: Timestamp())
         print(friends)
@@ -262,7 +262,7 @@ public class AppUser: Friend {
     }
 
     private func makeDrinkingSessionQuery(forFriends friends: [String]) -> DocumentQuery<DrinkingSession.Model> {
-        let query = AppModel.model.db.collectionGroup("sessions")
+        let query = App.core.db.collectionGroup("sessions")
             .whereField("drinkerID", in: friends)
             .whereField("openTime", isLessThanOrEqualTo: Timestamp())
 

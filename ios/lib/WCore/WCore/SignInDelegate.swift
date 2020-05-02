@@ -32,13 +32,13 @@ class SignInDelegate: NSObject, GIDSignInDelegate {
                     Log.error("Error signing in: \(error.localizedDescription)", category: .firebase)
                     return
                 } else {
-                    AppModel.model.updateCurrentUser()
+                    App.core.updateCurrentUser()
                 }
             }
         }
     }
 
     public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        AppModel.model.updateCurrentUser()
+        App.core.updateCurrentUser()
     }
 }
