@@ -13,6 +13,7 @@ import GoogleSignIn
 import os
 import Combine
 import FirebaseFirestore
+import FirebaseCore
 
 /// Manages the state of the app
 public class AppModel: ObservableObject {
@@ -22,6 +23,23 @@ public class AppModel: ObservableObject {
     let db = Firestore.firestore()
     
     private init() { }
+    
+    public static func configure(test: Bool = false) {
+        FirebaseApp.configure()
+        
+        if test {
+            let settings = Firestore.firestore().settings
+            settings.host = "localhost:8080"
+            settings.isPersistenceEnabled = false
+            settings.isSSLEnabled = false
+            Firestore.firestore().settings = settings
+        }
+        
+        GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance()?.delegate = SignInDelegate.shared
+        
+        AppModel.model.updateCurrentUser()
+    }
     
     private var userCancellable: AnyCancellable?
     /// The user currently signed in
@@ -38,7 +56,7 @@ public class AppModel: ObservableObject {
     
     // MARK: Sign In
     
-    public func updateCurrentUser() {
+    func updateCurrentUser() {
         if let user = Auth.auth().currentUser {
             self.user = AppUser(user: user)
             os_log("Signed in user: %s", log: Log.firebase, user.uid)
@@ -48,4 +66,8 @@ public class AppModel: ObservableObject {
         }
     }
     
+    public func signOut() throws {
+        try Auth.auth().signOut()
+        self.updateCurrentUser()
+    }
 }

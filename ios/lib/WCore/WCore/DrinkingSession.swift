@@ -153,6 +153,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
         self.openLocation = openLocation
         self.closeTime = closeTime
         self.closeLocation = closeLocation
+        self.modifiedFields.insert("drinkerID")
         
         for drink in self.drinks {
             drink.parent = self

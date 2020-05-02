@@ -11,7 +11,6 @@ import GoogleSignIn
 import FirebaseAuth
 import os
 import MapKit
-import FirebaseFirestore
 import WCore
 
 struct ContentView: View {
@@ -24,9 +23,14 @@ struct ContentView: View {
                 Text(drink.id)
             }
             Text(self.model.user?.currentDrinkingSession?.id ?? "nil")
-            Button(action: {self.model.user?.currentDrinkingSession?.sendChanges(completion: {print($0)})}) {
+            Button(action: {
+                print(self.model.user)
+                self.model.user?.add(drinkingSession: DrinkingSession.Builder(openTime: Date(timeIntervalSinceNow: -10000), openLocation: CLLocationCoordinate2D(), closeTime: Date(timeIntervalSinceNow: 10000), closeLocation: CLLocationCoordinate2D(), drinker: self.model.user!, drinks: [])).sendChanges(completion: nil)
+                print(self.model.user?.currentDrinkingSession)
+            }) {
                 Text("Send")
             }
+            SignInView()
             Spacer()
         }
     }
@@ -38,8 +42,7 @@ struct SignInView: View {
             SignInPresenter()
             Button(action: {
                 do {
-                    try Auth.auth().signOut()
-                    AppModel.model.updateCurrentUser()
+                    try AppModel.model.signOut()
                 } catch let signOutError as NSError {
                     os_log("Error signing out: %@", signOutError)
                 }

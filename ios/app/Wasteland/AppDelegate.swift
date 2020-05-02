@@ -7,21 +7,15 @@
 //
 
 import UIKit
-import Firebase
-import GoogleSignIn
 import os
 import WCore
+import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
-        
-        GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance()?.delegate = self
-        
-        AppModel.model.updateCurrentUser()
+        AppModel.configure()
         
         return true
     }
@@ -45,32 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
         -> Bool {
             return GIDSignIn.sharedInstance().handle(url)
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        if let error = error {
-            os_log("Error signing in: %s", log: Log.firebase, type: .error, error.localizedDescription)
-            return
-        } else {
-            guard let authentication = user.authentication else {
-                os_log("Error signing in: Google user was missing authentication", log: Log.firebase, type: .error)
-                return
-            }
-            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                           accessToken: authentication.accessToken)
-            Auth.auth().signIn(with: credential) { (authData, error) in
-                if let error = error {
-                    os_log("Error signing in: %s", log: Log.firebase, type: .error, error.localizedDescription)
-                    return
-                } else {
-                    AppModel.model.updateCurrentUser()
-                }
-            }
-        }
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        AppModel.model.updateCurrentUser()
     }
     
 }

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import WCore
 @testable import Wasteland
 
 class WastelandTests: XCTestCase {
