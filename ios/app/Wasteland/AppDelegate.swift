@@ -13,10 +13,13 @@ import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        AppModel.configure()
+        #if DEBUG
+            AppModel.configure(test: ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil)
+        #else
+            AppModel.configure()
+        #endif
 
         return true
     }

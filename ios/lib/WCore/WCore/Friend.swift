@@ -9,7 +9,6 @@
 import Foundation
 import MapKit
 import FirebaseFirestore
-import os
 import Combine
 
 /// A person on the user's friend list.

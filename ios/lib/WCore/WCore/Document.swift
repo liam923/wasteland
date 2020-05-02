@@ -9,7 +9,6 @@
 import Foundation
 import FirebaseFirestore
 import CodableFirebase
-import os
 
 class Document<Model: Codable> {
     typealias Listener = (Model) -> Void
@@ -53,10 +52,7 @@ class Document<Model: Codable> {
     func add(listener: @escaping Listener) {
         let block: FIRDocumentSnapshotBlock = { (snapshot, error) in
             guard error == nil else {
-                os_log("Error refreshing %s: %s",
-                       log: Log.firebase,
-                       type: .error,
-                       self.className, error!.localizedDescription)
+                Log.error("Error refreshing \(self.className): \(error!.localizedDescription)", category: .firebase)
                 return
             }
 
@@ -71,10 +67,10 @@ class Document<Model: Codable> {
                 if let model = try? FirestoreDecoder().decode(Model.self, from: data) {
                     listener(model)
                 } else {
-                    os_log("Malformed %s object: %@", log: Log.firebase, type: .error, self.className, data)
+                    Log.debug("Malformed \(self.className) object: \(data)", category: .firebase)
                 }
             } else {
-                os_log("Missing %s object", log: Log.firebase, type: .error, self.className)
+                Log.debug("Missing \(self.className) object", category: .firebase)
             }
         }
         self.listeners.append(block)
@@ -96,11 +92,7 @@ class Document<Model: Codable> {
 
         self.documentReference.setData(data, merge: true) { (error) in
             if let error = error {
-                os_log("Error updating %s: %s",
-                       log: Log.firebase,
-                       type: .error,
-                       self.className,
-                       error.localizedDescription)
+                Log.error("Error updating \(self.className): \(error.localizedDescription)", category: .firebase)
             }
             completion?(error)
         }

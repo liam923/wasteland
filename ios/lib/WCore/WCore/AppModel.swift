@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
-import os
 import Combine
 import FirebaseFirestore
 import FirebaseCore
 
 /// Manages the state of the app
 public class AppModel: ObservableObject {
+    private static var configured = false
     /// The universal app model
     public static let model = AppModel()
 
@@ -25,20 +25,24 @@ public class AppModel: ObservableObject {
     private init() { }
 
     public static func configure(test: Bool = false) {
-        FirebaseApp.configure()
+        if !configured {
+            FirebaseApp.configure()
 
-        if test {
-            let settings = Firestore.firestore().settings
-            settings.host = "localhost:8080"
-            settings.isPersistenceEnabled = false
-            settings.isSSLEnabled = false
-            Firestore.firestore().settings = settings
+            if test {
+                let settings = Firestore.firestore().settings
+                settings.host = "localhost:8080"
+                settings.isPersistenceEnabled = false
+                settings.isSSLEnabled = false
+                Firestore.firestore().settings = settings
+            }
+
+            GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
+            GIDSignIn.sharedInstance()?.delegate = SignInDelegate.shared
+
+            AppModel.model.updateCurrentUser()
         }
-
-        GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance()?.delegate = SignInDelegate.shared
-
-        AppModel.model.updateCurrentUser()
+        
+        configured = true
     }
 
     private var userCancellable: AnyCancellable?
@@ -59,10 +63,10 @@ public class AppModel: ObservableObject {
     func updateCurrentUser() {
         if let user = Auth.auth().currentUser {
             self.user = AppUser(user: user)
-            os_log("Signed in user: %s", log: Log.firebase, user.uid)
+            Log.info("Signed in user: \(user.uid)", category: .firebase)
         } else {
             self.user = nil
-            os_log("Set logged in user to nil", log: Log.firebase)
+            Log.debug("Set logged in user to nil", category: .firebase)
         }
     }
 

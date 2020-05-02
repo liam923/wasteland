@@ -9,7 +9,6 @@
 import Foundation
 import FirebaseAuth
 import GoogleSignIn
-import os
 
 class SignInDelegate: NSObject, GIDSignInDelegate {
     static let shared = SignInDelegate()
@@ -19,18 +18,18 @@ class SignInDelegate: NSObject, GIDSignInDelegate {
 
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         if let error = error {
-            os_log("Error signing in: %s", log: Log.firebase, type: .error, error.localizedDescription)
+            Log.error("Error signing in: \(error.localizedDescription)", category: .firebase)
             return
         } else {
             guard let authentication = user.authentication else {
-                os_log("Error signing in: Google user was missing authentication", log: Log.firebase, type: .error)
+                Log.error("Error signing in: Google user was missing authentication", category: .firebase)
                 return
             }
             let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                            accessToken: authentication.accessToken)
             Auth.auth().signIn(with: credential) { (_, error) in
                 if let error = error {
-                    os_log("Error signing in: %s", log: Log.firebase, type: .error, error.localizedDescription)
+                    Log.error("Error signing in: \(error.localizedDescription)", category: .firebase)
                     return
                 } else {
                     AppModel.model.updateCurrentUser()

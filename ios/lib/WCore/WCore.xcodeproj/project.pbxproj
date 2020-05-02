@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		2FC98FFC537951805FF132A5 /* Pods_WCore_WCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF054CE18D172F46F4AE10B8 /* Pods_WCore_WCoreTests.framework */; };
 		987DF8EC245CF9D300E3B22F /* SignInDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987DF8EB245CF9D300E3B22F /* SignInDelegate.swift */; };
+		987DF8F2245D1F5300E3B22F /* WCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD9173244FEF550050AEF2 /* WCoreTests.swift */; };
+		987DF8F3245D22D900E3B22F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 987DF8EF245D1F1B00E3B22F /* GoogleService-Info.plist */; };
 		98FD916F244FEF550050AEF2 /* WCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FD9165244FEF550050AEF2 /* WCore.framework */; };
-		98FD9174244FEF550050AEF2 /* WCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD9173244FEF550050AEF2 /* WCoreTests.swift */; };
 		98FD91AF244FF9980050AEF2 /* WCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 98FD919F244FF9970050AEF2 /* WCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98FD91B0244FF9980050AEF2 /* Blackout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91A0244FF9980050AEF2 /* Blackout.swift */; };
 		98FD91B1244FF9980050AEF2 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91A1244FF9980050AEF2 /* Status.swift */; };
@@ -45,6 +46,7 @@
 		835DDFA5268A8E2EE6817D08 /* Pods-WCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCore.debug.xcconfig"; path = "Target Support Files/Pods-WCore/Pods-WCore.debug.xcconfig"; sourceTree = "<group>"; };
 		91928C39F6E5885F5AE8488A /* Pods-WCore-WCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCore-WCoreTests.release.xcconfig"; path = "Target Support Files/Pods-WCore-WCoreTests/Pods-WCore-WCoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		987DF8EB245CF9D300E3B22F /* SignInDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDelegate.swift; sourceTree = "<group>"; };
+		987DF8EF245D1F1B00E3B22F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../app/Wasteland/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		98FD9165244FEF550050AEF2 /* WCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98FD916E244FEF550050AEF2 /* WCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98FD9173244FEF550050AEF2 /* WCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCoreTests.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				98FD919F244FF9970050AEF2 /* WCore.h */,
 				98FD91AD244FF9980050AEF2 /* WError.swift */,
 				987DF8EB245CF9D300E3B22F /* SignInDelegate.swift */,
+				987DF8EF245D1F1B00E3B22F /* GoogleService-Info.plist */,
 			);
 			path = WCore;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				987DF8F3245D22D900E3B22F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +337,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = " ${PODS_ROOT}/SwiftLint/swiftlint --config ../../.swiftlint.yml\n";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint lint --config ../../.swiftlint.yml\n";
 		};
 		C12A407BDC7C52006B4920AE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -420,7 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98FD9174244FEF550050AEF2 /* WCoreTests.swift in Sources */,
+				987DF8F2245D1F5300E3B22F /* WCoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

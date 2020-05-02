@@ -11,7 +11,6 @@ import MapKit
 import FirebaseFirestore
 import CodableFirebase
 import Combine
-import os
 
 /// An session of drinking
 public class DrinkingSession: Identifiable, ObservableObject {

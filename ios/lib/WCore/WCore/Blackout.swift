@@ -10,7 +10,6 @@ import Foundation
 import MapKit
 import FirebaseFirestore
 import CodableFirebase
-import os
 
 /// An object representing a time a user is blacked out.
 public class Blackout: ObservableObject, Identifiable {

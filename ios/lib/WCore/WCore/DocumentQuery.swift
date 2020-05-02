@@ -9,7 +9,6 @@
 import Foundation
 import FirebaseFirestore
 import CodableFirebase
-import os
 
 class DocumentQuery<Model: Codable> {
     typealias Listener = ([(model: Model, id: String)]) -> Void
@@ -29,11 +28,7 @@ class DocumentQuery<Model: Codable> {
     func add(listener: @escaping Listener) {
         self.unsubsubscribers.append(self.query.addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot, error == nil else {
-                os_log("Error refreshing %s: %s",
-                       log: Log.firebase,
-                       type: .error,
-                       self.className,
-                       error!.localizedDescription)
+                Log.debug("Error refreshing \(self.className): \(error!.localizedDescription)", category: .firebase)
                 return
             }
 

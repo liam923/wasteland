@@ -20,7 +20,6 @@
 		9881B23D23E3A72800D970B8 /* WastelandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B23C23E3A72800D970B8 /* WastelandTests.swift */; };
 		9881B24823E3A72800D970B8 /* WastelandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881B24723E3A72800D970B8 /* WastelandUITests.swift */; };
 		98BCDE342415ADC8004DC098 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98BCDE332415ADC8004DC098 /* SignInViewController.xib */; };
-		98FD91C0245000C90050AEF2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91BF245000C90050AEF2 /* Log.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +62,6 @@
 		9881B24723E3A72800D970B8 /* WastelandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WastelandUITests.swift; sourceTree = "<group>"; };
 		9881B24923E3A72800D970B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98BCDE332415ADC8004DC098 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
-		98FD91BF245000C90050AEF2 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		9D9F4E6A586E18798C67B6E9 /* Pods-Wasteland-WastelandUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wasteland-WastelandUITests.debug.xcconfig"; path = "Target Support Files/Pods-Wasteland-WastelandUITests/Pods-Wasteland-WastelandUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E7A747470FEAA86EACDC19D /* Pods-Wasteland-WastelandUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wasteland-WastelandUITests.release.xcconfig"; path = "Target Support Files/Pods-Wasteland-WastelandUITests/Pods-Wasteland-WastelandUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A992A8DD9661388CD120E8D6 /* Pods-WastelandTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WastelandTests.debug.xcconfig"; path = "Target Support Files/Pods-WastelandTests/Pods-WastelandTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 		9881B22423E3A72700D970B8 /* Wasteland */ = {
 			isa = PBXGroup;
 			children = (
-				98FD91BF245000C90050AEF2 /* Log.swift */,
 				9881B22523E3A72700D970B8 /* AppDelegate.swift */,
 				9881B22723E3A72700D970B8 /* SceneDelegate.swift */,
 				9881B22923E3A72700D970B8 /* ContentView.swift */,
@@ -486,7 +483,6 @@
 			files = (
 				9881B22623E3A72700D970B8 /* AppDelegate.swift in Sources */,
 				9881B22823E3A72700D970B8 /* SceneDelegate.swift in Sources */,
-				98FD91C0245000C90050AEF2 /* Log.swift in Sources */,
 				9881B22A23E3A72700D970B8 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
