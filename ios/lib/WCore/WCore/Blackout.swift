@@ -24,18 +24,21 @@ public class Blackout: ObservableObject, Identifiable {
         public let time: Date
         /// Where the report was made.
         public let location: CLLocationCoordinate2D
-        
+
         init(fromModel model: Model) {
             self.id = model.id
             self.reporter = Account.make(id: model.id)
             self.time = model.time.dateValue()
             self.location = model.location.location
         }
-        
+
         func toModel() -> Model {
-            return Model(id: self.id, reporter: self.reporter.id, time: self.time.timestamp, location: GeoPoint(coordinate: self.location))
+            return Model(id: self.id,
+                         reporter: self.reporter.id,
+                         time: self.time.timestamp,
+                         location: GeoPoint(coordinate: self.location))
         }
-        
+
         struct Model: Codable {
             let id: String
             let reporter: String
@@ -43,7 +46,7 @@ public class Blackout: ObservableObject, Identifiable {
             let location: GeoPoint
         }
     }
-    
+
     /// A unique identifier for this object.
     public var id: String { willSet { self.objectWillChange.send() } }
     /// The time of the first blackout report.
@@ -52,7 +55,8 @@ public class Blackout: ObservableObject, Identifiable {
     public private(set) var endTime: Date { willSet { self.objectWillChange.send() } }
     /// A list of the users who reported the blackout, when they reported it, and where they were when they reported it.
     public private(set) var reports: [Report] { willSet { self.objectWillChange.send() } }
-    /// A list of the users who dissented to the blackout report, when they dissented, and where they were when they dissented.
+    /// A list of the users who dissented to the blackout report, when they dissented,
+    /// and where they were when they dissented.
     public private(set) var dissents: [Report] { willSet { self.objectWillChange.send() } }
     /// The user reported as blacked out.
     public private(set) var blackoutUser: Account { willSet { self.objectWillChange.send() } }
@@ -60,9 +64,9 @@ public class Blackout: ObservableObject, Identifiable {
     public internal(set) var status: Status { willSet { self.objectWillChange.send() } }
     /// Whether or not this object has been deleted.
     public private(set) var deleted: Bool { willSet { self.objectWillChange.send() } }
-    
+
     private let document: Document<Model>?
-    
+
     struct Model: Codable {
         let startTime: Timestamp
         let endTime: Timestamp
@@ -70,7 +74,7 @@ public class Blackout: ObservableObject, Identifiable {
         let dissents: [Report.Model]
         let blackoutUserID: String
     }
-    
+
     /// Initialize from a model and do not syncronize with the database.
     init(id: String, fromModel model: Model, status: Status) {
         self.id = id
@@ -81,10 +85,10 @@ public class Blackout: ObservableObject, Identifiable {
         self.blackoutUser = Account.make(id: model.blackoutUserID)
         self.deleted = false
         self.status = status
-        
+
         self.document = nil
     }
-    
+
     /// Initialize with a tie to an existing blackout and syncronize with the database.
     init(reference: DocumentReference) {
         self.id = reference.documentID
@@ -95,16 +99,16 @@ public class Blackout: ObservableObject, Identifiable {
         self.blackoutUser = Account()
         self.deleted = false
         self.status = .untied
-        
+
         self.document = Document(document: reference, className: "Blackout")
-        
+
         self.document?.add(listener: { model in
             self.set(fromModel: model)
             self.status = .tied
         })
         self.document?.add(deleteCallback: self.deleteCallback)
     }
-    
+
     func set(fromModel model: Model) {
         self.startTime = model.startTime.dateValue()
         self.endTime = model.endTime.dateValue()
@@ -112,7 +116,7 @@ public class Blackout: ObservableObject, Identifiable {
         self.dissents = model.dissents.map { Report(fromModel: $0) }
         self.blackoutUser = Account.make(id: model.blackoutUserID)
     }
-    
+
     private func deleteCallback() {
         self.status = .tied
         self.deleted = true

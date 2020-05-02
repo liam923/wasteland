@@ -17,10 +17,10 @@ public class Friend: Account {
     enum Keys: String {
         case location, locationAsOf, currentDrinkingSession, currentBlackout
     }
-    
+
     /// The status of this object.
     public internal(set) var status: Status { willSet { self.objectWillChange.send() } }
-    
+
     /// The person's current location. This can only be set if this is an instance of AppUser.
     public var location: CLLocationCoordinate2D? {
         willSet {
@@ -59,57 +59,57 @@ public class Friend: Account {
             self.objectWillChange.send()
         }
     }
-    
-    private var currentDrinkingSessionCancellable: AnyCancellable? = nil
-    private var currentBlackoutCancellable: AnyCancellable? = nil
-    
+
+    private var currentDrinkingSessionCancellable: AnyCancellable?
+    private var currentBlackoutCancellable: AnyCancellable?
+
     let document: Document<Model>
-    
+
     struct Model: Codable {
         let location: GeoPoint?
         let locationAsOf: Timestamp?
     }
-    
+
     override init(id: String,
                   displayName: String? = nil,
                   photoURL: URL? = nil) {
-        
+
         self.document = Document(document: AppModel.model.db.collection("users").document(id), className: "Friend")
         self.status = .untied
-        
+
         super.init(id: id, displayName: displayName, photoURL: photoURL)
-        
+
         self.document.add(listener: self.set)
     }
-    
+
     /// Report this user as blacked out.
     /// - Parameter completion: a completion handler that takes the blackout object connected to this report
     public func reportBlackout(completion: (Blackout?, Error?) -> Void) {
-        
+
     }
-    
+
     /// Fetch all drinking sessions belonging to the user between the given times.
     /// - Parameters:
     ///   - from: the beginning of the interval to fetch from
     ///   - to: the ending of the interval to fetch from
     ///   - completion: a completion handler that takes a list of the drinking sessions within the given interval
     public func fetchHistoricDrinkingSessions(from: Date, to: Date, completion: ([DrinkingSession], Error) -> Void) {
-        
+
     }
-    
+
     /// Fetch all blackouts belonging to the user between the given times.
     /// - Parameters:
     ///   - from: the beginning of the interval to fetch from
     ///   - to: the ending of the interval to fetch from
     ///   - completion: a completion handler that takes a list of the blackouts within the given interval
     public func fetchHistoricBlackouts(from: Date, to: Date, completion: ([Blackout], Error) -> Void) {
-        
+
     }
-    
+
     func didSetLocation() {
-        
+
     }
-    
+
     func set(fromModel model: Model) {
         self.location = CLLocationCoordinate2D(point: model.location)
         self.locationAsOf = model.locationAsOf?.dateValue()

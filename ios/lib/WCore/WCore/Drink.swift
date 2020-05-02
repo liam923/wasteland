@@ -73,23 +73,30 @@ public class Drink: Identifiable, ObservableObject {
     }
     var modifiedFields = Set<String>()
     private var modelToSet: Model?
-    
+
     private var document: Document<Model>
-    
+
     weak var parent: DrinkingSession?
-    
+
     struct Model: Codable {
         let type: DrinkType?
         let location: GeoPoint
         let time: Timestamp
         let inferredSpacetime: Bool
     }
-    
-    private init(id: String? = nil, type: DrinkType? = nil, location: CLLocationCoordinate2D, time: Date, inferredSpacetime: Bool, drinkingSessionDocument: DocumentReference) {
+
+    private init(id: String? = nil,
+                 type: DrinkType? = nil,
+                 location: CLLocationCoordinate2D,
+                 time: Date,
+                 inferredSpacetime: Bool,
+                 drinkingSessionDocument: DocumentReference) {
         if let id = id {
-            self.document = Document(document: drinkingSessionDocument.collection("drinks").document(id), className: "Drink")
+            self.document = Document(document: drinkingSessionDocument.collection("drinks")
+                .document(id), className: "Drink")
         } else {
-            self.document = Document(document: drinkingSessionDocument.collection("drinks").document(), className: "Drink")
+            self.document = Document(document: drinkingSessionDocument.collection("drinks")
+                .document(), className: "Drink")
         }
         self.id = self.document.documentReference.documentID
         self._type = type
@@ -98,7 +105,7 @@ public class Drink: Identifiable, ObservableObject {
         self._inferredSpacetime = inferredSpacetime
         self.modified = false
     }
-    
+
     /// Initialize from a model and do not automatically refresh from the database.
     init(document: DocumentReference, fromModel model: Model, modified: Bool) {
         self.document = Document(document: document, className: "Drink")
@@ -109,7 +116,7 @@ public class Drink: Identifiable, ObservableObject {
         self._inferredSpacetime = model.inferredSpacetime
         self.modified = modified
     }
-    
+
     public class Builder {
         private let id: String?
         private let type: DrinkType?
@@ -117,8 +124,13 @@ public class Drink: Identifiable, ObservableObject {
         private let time: Date
         private let inferredSpacetime: Bool
         private let drinkingSessionDocument: DocumentReference
-        
-        public init(id: String? = nil, type: DrinkType? = nil, location: CLLocationCoordinate2D, time: Date, inferredSpacetime: Bool, drinkingSessionDocument: DocumentReference) {
+
+        public init(id: String? = nil,
+                    type: DrinkType? = nil,
+                    location: CLLocationCoordinate2D,
+                    time: Date,
+                    inferredSpacetime: Bool,
+                    drinkingSessionDocument: DocumentReference) {
             self.id = id
             self.type = type
             self.location = location
@@ -126,7 +138,7 @@ public class Drink: Identifiable, ObservableObject {
             self.inferredSpacetime = inferredSpacetime
             self.drinkingSessionDocument = drinkingSessionDocument
         }
-        
+
         init(id: String? = nil, model: Model, drinkingSessionDocument: DocumentReference) {
             self.id = id
             self.type = model.type
@@ -135,16 +147,21 @@ public class Drink: Identifiable, ObservableObject {
             self.inferredSpacetime = model.inferredSpacetime
             self.drinkingSessionDocument = drinkingSessionDocument
         }
-        
+
         func build(drinkingSessionDocument: DocumentReference) -> Drink {
-            return Drink(id: id, type: type, location: location, time: time, inferredSpacetime: inferredSpacetime, drinkingSessionDocument: drinkingSessionDocument)
+            return Drink(id: id,
+                         type: type,
+                         location: location,
+                         time: time,
+                         inferredSpacetime: inferredSpacetime,
+                         drinkingSessionDocument: drinkingSessionDocument)
         }
     }
-    
+
     func set(fromModel model: Model) {
         if !self.modified {
             self.modelToSet = nil
-            
+
             self._type = model.type
             self._location = model.location.location
             self._time = model.time.dateValue()
@@ -154,24 +171,30 @@ public class Drink: Identifiable, ObservableObject {
             self.modelToSet = model
         }
     }
-    
+
     func sendChanges(completion: ((Error?) -> Void)?) {
-        let model = Model(type: self.type, location: self.location.geopoint, time: self.time.timestamp, inferredSpacetime: self.inferredSpacetime)
+        let model = Model(type: self.type,
+                          location: self.location.geopoint,
+                          time: self.time.timestamp,
+                          inferredSpacetime: self.inferredSpacetime)
         self.document.upload(data: model, updatedFields: [String](self.modifiedFields)) { error in
             if error == nil { self.modified = false }
             completion?(error)
         }
     }
-    
+
     func sendChanges(inTransaction transaction: Transaction) {
-        let model = Model(type: self.type, location: self.location.geopoint, time: self.time.timestamp, inferredSpacetime: self.inferredSpacetime)
+        let model = Model(type: self.type,
+                          location: self.location.geopoint,
+                          time: self.time.timestamp,
+                          inferredSpacetime: self.inferredSpacetime)
         self.document.upload(data: model, inTransaction: transaction)
     }
-    
+
     func delete(completion: ((Error?) -> Void)?) {
         document.delete(completion: completion)
     }
-    
+
     func delete(inTransaction transaction: Transaction) {
         transaction.deleteDocument(self.document.documentReference)
     }

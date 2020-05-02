@@ -4,15 +4,23 @@ target 'WCore' do
   use_frameworks!
   inhibit_all_warnings!
 
+  pod 'CodableFirebase'
+  pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
-  pod 'GoogleSignIn'
   pod 'Firebase/Firestore'
-  pod 'FirebaseFirestoreSwift'
-  pod 'CodableFirebase'
+  pod 'GoogleSignIn'
+  pod 'SwiftLint'
 
   target 'WCoreTests' do
 
   end
 
+end
+
+post_install do |installer|
+  # Remove warning to convert to Swift 5
+  installer.pods_project.root_object.attributes['LastSwiftMigration'] = 9999
+  installer.pods_project.root_object.attributes['LastSwiftUpdateCheck'] = 9999
+  installer.pods_project.root_object.attributes['LastUpgradeCheck'] = 9999
 end

@@ -186,6 +186,7 @@
 			buildConfigurationList = 98FD9179244FEF550050AEF2 /* Build configuration list for PBXNativeTarget "WCore" */;
 			buildPhases = (
 				FEE6B1BBBEE7BE6742115B54 /* [CP] Check Pods Manifest.lock */,
+				987DF8EE245D0CBA00E3B22F /* ShellScript */,
 				98FD9160244FEF550050AEF2 /* Headers */,
 				98FD9161244FEF550050AEF2 /* Sources */,
 				98FD9162244FEF550050AEF2 /* Frameworks */,
@@ -316,6 +317,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WCore/Pods-WCore-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		987DF8EE245D0CBA00E3B22F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = " ${PODS_ROOT}/SwiftLint/swiftlint --config ../../.swiftlint.yml\n";
 		};
 		C12A407BDC7C52006B4920AE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

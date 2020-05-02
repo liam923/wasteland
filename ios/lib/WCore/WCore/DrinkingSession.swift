@@ -73,11 +73,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
         }
     }
     /// The list of drinks had within the drinking session.
-    public var drinks: [Drink] {
-        get {
-            return self._drinks
-        }
-    }
+    public var drinks: [Drink] { return self._drinks }
     var _drinks: [Drink] {
         willSet {
             for cancellable in drinksCancellables {
@@ -102,7 +98,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
                 modifiedFields.removeAll()
                 self.deletedDrinks.removeAll()
                 self.modifiedDrinks = false
-                
+
                 if let model = self.modelToSet {
                     self.set(fromModel: model)
                 }
@@ -121,13 +117,13 @@ public class DrinkingSession: Identifiable, ObservableObject {
         }
     }
     private var _deleted: Bool { willSet { self.objectWillChange.send() } }
-    
+
     private var modifiedFields = Set<String>()
     private var modelToSet: Model?
-    
+
     private var document: Document<Model>
     private var drinkQuery: DocumentQuery<Drink.Model>?
-    
+
     struct Model: Codable {
         let openTime: Timestamp
         let openLocation: GeoPoint
@@ -135,9 +131,19 @@ public class DrinkingSession: Identifiable, ObservableObject {
         let closeLocation: GeoPoint
         let drinkerID: String
     }
-    
-    private init(openTime: Date, openLocation: CLLocationCoordinate2D, closeTime: Date, closeLocation: CLLocationCoordinate2D, drinker: Account, drinks: [Drink.Builder]) {
-        let document = Document<Model>(document: AppModel.model.db.collection("users").document(drinker.id).collection("sessions").document(), className: "DrinkingSession")
+
+    private init(openTime: Date,
+                 openLocation: CLLocationCoordinate2D,
+                 closeTime: Date,
+                 closeLocation: CLLocationCoordinate2D,
+                 drinker: Account,
+                 drinks: [Drink.Builder]) {
+        let document = Document<Model>(document: AppModel.model.db
+            .collection("users")
+            .document(drinker.id)
+            .collection("sessions")
+            .document(),
+                                       className: "DrinkingSession")
         self.document = document
         self.id = document.documentReference.documentID
         self._openTime = openTime
@@ -148,29 +154,29 @@ public class DrinkingSession: Identifiable, ObservableObject {
         self._drinks = drinks.map { $0.build(drinkingSessionDocument: document.documentReference) }
         self._deleted = false
         self.status = .untied
-        
+
         self.openTime = openTime
         self.openLocation = openLocation
         self.closeTime = closeTime
         self.closeLocation = closeLocation
         self.modifiedFields.insert("drinkerID")
-        
+
         for drink in self.drinks {
             drink.parent = self
         }
-        
+
         self.document.add(listener: { model in
             self.set(fromModel: model)
             self.status = .tied
         })
         self.document.add(deleteCallback: self.deleteCallback)
         self.drinkQuery = self.makeDrinkQuery()
-        
+
         for drink in drinks {
             add(drink: drink)
         }
     }
-    
+
     /// Initialize with a tie to an existing blackout and syncronize with the database.
     init(reference: DocumentReference) {
         self.id = reference.documentID
@@ -182,9 +188,9 @@ public class DrinkingSession: Identifiable, ObservableObject {
         self._drinks = []
         self._deleted = false
         self.status = .untied
-        
+
         self.document = Document(document: reference, className: "DrinkingSession")
-        
+
         self.document.add(listener: { model in
             self.set(fromModel: model)
             self.status = .tied
@@ -192,7 +198,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
         self.document.add(deleteCallback: self.deleteCallback)
         self.drinkQuery = self.makeDrinkQuery()
     }
-    
+
     /// Initialize from a model and do not automatically refresh from the database.
     init(id: String, fromModel model: Model, status: Status) {
         self.id = id
@@ -204,12 +210,16 @@ public class DrinkingSession: Identifiable, ObservableObject {
         self.drinker = Account.make(id: model.drinkerID)
         self._deleted = false
         self.status = .tied
-        
-        self.document = Document(document: AppModel.model.db.collection("users").document(model.drinkerID).collection("sessions").document(id),
+
+        self.document = Document(document: AppModel.model.db
+            .collection("users")
+            .document(model.drinkerID)
+            .collection("sessions")
+            .document(id),
                                  className: "DrinkingSession")
         self.drinkQuery = self.makeDrinkQuery()
     }
-    
+
     public class Builder {
         private let openTime: Date
         private let openLocation: CLLocationCoordinate2D
@@ -217,8 +227,13 @@ public class DrinkingSession: Identifiable, ObservableObject {
         private let closeLocation: CLLocationCoordinate2D
         private let drinker: Account
         private let drinks: [Drink.Builder]
-        
-        public init(openTime: Date, openLocation: CLLocationCoordinate2D, closeTime: Date, closeLocation: CLLocationCoordinate2D?, drinker: Account, drinks: [Drink.Builder]) {
+
+        public init(openTime: Date,
+                    openLocation: CLLocationCoordinate2D,
+                    closeTime: Date,
+                    closeLocation: CLLocationCoordinate2D?,
+                    drinker: Account,
+                    drinks: [Drink.Builder]) {
             self.openTime = openTime
             self.openLocation = openLocation
             self.closeTime = closeTime
@@ -226,17 +241,24 @@ public class DrinkingSession: Identifiable, ObservableObject {
             self.drinker = drinker
             self.drinks = drinks
         }
-        
+
         func build() -> DrinkingSession {
-            return DrinkingSession(openTime: openTime, openLocation: openLocation, closeTime: closeTime, closeLocation: closeLocation, drinker: drinker, drinks: drinks)
+            return DrinkingSession(openTime: openTime,
+                                   openLocation: openLocation,
+                                   closeTime: closeTime,
+                                   closeLocation: closeLocation,
+                                   drinker: drinker,
+                                   drinks: drinks)
         }
-        
+
     }
-    
+
     private func makeDrinkQuery() -> DocumentQuery<Drink.Model> {
-        return DocumentQuery(query: self.document.documentReference.collection("drinks"), className: "Drinks", listener: self.setDrinks)
+        return DocumentQuery(query: self.document.documentReference.collection("drinks"),
+                             className: "Drinks",
+                             listener: self.setDrinks)
     }
-    
+
     /// Constructs the given drink and adds it to this drinking session.
     /// - Parameter drink: the drink to add
     /// - Returns: the constructed drink
@@ -248,7 +270,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
         self.modifiedDrink()
         return d
     }
-    
+
     /// Removes a drink from this drinking session.
     /// - Parameter drink: the drink to remove
     public func remove(drink: Drink) {
@@ -256,15 +278,21 @@ public class DrinkingSession: Identifiable, ObservableObject {
         self.deletedDrinks.append(drink)
         self.modifiedDrink()
     }
-    
+
     /// Send all changes to this drinking session and all child drinks.
     /// - Parameter completion: callback for completion of sending
     public func sendChanges(completion: ((Error?) -> Void)?) {
         if !self.deleted {
-            AppModel.model.db.runTransaction({ (transaction, errorPointer) -> Any? in
-                let model = Model(openTime: self.openTime.timestamp, openLocation: self.openLocation.geopoint, closeTime: self.closeTime.timestamp, closeLocation: self.closeLocation.geopoint, drinkerID: self.drinker.id)
-                self.document.upload(data: model, updatedFields: [String](self.modifiedFields), inTransaction: transaction)
-                
+            AppModel.model.db.runTransaction({ (transaction, _) -> Any? in
+                let model = Model(openTime: self.openTime.timestamp,
+                                  openLocation: self.openLocation.geopoint,
+                                  closeTime: self.closeTime.timestamp,
+                                  closeLocation: self.closeLocation.geopoint,
+                                  drinkerID: self.drinker.id)
+                self.document.upload(data: model,
+                                     updatedFields: [String](self.modifiedFields),
+                                     inTransaction: transaction)
+
                 if self.modifiedDrinks {
                     for drink in self.drinks {
                         drink.sendChanges(inTransaction: transaction)
@@ -274,7 +302,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
                     }
                 }
                 return nil
-            }) { (_, error) in
+            }, completion: { (_, error) in
                 if error == nil {
                     for drink in self.drinks {
                         drink.modified = false
@@ -282,16 +310,16 @@ public class DrinkingSession: Identifiable, ObservableObject {
                     self.status = .tied
                 }
                 completion?(error)
-            }
+            })
         } else {
             self.document.delete(completion: completion)
         }
     }
-    
+
     func set(fromModel model: Model) {
         if self.status == .tied {
             self.modelToSet = nil
-            
+
             self._openTime = model.openTime.dateValue()
             self._openLocation = CLLocationCoordinate2D(point: model.openLocation)
             self._closeTime = model.closeTime.dateValue()
@@ -303,7 +331,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
             self.modelToSet = model
         }
     }
-    
+
     private func setDrinks(fromModels arr: [(model: Drink.Model, id: String)]) {
         let newDrinks = Set<String>(arr.map { $0.id })
         self._drinks = self.drinks.filter { newDrinks.contains($0.id) }
@@ -311,22 +339,24 @@ public class DrinkingSession: Identifiable, ObservableObject {
         for drink in self.drinks {
             oldDrinks[drink.id] = drink
         }
-        
+
         for (model, id) in arr {
             if let drink = oldDrinks[id] {
                 drink.set(fromModel: model)
             } else {
-                self.add(drink: Drink.Builder(id: id, model: model, drinkingSessionDocument: self.document.documentReference))
+                self.add(drink: Drink.Builder(id: id,
+                                              model: model,
+                                              drinkingSessionDocument: self.document.documentReference))
             }
         }
         self._drinks = self._drinks.sorted { $0.time < $1.time }
     }
-    
+
     private func deleteCallback() {
         self.status = .tied
         self.deleted = true
     }
-    
+
     func modifiedDrink() {
         self.status = .untied
         self.modifiedDrinks = true

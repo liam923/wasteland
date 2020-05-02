@@ -1,0 +1,15 @@
+# Excluded paths
+excluded:
+  - Pods
+
+# Rules configuration
+disabled_rules:
+  - type_body_length
+  - identifier_name
+  
+identifier_name:
+  allowed_symbols: "_"
+  min_length: 1
+  validates_start_with_lowercase: false
+nesting:
+  type_level: 2

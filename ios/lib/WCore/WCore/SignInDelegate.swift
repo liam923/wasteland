@@ -16,7 +16,7 @@ class SignInDelegate: NSObject, GIDSignInDelegate {
     private override init() {
         super.init()
     }
-    
+
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         if let error = error {
             os_log("Error signing in: %s", log: Log.firebase, type: .error, error.localizedDescription)
@@ -28,7 +28,7 @@ class SignInDelegate: NSObject, GIDSignInDelegate {
             }
             let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                            accessToken: authentication.accessToken)
-            Auth.auth().signIn(with: credential) { (authData, error) in
+            Auth.auth().signIn(with: credential) { (_, error) in
                 if let error = error {
                     os_log("Error signing in: %s", log: Log.firebase, type: .error, error.localizedDescription)
                     return

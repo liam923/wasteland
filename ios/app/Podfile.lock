@@ -295,6 +295,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.8)
+  - SwiftLint (0.39.2)
   - WCore (0.1.0):
     - CodableFirebase
     - Firebase/Analytics
@@ -305,6 +306,7 @@ PODS:
 
 DEPENDENCIES:
   - GoogleSignIn
+  - SwiftLint
   - WCore (from `../lib/WCore`)
 
 SPEC REPOS:
@@ -335,6 +337,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SwiftLint
 
 EXTERNAL SOURCES:
   WCore:
@@ -367,8 +370,9 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
   WCore: 80826670b5217505e5cf940397d86b6b4eb525b2
 
-PODFILE CHECKSUM: 073bbbe89283efd24a06d198b7df7c8d14bc878a
+PODFILE CHECKSUM: f3ab3e7ef0c14372d061dbd591861c5cc0505163
 
 COCOAPODS: 1.7.5

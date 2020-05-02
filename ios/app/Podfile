@@ -1,23 +1,29 @@
-# Uncomment the next line to define a global platform for your project
- platform :ios, '13.0'
+platform :ios, '13.0'
 
 target 'Wasteland' do
-  # Comment the next line if you don't want to use dynamic frameworks
   inherit! :search_paths
   use_frameworks!
   inhibit_all_warnings!
 
   pod 'GoogleSignIn'
+  pod 'SwiftLint'
   pod 'WCore', :path => '../lib/WCore'
 
   target 'WastelandTests' do
     inherit! :search_paths
-    # Pods for testing
+
   end
 
   target 'WastelandUITests' do
     inherit! :complete
-    # Pods for testing
+
   end
 
+end
+
+post_install do |installer|
+  # Remove warning to convert to Swift 5
+  installer.pods_project.root_object.attributes['LastSwiftMigration'] = 9999
+  installer.pods_project.root_object.attributes['LastSwiftUpdateCheck'] = 9999
+  installer.pods_project.root_object.attributes['LastUpgradeCheck'] = 9999
 end

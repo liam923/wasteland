@@ -11,8 +11,8 @@ import os
 
 class Log {
     private static let subsystem = "com.william-stevenson.Wasteland.dev"
-    
+
     static let firebase = OSLog(subsystem: Log.subsystem, category: "firebase")
-    
+
     private init() {}
 }

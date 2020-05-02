@@ -14,7 +14,7 @@ import os
 class Document<Model: Codable> {
     typealias Listener = (Model) -> Void
     typealias DeleteCallback = () -> Void
-    
+
     var active: Bool {
         didSet {
             if oldValue && !self.active {
@@ -24,20 +24,24 @@ class Document<Model: Codable> {
             }
         }
     }
-    
+
     let documentReference: DocumentReference
     private let className: String
     private var deleteCallbacks: [DeleteCallback]
     private var unsubsubscribers = [ListenerRegistration]()
     private var listeners: [FIRDocumentSnapshotBlock]
-    
-    init(document: DocumentReference, className: String, listener: Listener? = nil, deleteCallback: DeleteCallback? = nil, active: Bool = true) {
+
+    init(document: DocumentReference,
+         className: String,
+         listener: Listener? = nil,
+         deleteCallback: DeleteCallback? = nil,
+         active: Bool = true) {
         self.active = active
         self.documentReference = document
         self.className = className
         self.deleteCallbacks = []
         self.listeners = []
-        
+
         if let listener = listener {
             self.add(listener: listener)
         }
@@ -45,11 +49,14 @@ class Document<Model: Codable> {
             self.add(deleteCallback: deleteCallback)
         }
     }
-    
+
     func add(listener: @escaping Listener) {
         let block: FIRDocumentSnapshotBlock = { (snapshot, error) in
             guard error == nil else {
-                os_log("Error refreshing %s: %s", log: Log.firebase, type: .error, self.className, error!.localizedDescription)
+                os_log("Error refreshing %s: %s",
+                       log: Log.firebase,
+                       type: .error,
+                       self.className, error!.localizedDescription)
                 return
             }
 
@@ -71,39 +78,43 @@ class Document<Model: Codable> {
             }
         }
         self.listeners.append(block)
-        
+
         if self.active {
             self.unsubsubscribers.append(self.documentReference.addSnapshotListener(block))
         }
     }
-    
+
     func add(deleteCallback: @escaping DeleteCallback) {
         self.deleteCallbacks.append(deleteCallback)
     }
-    
+
     func upload(data: Model, updatedFields: [String]? = nil, completion: ((Error?) -> Void)? = nil) {
         var data = (try? FirestoreEncoder().encode(data)) ?? [:]
         if let updatedFields = updatedFields {
             data = data.filter { updatedFields.contains($0.key) }
         }
-        
+
         self.documentReference.setData(data, merge: true) { (error) in
             if let error = error {
-                os_log("Error updating %s: %s", log: Log.firebase, type: .error, self.className, error.localizedDescription)
+                os_log("Error updating %s: %s",
+                       log: Log.firebase,
+                       type: .error,
+                       self.className,
+                       error.localizedDescription)
             }
             completion?(error)
         }
     }
-    
+
     func upload(data: Model, updatedFields: [String]? = nil, inTransaction transaction: Transaction) {
         var data = (try? FirestoreEncoder().encode(data)) ?? [:]
         if let updatedFields = updatedFields {
             data = data.filter { updatedFields.contains($0.key) }
         }
-        
+
         transaction.setData(data, forDocument: self.documentReference, merge: true)
     }
-    
+
     func delete(completion: ((Error?) -> Void)? = nil) {
         documentReference.delete { error in
             if error != nil {
@@ -114,18 +125,18 @@ class Document<Model: Codable> {
             completion?(error)
         }
     }
-    
+
     private func deactivateListeners() {
         for unsubscriber in self.unsubsubscribers {
             unsubscriber.remove()
         }
         self.unsubsubscribers = []
     }
-    
+
     private func activateListeners() {
         self.unsubsubscribers = self.listeners.map { self.documentReference.addSnapshotListener($0) }
     }
-    
+
     deinit {
         self.deactivateListeners()
     }
@@ -134,7 +145,8 @@ class Document<Model: Codable> {
 extension Encodable {
     func asDictionary() throws -> [String: Any] {
         let data = try JSONEncoder().encode(self)
-        guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+        guard let dictionary = try JSONSerialization
+            .jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
             throw NSError()
         }
         return dictionary

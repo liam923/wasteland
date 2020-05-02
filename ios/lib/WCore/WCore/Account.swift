@@ -12,7 +12,7 @@ import FirebaseAuth
 /// A person/account on the app.
 public class Account: Identifiable, ObservableObject {
     private static var existingAccounts = [Pointer<Account>]()
-    
+
     /// package private
     static func make(id: String) -> Account {
         if let account = existingAccounts.first(where: { $0.obj?.id == id })?.obj {
@@ -32,7 +32,7 @@ public class Account: Identifiable, ObservableObject {
         existingAccounts.append(Pointer(newAccount))
         return newAccount
     }
-    
+
     /// package private
     public static func makeAsFriend(id: String) -> Friend {
         if let account = existingAccounts.first(where: { $0.obj?.id == id })?.obj {
@@ -42,12 +42,12 @@ public class Account: Identifiable, ObservableObject {
                 existingAccounts.removeAll { $0.obj === account }
             }
         }
-        
+
         let newFriend = Friend(id: id)
         existingAccounts.append(Pointer(newFriend))
         return newFriend
     }
-    
+
     /// The unique, unchanging identifier of the person.
     public private(set) var id: String {
         willSet {
@@ -72,25 +72,25 @@ public class Account: Identifiable, ObservableObject {
             self.didSetPhotoURL()
         }
     }
-    
+
     /// create a dummy temp account
     init() {
         self.id = ""
     }
-    
+
     init(id: String, displayName: String? = nil, photoURL: URL? = nil) {
         self.id = id
         self.displayName = displayName
         self.photoURL = photoURL
-        
+
         Account.existingAccounts.append(Pointer(self))
     }
-    
+
     func didSetDisplayName() {
-        
+
     }
-    
+
     func didSetPhotoURL() {
-        
+
     }
 }

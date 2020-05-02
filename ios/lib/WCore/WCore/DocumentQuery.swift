@@ -13,11 +13,11 @@ import os
 
 class DocumentQuery<Model: Codable> {
     typealias Listener = ([(model: Model, id: String)]) -> Void
-    
+
     let query: Query
     private let className: String
     private var unsubsubscribers = [ListenerRegistration]()
-    
+
     init(query: Query, className: String, listener: Listener? = nil) {
         self.query = query
         self.className = className
@@ -25,24 +25,29 @@ class DocumentQuery<Model: Codable> {
             self.add(listener: listener)
         }
     }
-    
+
     func add(listener: @escaping Listener) {
         self.unsubsubscribers.append(self.query.addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot, error == nil else {
-                os_log("Error refreshing %s: %s", log: Log.firebase, type: .error, self.className, error!.localizedDescription)
+                os_log("Error refreshing %s: %s",
+                       log: Log.firebase,
+                       type: .error,
+                       self.className,
+                       error!.localizedDescription)
                 return
             }
-            
+
             listener(snapshot.documents
-                .map({ (try? FirestoreDecoder().decode(Model.self, from: $0.data()), $0.documentID) })
-                .filter({ $0.0 != nil }) as! [(Model, String)])
+                .map { (try? FirestoreDecoder().decode(Model.self, from: $0.data()), $0.documentID) }
+                .map { $0.0 == nil ? nil : $0 as? (Model, String) }
+                .filter { $0 != nil }
+                .map { $0! })
         })
     }
-    
+
     deinit {
         for unsubscriber in self.unsubsubscribers {
             unsubscriber.remove()
         }
     }
 }
-
