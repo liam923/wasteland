@@ -13,7 +13,7 @@ import CodableFirebase
 import Combine
 
 /// An session of drinking
-public class DrinkingSession: Identifiable, ObservableObject {
+public class FIRDrinkingSession: Identifiable, ObservableObject {
     /// A unique identifier for this object.
     public private(set) var id: String
     /// The time that the drinking session began at.
@@ -65,15 +65,15 @@ public class DrinkingSession: Identifiable, ObservableObject {
     }
     var _closeLocation: CLLocationCoordinate2D { willSet { self.objectWillChange.send() } }
     /// The owner of this drinking session.
-    public private(set) var drinker: Account {
+    public private(set) var drinker: FIRAccount {
         didSet {
             self.modifiedFields.insert("drinkerID")
             self.status = .untied
         }
     }
     /// The list of drinks had within the drinking session.
-    public var drinks: [Drink] { return self._drinks }
-    var _drinks: [Drink] {
+    public var drinks: [FIRDrink] { return self._drinks }
+    var _drinks: [FIRDrink] {
         willSet {
             for cancellable in drinksCancellables {
                 cancellable?.cancel()
@@ -88,7 +88,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
     }
     private var drinksCancellables: [AnyCancellable?] = []
     private var modifiedDrinks = false
-    private var deletedDrinks = [Drink]()
+    private var deletedDrinks = [FIRDrink]()
     /// The status of this object.
     public internal(set) var status: Status {
         willSet { self.objectWillChange.send() }
@@ -121,7 +121,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
     private var modelToSet: Model?
 
     private var document: Document<Model>
-    private var drinkQuery: DocumentQuery<Drink.Model>?
+    private var drinkQuery: DocumentQuery<FIRDrink.Model>?
 
     struct Model: Codable {
         let openTime: Timestamp
@@ -135,14 +135,14 @@ public class DrinkingSession: Identifiable, ObservableObject {
                  openLocation: CLLocationCoordinate2D,
                  closeTime: Date,
                  closeLocation: CLLocationCoordinate2D,
-                 drinker: Account,
-                 drinks: [Drink.Builder]) {
-        let document = Document<Model>(document: App.core.db
+                 drinker: FIRAccount,
+                 drinks: [FIRDrink.Builder]) {
+        let document = Document<Model>(document: FIRApp.core.db
             .collection("users")
             .document(drinker.id)
             .collection("sessions")
             .document(),
-                                       className: "DrinkingSession")
+                                       className: "FIRDrinkingSession")
         self.document = document
         self.id = document.documentReference.documentID
         self._openTime = openTime
@@ -183,12 +183,12 @@ public class DrinkingSession: Identifiable, ObservableObject {
         self._openLocation = CLLocationCoordinate2D()
         self._closeTime = Date()
         self._closeLocation = CLLocationCoordinate2D()
-        self.drinker = Account()
+        self.drinker = FIRAccount()
         self._drinks = []
         self._deleted = false
         self.status = .untied
 
-        self.document = Document(document: reference, className: "DrinkingSession")
+        self.document = Document(document: reference, className: "FIRDrinkingSession")
 
         self.document.add(listener: { model in
             self.set(fromModel: model)
@@ -206,16 +206,16 @@ public class DrinkingSession: Identifiable, ObservableObject {
         self._closeTime = model.closeTime.dateValue()
         self._closeLocation = CLLocationCoordinate2D(point: model.closeLocation)
         self._drinks = []
-        self.drinker = Account.make(id: model.drinkerID)
+        self.drinker = FIRAccount.make(id: model.drinkerID)
         self._deleted = false
         self.status = .tied
 
-        self.document = Document(document: App.core.db
+        self.document = Document(document: FIRApp.core.db
             .collection("users")
             .document(model.drinkerID)
             .collection("sessions")
             .document(id),
-                                 className: "DrinkingSession")
+                                 className: "FIRDrinkingSession")
         self.drinkQuery = self.makeDrinkQuery()
     }
 
@@ -224,15 +224,15 @@ public class DrinkingSession: Identifiable, ObservableObject {
         private let openLocation: CLLocationCoordinate2D
         private let closeTime: Date
         private let closeLocation: CLLocationCoordinate2D
-        private let drinker: Account
-        private let drinks: [Drink.Builder]
+        private let drinker: FIRAccount
+        private let drinks: [FIRDrink.Builder]
 
         public init(openTime: Date,
                     openLocation: CLLocationCoordinate2D,
                     closeTime: Date,
                     closeLocation: CLLocationCoordinate2D?,
-                    drinker: Account,
-                    drinks: [Drink.Builder]) {
+                    drinker: FIRAccount,
+                    drinks: [FIRDrink.Builder]) {
             self.openTime = openTime
             self.openLocation = openLocation
             self.closeTime = closeTime
@@ -241,8 +241,8 @@ public class DrinkingSession: Identifiable, ObservableObject {
             self.drinks = drinks
         }
 
-        func build() -> DrinkingSession {
-            return DrinkingSession(openTime: openTime,
+        func build() -> FIRDrinkingSession {
+            return FIRDrinkingSession(openTime: openTime,
                                    openLocation: openLocation,
                                    closeTime: closeTime,
                                    closeLocation: closeLocation,
@@ -252,7 +252,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
 
     }
 
-    private func makeDrinkQuery() -> DocumentQuery<Drink.Model> {
+    private func makeDrinkQuery() -> DocumentQuery<FIRDrink.Model> {
         return DocumentQuery(query: self.document.documentReference.collection("drinks"),
                              className: "Drinks",
                              listener: self.setDrinks)
@@ -262,7 +262,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
     /// - Parameter drink: the drink to add
     /// - Returns: the constructed drink
     @discardableResult
-    public func add(drink: Drink.Builder) -> Drink {
+    public func add(drink: FIRDrink.Builder) -> FIRDrink {
         let d = drink.build(drinkingSessionDocument: self.document.documentReference)
         d.parent = self
         _drinks.insert(d, at: drinks.insertionIndexOf(d) { $0.time < $1.time })
@@ -272,7 +272,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
 
     /// Removes a drink from this drinking session.
     /// - Parameter drink: the drink to remove
-    public func remove(drink: Drink) {
+    public func remove(drink: FIRDrink) {
         self._drinks = self._drinks.filter { $0.id != drink.id }
         self.deletedDrinks.append(drink)
         self.modifiedDrink()
@@ -282,7 +282,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
     /// - Parameter completion: callback for completion of sending
     public func sendChanges(completion: ((Error?) -> Void)?) {
         if !self.deleted {
-            App.core.db.runTransaction({ (transaction, _) -> Any? in
+            FIRApp.core.db.runTransaction({ (transaction, _) -> Any? in
                 let model = Model(openTime: self.openTime.timestamp,
                                   openLocation: self.openLocation.geopoint,
                                   closeTime: self.closeTime.timestamp,
@@ -324,17 +324,17 @@ public class DrinkingSession: Identifiable, ObservableObject {
             self._closeTime = model.closeTime.dateValue()
             self._closeLocation = CLLocationCoordinate2D(point: model.closeLocation)
             self._drinks = []
-            self.drinker = Account.make(id: model.drinkerID)
+            self.drinker = FIRAccount.make(id: model.drinkerID)
             self.status = .tied
         } else {
             self.modelToSet = model
         }
     }
 
-    private func setDrinks(fromModels arr: [(model: Drink.Model, id: String)]) {
+    private func setDrinks(fromModels arr: [(model: FIRDrink.Model, id: String)]) {
         let newDrinks = Set<String>(arr.map { $0.id })
         self._drinks = self.drinks.filter { newDrinks.contains($0.id) }
-        var oldDrinks = [String: Drink]()
+        var oldDrinks = [String: FIRDrink]()
         for drink in self.drinks {
             oldDrinks[drink.id] = drink
         }
@@ -343,7 +343,7 @@ public class DrinkingSession: Identifiable, ObservableObject {
             if let drink = oldDrinks[id] {
                 drink.set(fromModel: model)
             } else {
-                self.add(drink: Drink.Builder(id: id,
+                self.add(drink: FIRDrink.Builder(id: id,
                                               model: model,
                                               drinkingSessionDocument: self.document.documentReference))
             }

@@ -1,5 +1,5 @@
 //
-//  Blackout.swift
+//  FIRBlackout.swift
 //  Wasteland
 //
 //  Created by Liam Stevenson on 2/29/20.
@@ -12,13 +12,13 @@ import FirebaseFirestore
 import CodableFirebase
 
 /// An object representing a time a user is blacked out.
-public class Blackout: ObservableObject, Identifiable {
+public class FIRBlackout: ObservableObject, Identifiable {
     /// An object representing a report.
     public struct Report: Identifiable {
         /// A unique identifier for this report.
         public let id: String
         /// The person who made the report.
-        public let reporter: Account
+        public let reporter: FIRAccount
         /// When the report was made.
         public let time: Date
         /// Where the report was made.
@@ -26,7 +26,7 @@ public class Blackout: ObservableObject, Identifiable {
 
         init(fromModel model: Model) {
             self.id = model.id
-            self.reporter = Account.make(id: model.id)
+            self.reporter = FIRAccount.make(id: model.id)
             self.time = model.time.dateValue()
             self.location = model.location.location
         }
@@ -58,7 +58,7 @@ public class Blackout: ObservableObject, Identifiable {
     /// and where they were when they dissented.
     public private(set) var dissents: [Report] { willSet { self.objectWillChange.send() } }
     /// The user reported as blacked out.
-    public private(set) var blackoutUser: Account { willSet { self.objectWillChange.send() } }
+    public private(set) var blackoutUser: FIRAccount { willSet { self.objectWillChange.send() } }
     /// The status of this object.
     public internal(set) var status: Status { willSet { self.objectWillChange.send() } }
     /// Whether or not this object has been deleted.
@@ -81,7 +81,7 @@ public class Blackout: ObservableObject, Identifiable {
         self.endTime = model.endTime.dateValue()
         self.reports = model.reports.map { Report(fromModel: $0) }
         self.dissents = model.dissents.map { Report(fromModel: $0) }
-        self.blackoutUser = Account.make(id: model.blackoutUserID)
+        self.blackoutUser = FIRAccount.make(id: model.blackoutUserID)
         self.deleted = false
         self.status = status
 
@@ -95,11 +95,11 @@ public class Blackout: ObservableObject, Identifiable {
         self.endTime = Date()
         self.reports = []
         self.dissents = []
-        self.blackoutUser = Account()
+        self.blackoutUser = FIRAccount()
         self.deleted = false
         self.status = .untied
 
-        self.document = Document(document: reference, className: "Blackout")
+        self.document = Document(document: reference, className: "FIRBlackout")
 
         self.document?.add(listener: { model in
             self.set(fromModel: model)
@@ -113,7 +113,7 @@ public class Blackout: ObservableObject, Identifiable {
         self.endTime = model.endTime.dateValue()
         self.reports = model.reports.map { Report(fromModel: $0) }
         self.dissents = model.dissents.map { Report(fromModel: $0) }
-        self.blackoutUser = Account.make(id: model.blackoutUserID)
+        self.blackoutUser = FIRAccount.make(id: model.blackoutUserID)
     }
 
     private func deleteCallback() {

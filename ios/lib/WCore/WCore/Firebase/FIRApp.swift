@@ -1,5 +1,5 @@
 //
-//  AppModel.swift
+//  FIRApp.swift
 //  Wasteland
 //
 //  Created by Liam Stevenson on 3/3/20.
@@ -15,17 +15,17 @@ import FirebaseFirestore
 import FirebaseCore
 
 /// Manages the state of the app
-public class App: ObservableObject {
+public class FIRApp: ObservableObject {
     private static var configured = false
     /// The universal app model
-    public static let core = App()
+    public static let core = FIRApp()
 
     lazy var db = Firestore.firestore()
 
     private init() { }
 
     public func configure(test: Bool = false) {
-        if !App.configured {
+        if !FIRApp.configured {
             FirebaseApp.configure()
 
             if test {
@@ -39,22 +39,22 @@ public class App: ObservableObject {
             GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
             GIDSignIn.sharedInstance()?.delegate = SignInDelegate.shared
 
-            App.core.updateCurrentUser()
+            FIRApp.core.updateCurrentUser()
         }
         
-        App.configured = true
+        FIRApp.configured = true
     }
 
     private var userCancellable: AnyCancellable?
     /// The user currently signed in
-    public fileprivate(set) var user: AppUser? {
+    public fileprivate(set) var user: FIRAppUser? {
         willSet {
             self.userCancellable?.cancel()
             self.userCancellable = newValue?.objectWillChange.sink { self.objectWillChange.send() }
         }
     }
 
-    public func findUser(searchQuery: String, completion: (Account?, Error?) -> Void) {
+    public func findUser(searchQuery: String, completion: (FIRAccount?, Error?) -> Void) {
 
     }
 
@@ -62,7 +62,7 @@ public class App: ObservableObject {
 
     func updateCurrentUser() {
         if let user = Auth.auth().currentUser {
-            self.user = AppUser(user: user)
+            self.user = FIRAppUser(user: user)
             Log.info("Signed in user: \(user.uid)", category: .firebase)
         } else {
             self.user = nil

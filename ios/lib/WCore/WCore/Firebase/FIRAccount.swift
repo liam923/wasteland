@@ -1,5 +1,5 @@
 //
-//  Account.swift
+//  FIRAccount.swift
 //  Wasteland
 //
 //  Created by Liam Stevenson on 2/29/20.
@@ -10,15 +10,15 @@ import Foundation
 import FirebaseAuth
 
 /// A person/account on the app.
-public class Account: Identifiable, ObservableObject {
-    private static var existingAccounts = [Pointer<Account>]()
+public class FIRAccount: Identifiable, ObservableObject {
+    private static var existingAccounts = [Pointer<FIRAccount>]()
 
     /// package private
-    static func make(id: String) -> Account {
+    static func make(id: String) -> FIRAccount {
         if let account = existingAccounts.first(where: { $0.obj?.id == id })?.obj {
             return account
         } else {
-            if let user = App.core.user {
+            if let user = FIRApp.core.user {
                 if user.id == id {
                     existingAccounts.append(Pointer(user))
                     return user
@@ -28,22 +28,22 @@ public class Account: Identifiable, ObservableObject {
                 }
             }
         }
-        let newAccount = Account(id: id)
+        let newAccount = FIRAccount(id: id)
         existingAccounts.append(Pointer(newAccount))
         return newAccount
     }
 
     /// package private
-    public static func makeAsFriend(id: String) -> Friend {
+    public static func makeAsFriend(id: String) -> FIRFriend {
         if let account = existingAccounts.first(where: { $0.obj?.id == id })?.obj {
-            if let friend = account as? Friend {
+            if let friend = account as? FIRFriend {
                 return friend
             } else {
                 existingAccounts.removeAll { $0.obj === account }
             }
         }
 
-        let newFriend = Friend(id: id)
+        let newFriend = FIRFriend(id: id)
         existingAccounts.append(Pointer(newFriend))
         return newFriend
     }
@@ -83,7 +83,7 @@ public class Account: Identifiable, ObservableObject {
         self.displayName = displayName
         self.photoURL = photoURL
 
-        Account.existingAccounts.append(Pointer(self))
+        FIRAccount.existingAccounts.append(Pointer(self))
     }
 
     func didSetDisplayName() {

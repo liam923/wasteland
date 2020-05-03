@@ -1,5 +1,5 @@
 //
-//  Drink.swift
+//  FIRDrink.swift
 //  Wasteland
 //
 //  Created by Liam Stevenson on 3/5/20.
@@ -11,7 +11,7 @@ import MapKit
 import FirebaseFirestore
 
 /// A drink had by someone.
-public class Drink: Identifiable, ObservableObject {
+public class FIRDrink: Identifiable, ObservableObject {
     /// A unique identifier for this object.
     public private(set) var id: String
     /// The type of drink. (nil if unknown)
@@ -76,7 +76,7 @@ public class Drink: Identifiable, ObservableObject {
 
     private var document: Document<Model>
 
-    weak var parent: DrinkingSession?
+    weak var parent: FIRDrinkingSession?
 
     struct Model: Codable {
         let type: DrinkType?
@@ -93,10 +93,10 @@ public class Drink: Identifiable, ObservableObject {
                  drinkingSessionDocument: DocumentReference) {
         if let id = id {
             self.document = Document(document: drinkingSessionDocument.collection("drinks")
-                .document(id), className: "Drink")
+                .document(id), className: "FIRDrink")
         } else {
             self.document = Document(document: drinkingSessionDocument.collection("drinks")
-                .document(), className: "Drink")
+                .document(), className: "FIRDrink")
         }
         self.id = self.document.documentReference.documentID
         self._type = type
@@ -108,7 +108,7 @@ public class Drink: Identifiable, ObservableObject {
 
     /// Initialize from a model and do not automatically refresh from the database.
     init(document: DocumentReference, fromModel model: Model, modified: Bool) {
-        self.document = Document(document: document, className: "Drink")
+        self.document = Document(document: document, className: "FIRDrink")
         self.id = document.documentID
         self._type = model.type
         self._location = model.location.location
@@ -148,8 +148,8 @@ public class Drink: Identifiable, ObservableObject {
             self.drinkingSessionDocument = drinkingSessionDocument
         }
 
-        func build(drinkingSessionDocument: DocumentReference) -> Drink {
-            return Drink(id: id,
+        func build(drinkingSessionDocument: DocumentReference) -> FIRDrink {
+            return FIRDrink(id: id,
                          type: type,
                          location: location,
                          time: time,

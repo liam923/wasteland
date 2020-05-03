@@ -1,5 +1,5 @@
 //
-//  AppUser.swift
+//  FIRAppUser.swift
 //  Wasteland
 //
 //  Created by Liam Stevenson on 2/29/20.
@@ -13,21 +13,21 @@ import FirebaseFirestore
 import Combine
 
 /// The account of the current user.
-public class AppUser: Friend {
+public class FIRAppUser: FIRFriend {
     private struct FriendshipsModel: Codable {
         let friends: [String]
         let sentFriendRequests: [String]
         let receivedFriendRequests: [String]
     }
     private var friendshipsDocument: Document<FriendshipsModel>?
-    private var currentDrinkingSessionQuery: DocumentQuery<DrinkingSession.Model>?
-    private var currentBlackoutQuery: DocumentQuery<Blackout.Model>?
+    private var currentDrinkingSessionQuery: DocumentQuery<FIRDrinkingSession.Model>?
+    private var currentBlackoutQuery: DocumentQuery<FIRBlackout.Model>?
 
     private let clusterSizeLimit = 10
     private var currentQueries = [(friends: [String],
-                                   blackoutQuery: DocumentQuery<Blackout.Model>,
-                                   drinkingSessionQuery: DocumentQuery<DrinkingSession.Model>)]()
-    public private(set) var friends: [Friend] {
+                                   blackoutQuery: DocumentQuery<FIRBlackout.Model>,
+                                   drinkingSessionQuery: DocumentQuery<FIRDrinkingSession.Model>)]()
+    public private(set) var friends: [FIRFriend] {
         willSet {
             for cancellable in friendsCancellables {
                 cancellable?.cancel()
@@ -73,7 +73,7 @@ public class AppUser: Friend {
             }
         }
     }
-    public private(set) var sentFriendRequests: [Account] {
+    public private(set) var sentFriendRequests: [FIRAccount] {
         willSet {
             for cancellable in sentFriendRequestsCancellables {
                 cancellable?.cancel()
@@ -87,7 +87,7 @@ public class AppUser: Friend {
         }
 
     }
-    public private(set) var receivedFriendRequests: [Account] {
+    public private(set) var receivedFriendRequests: [FIRAccount] {
         willSet {
             for cancellable in receivedFriendRequestsCancellables {
                 cancellable?.cancel()
@@ -131,7 +131,7 @@ public class AppUser: Friend {
     /// - Parameters:
     ///   - user: the user to send the friend request to
     ///   - completion: completion handler
-    public func sendFriendRequest(_ user: Account, completion: ((Error?) -> Void)?) {
+    public func sendFriendRequest(_ user: FIRAccount, completion: ((Error?) -> Void)?) {
 
     }
 
@@ -140,7 +140,7 @@ public class AppUser: Friend {
     ///   - user: the user whose friend request is being replied to
     ///   - accepted: true if the request is accepted, false if denied
     ///   - completion: completion handler
-    public func replyToFriendRequest(_ user: Account, accepted: Bool, completion: ((Error?) -> Void)?) {
+    public func replyToFriendRequest(_ user: FIRAccount, accepted: Bool, completion: ((Error?) -> Void)?) {
 
     }
 
@@ -155,7 +155,7 @@ public class AppUser: Friend {
     /// Constructs the given drinking session and adds it to this user.
     /// - Parameter drinkingSession: the drinking session to construct
     /// - Returns: the constructed drinking session
-    public func add(drinkingSession: DrinkingSession.Builder) -> DrinkingSession {
+    public func add(drinkingSession: FIRDrinkingSession.Builder) -> FIRDrinkingSession {
         return drinkingSession.build()
     }
 
@@ -185,7 +185,7 @@ public class AppUser: Friend {
             changeRequest.commitChanges(completion: completion)
         }
         func updateLocation(completion: ((Error?) -> Void)?) {
-            self.document.upload(data: Friend.Model(location: self.location?.geopoint,
+            self.document.upload(data: FIRFriend.Model(location: self.location?.geopoint,
                                                     locationAsOf: self.locationAsOf?.timestamp),
                                  completion: completion)
         }
@@ -230,23 +230,23 @@ public class AppUser: Friend {
         }
     }
 
-    private func makeBlackoutQuery(forFriends friends: [String]) -> DocumentQuery<Blackout.Model> {
-        let query = App.core.db.collectionGroup("blackouts")
+    private func makeBlackoutQuery(forFriends friends: [String]) -> DocumentQuery<FIRBlackout.Model> {
+        let query = FIRApp.core.db.collectionGroup("blackouts")
             .whereField("blackoutUserID", in: friends)
             .whereField("startTime", isLessThanOrEqualTo: Timestamp())
         print(friends)
 
-        return DocumentQuery(query: query, className: "Blackout") { results in
+        return DocumentQuery(query: query, className: "FIRBlackout") { results in
             let data = results.filter { result in
                 result.model.startTime.dateValue() <= Date() && Date() <= result.model.endTime.dateValue()
             }
             for (blackout, id) in data {
                 // add blackout to appropriate user
-                if let friend = Account.make(id: blackout.blackoutUserID) as? Friend {
+                if let friend = FIRAccount.make(id: blackout.blackoutUserID) as? FIRFriend {
                     if let currentBlackout = friend.currentBlackout, currentBlackout.id == id {
                         currentBlackout.set(fromModel: blackout)
                     } else {
-                        friend.currentBlackout = Blackout(id: id, fromModel: blackout, status: .tied)
+                        friend.currentBlackout = FIRBlackout(id: id, fromModel: blackout, status: .tied)
                     }
                 }
             }
@@ -261,22 +261,22 @@ public class AppUser: Friend {
         }
     }
 
-    private func makeDrinkingSessionQuery(forFriends friends: [String]) -> DocumentQuery<DrinkingSession.Model> {
-        let query = App.core.db.collectionGroup("sessions")
+    private func makeDrinkingSessionQuery(forFriends friends: [String]) -> DocumentQuery<FIRDrinkingSession.Model> {
+        let query = FIRApp.core.db.collectionGroup("sessions")
             .whereField("drinkerID", in: friends)
             .whereField("openTime", isLessThanOrEqualTo: Timestamp())
 
-        return DocumentQuery(query: query, className: "DrinkingSession") { results in
+        return DocumentQuery(query: query, className: "FIRDrinkingSession") { results in
             let data = results.filter { result in
                 result.model.openTime.dateValue() <= Date() && Date() <= result.model.closeTime.dateValue()
             }
             for (session, id) in data {
                 // add blackout to appropriate user
-                if let friend = Account.make(id: session.drinkerID) as? Friend {
+                if let friend = FIRAccount.make(id: session.drinkerID) as? FIRFriend {
                     if let currentDrinkingSession = friend.currentDrinkingSession, currentDrinkingSession.id == id {
                         currentDrinkingSession.set(fromModel: session)
                     } else {
-                        friend.currentDrinkingSession = DrinkingSession(id: id, fromModel: session, status: .tied)
+                        friend.currentDrinkingSession = FIRDrinkingSession(id: id, fromModel: session, status: .tied)
                     }
                 }
             }
@@ -292,8 +292,8 @@ public class AppUser: Friend {
     }
 
     private func set(fromModel model: FriendshipsModel) {
-        self.friends = model.friends.map { Account.makeAsFriend(id: $0) }
-        self.sentFriendRequests = model.sentFriendRequests.map { Account.make(id: $0) }
-        self.receivedFriendRequests = model.receivedFriendRequests.map { Account.make(id: $0) }
+        self.friends = model.friends.map { FIRAccount.makeAsFriend(id: $0) }
+        self.sentFriendRequests = model.sentFriendRequests.map { FIRAccount.make(id: $0) }
+        self.receivedFriendRequests = model.receivedFriendRequests.map { FIRAccount.make(id: $0) }
     }
 }

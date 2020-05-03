@@ -1,5 +1,5 @@
 //
-//  Friend.swift
+//  FIRFriend.swift
 //  Wasteland
 //
 //  Created by Liam Stevenson on 2/29/20.
@@ -12,7 +12,7 @@ import FirebaseFirestore
 import Combine
 
 /// A person on the user's friend list.
-public class Friend: Account {
+public class FIRFriend: FIRAccount {
     enum Keys: String {
         case location, locationAsOf, currentDrinkingSession, currentBlackout
     }
@@ -20,7 +20,7 @@ public class Friend: Account {
     /// The status of this object.
     public internal(set) var status: Status { willSet { self.objectWillChange.send() } }
 
-    /// The person's current location. This can only be set if this is an instance of AppUser.
+    /// The person's current location. This can only be set if this is an instance of FIRAppUser.
     public var location: CLLocationCoordinate2D? {
         willSet {
             self.objectWillChange.send()
@@ -33,7 +33,7 @@ public class Friend: Account {
     /// The time the person's location was last updated.
     public private(set) var locationAsOf: Date? { willSet { self.objectWillChange.send() } }
     /// The person's current drinking session, if they have one.
-    public internal(set) var currentDrinkingSession: DrinkingSession? {
+    public internal(set) var currentDrinkingSession: FIRDrinkingSession? {
         willSet {
             currentDrinkingSessionCancellable?.cancel()
             currentDrinkingSessionCancellable = newValue?.objectWillChange.sink {
@@ -46,7 +46,7 @@ public class Friend: Account {
         }
     }
     /// The person's current blackout, if they have one.
-    public internal(set) var currentBlackout: Blackout? {
+    public internal(set) var currentBlackout: FIRBlackout? {
         willSet {
             currentBlackoutCancellable?.cancel()
             currentBlackoutCancellable = newValue?.objectWillChange.sink {
@@ -73,7 +73,7 @@ public class Friend: Account {
                   displayName: String? = nil,
                   photoURL: URL? = nil) {
 
-        self.document = Document(document: App.core.db.collection("users").document(id), className: "Friend")
+        self.document = Document(document: FIRApp.core.db.collection("users").document(id), className: "FIRFriend")
         self.status = .untied
 
         super.init(id: id, displayName: displayName, photoURL: photoURL)
@@ -83,7 +83,7 @@ public class Friend: Account {
 
     /// Report this user as blacked out.
     /// - Parameter completion: a completion handler that takes the blackout object connected to this report
-    public func reportBlackout(completion: (Blackout?, Error?) -> Void) {
+    public func reportBlackout(completion: (FIRBlackout?, Error?) -> Void) {
 
     }
 
@@ -92,7 +92,7 @@ public class Friend: Account {
     ///   - from: the beginning of the interval to fetch from
     ///   - to: the ending of the interval to fetch from
     ///   - completion: a completion handler that takes a list of the drinking sessions within the given interval
-    public func fetchHistoricDrinkingSessions(from: Date, to: Date, completion: ([DrinkingSession], Error) -> Void) {
+    public func fetchHistoricDrinkingSessions(from: Date, to: Date, completion: ([FIRDrinkingSession], Error) -> Void) {
 
     }
 
@@ -101,7 +101,7 @@ public class Friend: Account {
     ///   - from: the beginning of the interval to fetch from
     ///   - to: the ending of the interval to fetch from
     ///   - completion: a completion handler that takes a list of the blackouts within the given interval
-    public func fetchHistoricBlackouts(from: Date, to: Date, completion: ([Blackout], Error) -> Void) {
+    public func fetchHistoricBlackouts(from: Date, to: Date, completion: ([FIRBlackout], Error) -> Void) {
 
     }
 
