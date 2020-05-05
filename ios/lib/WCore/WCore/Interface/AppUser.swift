@@ -31,6 +31,14 @@ public protocol AppUser: Friend {
     ///   Expected errors: `NetworkingError`
     func recordLocation(location: CLLocationCoordinate2D?, completion: (_ error: WError?) -> Void)
     
+    /// Update the user's settings.
+    /// - Parameters:
+    ///   -  settings: the user's new settings
+    ///   -  completion: a callback for after succeeding or failing to update settings
+    ///   -  error: nil if settings are successfully updated.
+    ///   Expected errors: `NetworkingError`
+    func set(settings: UserSettings, completion: (_ error: WError?) -> Void)
+    
     /// Open a new drinking session.
     /// You may not perform this action if already in a drinking session.
     /// - Parameters:
@@ -39,14 +47,6 @@ public protocol AppUser: Friend {
     ///   -  error: nil if the session is successfully opened.
     ///   Expected errors: `NetworkingError`, `RedundantError` (user is already in a drinking session)
     func openDrinkingSession(completion: (_ drinkingSession: GDrinkingSession?, _ error: WError?) -> Void)
-    
-    /// Update the user's settings.
-    /// - Parameters:
-    ///   -  settings: the user's new settings
-    ///   -  completion: a callback for after succeeding or failing to update settings
-    ///   -  error: nil if settings are successfully updated.
-    ///   Expected errors: `NetworkingError`
-    func set(settings: UserSettings, completion: (_ error: WError?) -> Void)
     
     /// Send a friend request to the given user.
     /// The user must not already be a friend in order to perform this action.
@@ -97,16 +97,6 @@ public protocol AppUser: Friend {
     ///   Expected errors: `NetworkingError`,
     ///   `NonExistentError` (there is no user with the given id that the user has permission to report as blacked out)
     func reportBlackout(ofUserWithId id: String, completion: (_ blackout: GBlackout?, _ error: WError?) -> Void)
-    
-    /// Report dissention with the given blackout.
-    /// This action will fail if their settings restrict you from reporting them as blacked out.
-    /// - Parameters:
-    ///   -  id: the id of the blackout to dissent with
-    ///   -  completion: a callback for when the report is sent or fails to send
-    ///   -  error: nil if the report is successfully sent.
-    ///   Expected errors: `NetworkingError`,
-    ///   `NonExistentError` (there is no blackout with the given id that the user has permission to dissent with)
-    func reportDissent(ofBlackoutWithId id: String, completion: (_ error: WError?) -> Void)
     
     /// Sign out this user.
     func signOut() throws
@@ -174,17 +164,5 @@ extension AppUser {
     func reportBlackout(ofUser user: GAccount,
                         completion: (_ blackout: GBlackout?, _ error: WError?) -> Void) {
         return reportBlackout(ofUserWithId: user.id, completion: completion)
-    }
-    
-    /// Report dissention with the given blackout.
-    /// This action will fail if their settings restrict you from reporting them as blacked out.
-    /// - Parameters:
-    ///   -  blackout: the blackout to dissent with
-    ///   -  completion: a callback for when the report is sent or fails to send
-    ///   -  error: nil if the report is successfully sent.
-    ///   Expected errors: `NetworkingError`,
-    ///   `NonExistentError` (there is no blackout matching the input that the user has permission to dissent with)
-    func reportDissent(ofBlackout blackout: GBlackout, completion: (_ error: WError?) -> Void) {
-        return reportDissent(ofBlackoutWithId: blackout.id, completion: completion)
     }
 }

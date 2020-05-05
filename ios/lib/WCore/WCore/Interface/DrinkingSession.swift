@@ -11,8 +11,6 @@ import MapKit
 
 /// An object representing a drinking session.
 public protocol DrinkingSession: ObservableObject, HashedIdentifiable where ID == String {
-    associatedtype GFriend: Friend
-    
     /// The time at which this drinking session was opened.
     var openTime: Date { get }
     /// The time at which this drinking session closed or will close.

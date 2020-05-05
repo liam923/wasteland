@@ -8,18 +8,23 @@
 
 import Foundation
 
+/// An object that manages user settings.
 public struct UserSettings {
+    /// The display name of the user.
+    public var displayName: String?
+    /// The url to the user's profile photo.
+    public var photoURL: URL?
     /// The groups of people who are allowed to report the user as blacked out.
     /// Note: Regardless, any friend or current member's of the user's drinking session can see the blackout.
-    var allowBlackoutReportsFrom: Set<Group>
+    public var allowBlackoutReportsFrom: Set<Group>
     /// The set of users who explicitly cannot report the user as blacked out, regardless of `allowBlackoutReportsFrom`.
-    var blackoutReportsBlacklist: Set<String>
+    public var blackoutReportsBlacklist: Set<String>
     /// The groups of people for which the user should receive "blackout notifications" of.
     /// A "blackout notification" is a notification relating to a user being blacked out.
-    var blackoutNotificationsFrom: Set<Group>
+    public var blackoutNotificationsFrom: Set<Group>
     /// The groups of people for which the user should receive "drink notifications" of.
     /// A "drink notification" is a notification regarding the consumption of a drink or opening of a drinking session.
-    var drinkNotificationsFrom: Set<Group>
+    public var drinkNotificationsFrom: Set<Group>
     
     /// An enumeration representing different groups of people based on their relation to the user.
     public enum Group: Hashable {
