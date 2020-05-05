@@ -9,12 +9,21 @@
 /* Begin PBXBuildFile section */
 		2FC98FFC537951805FF132A5 /* Pods_WCore_WCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF054CE18D172F46F4AE10B8 /* Pods_WCore_WCoreTests.framework */; };
 		981A4EE2245DD5BF00F701B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 981A4EE1245DD5BF00F701B9 /* GoogleService-Info.plist */; };
+		9864BBF5245F314E0009523B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBF4245F314E0009523B /* App.swift */; };
+		9864BBF7245F34680009523B /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBF6245F34680009523B /* AppUser.swift */; };
+		9864BBF9245F34B80009523B /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBF8245F34B80009523B /* Account.swift */; };
+		9864BBFB245F35450009523B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBFA245F35450009523B /* Friend.swift */; };
+		9864BBFF245F37F20009523B /* Blackout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBFE245F37F20009523B /* Blackout.swift */; };
+		9864BC03245F57B50009523B /* DrinkingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BC02245F57B50009523B /* DrinkingSession.swift */; };
+		9864BC05245F59C00009523B /* HashedIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BC04245F59C00009523B /* HashedIdentifiable.swift */; };
+		9864BC09245F748A0009523B /* FIRDrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BC08245F748A0009523B /* FIRDrinkType.swift */; };
+		9864BC0D2460F4F00009523B /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BC0C2460F4F00009523B /* UserSettings.swift */; };
+		9864BC0F2460F64E0009523B /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BC0E2460F64E0009523B /* Status.swift */; };
 		987DF8EC245CF9D300E3B22F /* SignInDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987DF8EB245CF9D300E3B22F /* SignInDelegate.swift */; };
 		987DF8F2245D1F5300E3B22F /* WCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD9173244FEF550050AEF2 /* WCoreTests.swift */; };
 		98FD916F244FEF550050AEF2 /* WCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FD9165244FEF550050AEF2 /* WCore.framework */; };
 		98FD91AF244FF9980050AEF2 /* WCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 98FD919F244FF9970050AEF2 /* WCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98FD91B0244FF9980050AEF2 /* FIRBlackout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91A0244FF9980050AEF2 /* FIRBlackout.swift */; };
-		98FD91B1244FF9980050AEF2 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91A1244FF9980050AEF2 /* Status.swift */; };
 		98FD91B2244FF9980050AEF2 /* FIRAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91A2244FF9980050AEF2 /* FIRAccount.swift */; };
 		98FD91B3244FF9980050AEF2 /* FIRFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91A3244FF9980050AEF2 /* FIRFriend.swift */; };
 		98FD91B4244FF9980050AEF2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91A4244FF9980050AEF2 /* Log.swift */; };
@@ -24,7 +33,6 @@
 		98FD91B8244FF9980050AEF2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91A8244FF9980050AEF2 /* Util.swift */; };
 		98FD91B9244FF9980050AEF2 /* FIRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91A9244FF9980050AEF2 /* FIRApp.swift */; };
 		98FD91BB244FF9980050AEF2 /* DocumentQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91AB244FF9980050AEF2 /* DocumentQuery.swift */; };
-		98FD91BC244FF9980050AEF2 /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91AC244FF9980050AEF2 /* DrinkType.swift */; };
 		98FD91BD244FF9980050AEF2 /* WError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91AD244FF9980050AEF2 /* WError.swift */; };
 		98FD91BE244FF9980050AEF2 /* FIRDrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91AE244FF9980050AEF2 /* FIRDrink.swift */; };
 		E61BD48AFA743ABB04B43BDE /* Pods_WCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97E182671173FA9E7F06C71 /* Pods_WCore.framework */; };
@@ -46,6 +54,16 @@
 		835DDFA5268A8E2EE6817D08 /* Pods-WCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCore.debug.xcconfig"; path = "Target Support Files/Pods-WCore/Pods-WCore.debug.xcconfig"; sourceTree = "<group>"; };
 		91928C39F6E5885F5AE8488A /* Pods-WCore-WCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCore-WCoreTests.release.xcconfig"; path = "Target Support Files/Pods-WCore-WCoreTests/Pods-WCore-WCoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		981A4EE1245DD5BF00F701B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9864BBF4245F314E0009523B /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		9864BBF6245F34680009523B /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		9864BBF8245F34B80009523B /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		9864BBFA245F35450009523B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		9864BBFE245F37F20009523B /* Blackout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blackout.swift; sourceTree = "<group>"; };
+		9864BC02245F57B50009523B /* DrinkingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingSession.swift; sourceTree = "<group>"; };
+		9864BC04245F59C00009523B /* HashedIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashedIdentifiable.swift; sourceTree = "<group>"; };
+		9864BC08245F748A0009523B /* FIRDrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRDrinkType.swift; sourceTree = "<group>"; };
+		9864BC0C2460F4F00009523B /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		9864BC0E2460F64E0009523B /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		987DF8EB245CF9D300E3B22F /* SignInDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDelegate.swift; sourceTree = "<group>"; };
 		98FD9165244FEF550050AEF2 /* WCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98FD916E244FEF550050AEF2 /* WCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,7 +71,6 @@
 		98FD9175244FEF550050AEF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98FD919F244FF9970050AEF2 /* WCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCore.h; sourceTree = "<group>"; };
 		98FD91A0244FF9980050AEF2 /* FIRBlackout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRBlackout.swift; sourceTree = "<group>"; };
-		98FD91A1244FF9980050AEF2 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		98FD91A2244FF9980050AEF2 /* FIRAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRAccount.swift; sourceTree = "<group>"; };
 		98FD91A3244FF9980050AEF2 /* FIRFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRFriend.swift; sourceTree = "<group>"; };
 		98FD91A4244FF9980050AEF2 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -64,7 +81,6 @@
 		98FD91A9244FF9980050AEF2 /* FIRApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRApp.swift; sourceTree = "<group>"; };
 		98FD91AA244FF9980050AEF2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98FD91AB244FF9980050AEF2 /* DocumentQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentQuery.swift; sourceTree = "<group>"; };
-		98FD91AC244FF9980050AEF2 /* DrinkType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
 		98FD91AD244FF9980050AEF2 /* WError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WError.swift; sourceTree = "<group>"; };
 		98FD91AE244FF9980050AEF2 /* FIRDrink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIRDrink.swift; sourceTree = "<group>"; };
 		BF054CE18D172F46F4AE10B8 /* Pods_WCore_WCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WCore_WCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,9 +126,15 @@
 		9864BBF2245F2F5B0009523B /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				98FD91AC244FF9980050AEF2 /* DrinkType.swift */,
+				9864BBF8245F34B80009523B /* Account.swift */,
+				9864BBF4245F314E0009523B /* App.swift */,
+				9864BBF6245F34680009523B /* AppUser.swift */,
+				9864BBFE245F37F20009523B /* Blackout.swift */,
+				9864BC02245F57B50009523B /* DrinkingSession.swift */,
+				9864BBFA245F35450009523B /* Friend.swift */,
+				9864BC04245F59C00009523B /* HashedIdentifiable.swift */,
 				98FD91A4244FF9980050AEF2 /* Log.swift */,
-				98FD91A1244FF9980050AEF2 /* Status.swift */,
+				9864BC0C2460F4F00009523B /* UserSettings.swift */,
 				98FD91AD244FF9980050AEF2 /* WError.swift */,
 			);
 			path = Interface;
@@ -129,9 +151,11 @@
 				98FD91AB244FF9980050AEF2 /* DocumentQuery.swift */,
 				98FD91AE244FF9980050AEF2 /* FIRDrink.swift */,
 				98FD91A5244FF9980050AEF2 /* FIRDrinkingSession.swift */,
+				9864BC08245F748A0009523B /* FIRDrinkType.swift */,
 				98FD91A3244FF9980050AEF2 /* FIRFriend.swift */,
 				987DF8EB245CF9D300E3B22F /* SignInDelegate.swift */,
 				98FD91A8244FF9980050AEF2 /* Util.swift */,
+				9864BC0E2460F64E0009523B /* Status.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -418,16 +442,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9864BC05245F59C00009523B /* HashedIdentifiable.swift in Sources */,
 				98FD91B7244FF9980050AEF2 /* Document.swift in Sources */,
 				98FD91B8244FF9980050AEF2 /* Util.swift in Sources */,
 				987DF8EC245CF9D300E3B22F /* SignInDelegate.swift in Sources */,
 				98FD91BD244FF9980050AEF2 /* WError.swift in Sources */,
+				9864BC03245F57B50009523B /* DrinkingSession.swift in Sources */,
 				98FD91BB244FF9980050AEF2 /* DocumentQuery.swift in Sources */,
+				9864BBF9245F34B80009523B /* Account.swift in Sources */,
+				9864BBF5245F314E0009523B /* App.swift in Sources */,
 				98FD91B6244FF9980050AEF2 /* FIRAppUser.swift in Sources */,
-				98FD91BC244FF9980050AEF2 /* DrinkType.swift in Sources */,
+				9864BBF7245F34680009523B /* AppUser.swift in Sources */,
 				98FD91B9244FF9980050AEF2 /* FIRApp.swift in Sources */,
 				98FD91B0244FF9980050AEF2 /* FIRBlackout.swift in Sources */,
-				98FD91B1244FF9980050AEF2 /* Status.swift in Sources */,
+				9864BC09245F748A0009523B /* FIRDrinkType.swift in Sources */,
+				9864BBFF245F37F20009523B /* Blackout.swift in Sources */,
+				9864BC0D2460F4F00009523B /* UserSettings.swift in Sources */,
+				9864BBFB245F35450009523B /* Friend.swift in Sources */,
+				9864BC0F2460F64E0009523B /* Status.swift in Sources */,
 				98FD91B4244FF9980050AEF2 /* Log.swift in Sources */,
 				98FD91B2244FF9980050AEF2 /* FIRAccount.swift in Sources */,
 				98FD91B5244FF9980050AEF2 /* FIRDrinkingSession.swift in Sources */,

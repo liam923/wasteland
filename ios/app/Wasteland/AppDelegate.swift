@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         #if DEBUG
-            App.core.configure(test: ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil)
+            FIRApp.core.configure(test: ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil)
         #else
-            App.core.configure()
+            FIRApp.core.configure()
         #endif
 
         return true

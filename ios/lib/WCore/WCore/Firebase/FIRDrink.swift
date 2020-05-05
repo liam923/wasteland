@@ -15,7 +15,7 @@ public class FIRDrink: Identifiable, ObservableObject {
     /// A unique identifier for this object.
     public private(set) var id: String
     /// The type of drink. (nil if unknown)
-    public var type: DrinkType? {
+    public var type: FIRDrinkType? {
         get {
             return self._type
         }
@@ -25,7 +25,7 @@ public class FIRDrink: Identifiable, ObservableObject {
             self._type = newValue
         }
     }
-    var _type: DrinkType? { willSet { self.objectWillChange.send() } }
+    var _type: FIRDrinkType? { willSet { self.objectWillChange.send() } }
     /// The location the drink was had.
     public var location: CLLocationCoordinate2D {
         get {
@@ -79,14 +79,14 @@ public class FIRDrink: Identifiable, ObservableObject {
     weak var parent: FIRDrinkingSession?
 
     struct Model: Codable {
-        let type: DrinkType?
+        let type: FIRDrinkType?
         let location: GeoPoint
         let time: Timestamp
         let inferredSpacetime: Bool
     }
 
     private init(id: String? = nil,
-                 type: DrinkType? = nil,
+                 type: FIRDrinkType? = nil,
                  location: CLLocationCoordinate2D,
                  time: Date,
                  inferredSpacetime: Bool,
@@ -119,14 +119,14 @@ public class FIRDrink: Identifiable, ObservableObject {
 
     public class Builder {
         private let id: String?
-        private let type: DrinkType?
+        private let type: FIRDrinkType?
         private let location: CLLocationCoordinate2D
         private let time: Date
         private let inferredSpacetime: Bool
         private let drinkingSessionDocument: DocumentReference
 
         public init(id: String? = nil,
-                    type: DrinkType? = nil,
+                    type: FIRDrinkType? = nil,
                     location: CLLocationCoordinate2D,
                     time: Date,
                     inferredSpacetime: Bool,

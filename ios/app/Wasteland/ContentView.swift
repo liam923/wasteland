@@ -14,7 +14,7 @@ import MapKit
 import WCore
 
 struct ContentView: View {
-    @ObservedObject var model: App
+    @ObservedObject var model: FIRApp
 
     var body: some View {
         VStack {
@@ -35,7 +35,7 @@ struct SignInView: View {
             SignInPresenter()
             Button(action: {
                 do {
-                    try App.core.signOut()
+                    try FIRApp.core.signOut()
                 } catch let signOutError as NSError {
                     os_log("Error signing out: %@", signOutError)
                 }
