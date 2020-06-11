@@ -1,5 +1,5 @@
 //
-//  NFIRAppUser.swift
+//  FAppUser.swift
 //  WCore
 //
 //  Created by Liam Stevenson on 5/5/20.
@@ -10,12 +10,12 @@ import Foundation
 import MapKit
 
 /// An implementation of AppUser using firebase.
-public class NFIRAppUser: AppUser {
-    public typealias GAccount = NFIRAccount
-    public typealias GFriend = NFIRFriend
+public class FAppUser: AppUser {
+    public typealias GAccount = FAccount
+    public typealias GFriend = FFriend
     
     // TODO: sink change events
-    private let superFriend: NFIRFriend = NFIRFriend()
+    private let superFriend: FFriend = FFriend()
     
     public let userSettings: UserSettings = UserSettings(allowBlackoutReportsFrom: Set(),
                                                          blackoutReportsBlacklist: Set(),
@@ -31,13 +31,13 @@ public class NFIRAppUser: AppUser {
     
     public func unfriend(userWithId id: String, completion: (WError?) -> Void) { }
     
-    public func reportBlackout(ofUserWithId id: String, completion: (NFIRBlackout?, WError?) -> Void) { }
+    public func reportBlackout(ofUserWithId id: String, completion: (FBlackout?, WError?) -> Void) { }
     
     public func toggleBestfriend(userWithId id: String, isBestfriend: Bool, completion: (WError?) -> Void) { }
     
     public func recordLocation(location: CLLocationCoordinate2D?, completion: (WError?) -> Void) { }
     
-    public func openDrinkingSession(completion: (NFIRDrinkingSession?, WError?) -> Void) { }
+    public func openDrinkingSession(completion: (FDrinkingSession?, WError?) -> Void) { }
     
     public func set(settings: UserSettings, completion: (WError?) -> Void) { }
     
@@ -50,17 +50,17 @@ public class NFIRAppUser: AppUser {
     public var photoURL: URL? { return superFriend.photoURL }
     public var location: CLLocationCoordinate2D? { return superFriend.location }
     public var locationAsOf: Date? { return superFriend.locationAsOf }
-    public var currentDrinkingSession: NFIRDrinkingSession? { return superFriend.currentDrinkingSession }
-    public var currentBlackout: NFIRBlackout? { return superFriend.currentBlackout }
+    public var currentDrinkingSession: FDrinkingSession? { return superFriend.currentDrinkingSession }
+    public var currentBlackout: FBlackout? { return superFriend.currentBlackout }
     public var bestFriends: Bool { return superFriend.bestFriends }
     
     public func fetchHistoricDrinkingSessions(from: Date,
                                               to: Date,
-                                              completion: ([NFIRDrinkingSession]?, WError?) -> Void) {
+                                              completion: ([FDrinkingSession]?, WError?) -> Void) {
         return superFriend.fetchHistoricDrinkingSessions(from: from, to: to, completion: completion)
     }
     
-    public func fetchHistoricBlackouts(from: Date, to: Date, completion: ([NFIRBlackout]?, WError?) -> Void) {
+    public func fetchHistoricBlackouts(from: Date, to: Date, completion: ([FBlackout]?, WError?) -> Void) {
         return superFriend.fetchHistoricBlackouts(from: from, to: to, completion: completion)
     }
 }

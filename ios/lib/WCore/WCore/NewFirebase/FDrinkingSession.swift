@@ -1,5 +1,5 @@
 //
-//  NFIRDrinkingSession.swift
+//  FDrinkingSession.swift
 //  WCore
 //
 //  Created by Liam Stevenson on 5/5/20.
@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 /// An implementation of DrinkingSession using firebase.
-public class NFIRDrinkingSession: DrinkingSession {
+public class FDrinkingSession: DrinkingSession {
     public let id: String = ""
     public let openTime: Date = Date()
     public let closeTime: Date = Date()

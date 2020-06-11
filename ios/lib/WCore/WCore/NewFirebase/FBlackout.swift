@@ -1,5 +1,5 @@
 //
-//  NFIRBlackout.swift
+//  FBlackout.swift
 //  WCore
 //
 //  Created by Liam Stevenson on 5/5/20.
@@ -9,13 +9,13 @@
 import Foundation
 
 /// An implementation of Blackout using firebase.
-public class NFIRBlackout: Blackout {
+public class FBlackout: Blackout {
     public let id: String = ""
     public let startTime: Date = Date()
     public let endTime: Date = Date()
-    public let reports: [Report<NFIRAccount>] = []
-    public let dissents: [Report<NFIRAccount>] = []
-    public let blackoutUser: NFIRAccount = NFIRAccount()
+    public let reports: [Report<FAccount>] = []
+    public let dissents: [Report<FAccount>] = []
+    public let blackoutUser: FAccount = FAccount()
     
     public func report(confirm: Bool, completion: (WError?) -> Void) { }
 }

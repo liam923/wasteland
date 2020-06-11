@@ -1,5 +1,5 @@
 //
-//  NFIRAccount.swift
+//  FAccount.swift
 //  WCore
 //
 //  Created by Liam Stevenson on 5/5/20.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// An implementation of Account using firebase.
-public class NFIRAccount: Account {
+public class FAccount: Account {
     public let id: String = ""
     public let displayName: String? = nil
     public let photoURL: URL? = nil
