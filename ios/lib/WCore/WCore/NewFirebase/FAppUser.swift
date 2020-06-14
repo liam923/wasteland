@@ -6,7 +6,6 @@
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
-import Foundation
 import MapKit
 
 /// An implementation of AppUser using firebase.
@@ -15,7 +14,7 @@ public class FAppUser: AppUser {
     public typealias GFriend = FFriend
     
     // TODO: sink change events
-    private let superFriend: FFriend = FFriend()
+    private let superFriend: FFriend
     
     public let userSettings: UserSettings = UserSettings(allowBlackoutReportsFrom: Set(),
                                                          blackoutReportsBlacklist: Set(),
@@ -24,6 +23,10 @@ public class FAppUser: AppUser {
     public let sentFriendRequests: Set<String> = Set()
     public let receivedFriendRequests: Set<String> = Set()
     public let receivedDrinkingSessionInvites: Set<String> = Set()
+    
+    init(id: String) {
+        self.superFriend = FFriend(id: id)
+    }
     
     public func sendFriendRequest(toUserWithId id: String, completion: (WError?) -> Void) { }
     

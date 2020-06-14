@@ -6,8 +6,6 @@
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
-import Foundation
-
 /// An extension of the `Indentifiable protocol` where the identifier is also used for equality comparisons and hashes.
 public protocol HashedIdentifiable: Identifiable, Hashable { }
 

@@ -6,8 +6,6 @@
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
-import Foundation
-
 /// An implementation of Blackout using firebase.
 public class FBlackout: Blackout {
     public let id: String = ""
@@ -15,7 +13,7 @@ public class FBlackout: Blackout {
     public let endTime: Date = Date()
     public let reports: [Report<FAccount>] = []
     public let dissents: [Report<FAccount>] = []
-    public let blackoutUser: FAccount = FAccount()
+    public let blackoutUser: FAccount = FAccount(id: "")
     
     public func report(confirm: Bool, completion: (WError?) -> Void) { }
 }

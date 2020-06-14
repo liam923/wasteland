@@ -6,8 +6,6 @@
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
-import Foundation
-
 /// Manages the state of the app.
 public protocol App: ObservableObject {
     associatedtype GAppUser: AppUser

@@ -6,19 +6,22 @@
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
-import Foundation
 import MapKit
 
 /// An implementation of Friend using firebase.
 public class FFriend: Friend {
     // TODO: sink change events
-    private let superAccount: FAccount = FAccount()
+    private let superAccount: FAccount
     
     public let location: CLLocationCoordinate2D? = nil
     public let locationAsOf: Date? = nil
     public let currentDrinkingSession: FDrinkingSession? = nil
     public let currentBlackout: FBlackout? = nil
     public let bestFriends: Bool = false
+    
+    init(id: String) {
+        self.superAccount = FAccount(id: id)
+    }
     
     public func fetchHistoricDrinkingSessions(from: Date,
                                               to: Date,

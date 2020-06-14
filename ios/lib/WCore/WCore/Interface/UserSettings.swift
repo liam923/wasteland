@@ -6,8 +6,6 @@
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
-import Foundation
-
 /// An object that manages user settings.
 public struct UserSettings {
     /// The display name of the user.

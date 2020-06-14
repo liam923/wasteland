@@ -6,7 +6,6 @@
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
-import Foundation
 import MapKit
 import CodableFirebase
 import Firebase

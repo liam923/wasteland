@@ -6,8 +6,6 @@
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
-import Foundation
-
 /// A user of the app.
 public protocol Account: ObservableObject, HashedIdentifiable where ID == String {
     /// The display name of the user.

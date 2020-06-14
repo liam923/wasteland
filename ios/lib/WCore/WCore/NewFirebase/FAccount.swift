@@ -6,11 +6,13 @@
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
-import Foundation
-
 /// An implementation of Account using firebase.
 public class FAccount: Account {
-    public let id: String = ""
+    public let id: String
     public let displayName: String? = nil
     public let photoURL: URL? = nil
+    
+    init(id: String) {
+        self.id = id
+    }
 }

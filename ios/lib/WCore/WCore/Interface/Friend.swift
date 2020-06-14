@@ -6,7 +6,6 @@
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
-import Foundation
 import MapKit
 
 /// A user of the app who is a friend of the signed in user.

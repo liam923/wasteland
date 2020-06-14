@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2FC98FFC537951805FF132A5 /* Pods_WCore_WCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF054CE18D172F46F4AE10B8 /* Pods_WCore_WCoreTests.framework */; };
 		98127FD92492C647009EB99F /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127FD82492C647009EB99F /* Pointer.swift */; };
+		98127FDD24959B74009EB99F /* FWeakDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127FDC24959B74009EB99F /* FWeakDict.swift */; };
 		981A4EE2245DD5BF00F701B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 981A4EE1245DD5BF00F701B9 /* GoogleService-Info.plist */; };
 		9864BBF5245F314E0009523B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBF4245F314E0009523B /* App.swift */; };
 		9864BBF7245F34680009523B /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBF6245F34680009523B /* AppUser.swift */; };
@@ -26,7 +27,7 @@
 		9864BC1824620D590009523B /* FAppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BC1724620D590009523B /* FAppUser.swift */; };
 		9864BC1A24620D6D0009523B /* FBlackout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BC1924620D6D0009523B /* FBlackout.swift */; };
 		9864BC1C24620D7A0009523B /* FDrinkingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BC1B24620D7A0009523B /* FDrinkingSession.swift */; };
-		9864BC21246226210009523B /* DatabaseSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BC20246226210009523B /* DatabaseSchema.swift */; };
+		9864BC21246226210009523B /* FDatabaseSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BC20246226210009523B /* FDatabaseSchema.swift */; };
 		987DF8EC245CF9D300E3B22F /* SignInDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987DF8EB245CF9D300E3B22F /* SignInDelegate.swift */; };
 		987DF8F2245D1F5300E3B22F /* WCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD9173244FEF550050AEF2 /* WCoreTests.swift */; };
 		98FD916F244FEF550050AEF2 /* WCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FD9165244FEF550050AEF2 /* WCore.framework */; };
@@ -61,6 +62,7 @@
 		835DDFA5268A8E2EE6817D08 /* Pods-WCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCore.debug.xcconfig"; path = "Target Support Files/Pods-WCore/Pods-WCore.debug.xcconfig"; sourceTree = "<group>"; };
 		91928C39F6E5885F5AE8488A /* Pods-WCore-WCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCore-WCoreTests.release.xcconfig"; path = "Target Support Files/Pods-WCore-WCoreTests/Pods-WCore-WCoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		98127FD82492C647009EB99F /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
+		98127FDC24959B74009EB99F /* FWeakDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWeakDict.swift; sourceTree = "<group>"; };
 		981A4EE1245DD5BF00F701B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9864BBF4245F314E0009523B /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		9864BBF6245F34680009523B /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		9864BC1724620D590009523B /* FAppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAppUser.swift; sourceTree = "<group>"; };
 		9864BC1924620D6D0009523B /* FBlackout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBlackout.swift; sourceTree = "<group>"; };
 		9864BC1B24620D7A0009523B /* FDrinkingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDrinkingSession.swift; sourceTree = "<group>"; };
-		9864BC20246226210009523B /* DatabaseSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseSchema.swift; sourceTree = "<group>"; };
+		9864BC20246226210009523B /* FDatabaseSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDatabaseSchema.swift; sourceTree = "<group>"; };
 		987DF8EB245CF9D300E3B22F /* SignInDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDelegate.swift; sourceTree = "<group>"; };
 		98FD9165244FEF550050AEF2 /* WCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98FD916E244FEF550050AEF2 /* WCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,13 +179,14 @@
 		9864BC1024620BCF0009523B /* NewFirebase */ = {
 			isa = PBXGroup;
 			children = (
-				9864BC20246226210009523B /* DatabaseSchema.swift */,
 				9864BC1324620CE80009523B /* FAccount.swift */,
 				9864BC1124620BE50009523B /* FApp.swift */,
 				9864BC1724620D590009523B /* FAppUser.swift */,
 				9864BC1924620D6D0009523B /* FBlackout.swift */,
+				9864BC20246226210009523B /* FDatabaseSchema.swift */,
 				9864BC1B24620D7A0009523B /* FDrinkingSession.swift */,
 				9864BC1524620D4E0009523B /* FFriend.swift */,
+				98127FDC24959B74009EB99F /* FWeakDict.swift */,
 			);
 			path = NewFirebase;
 			sourceTree = "<group>";
@@ -479,7 +482,7 @@
 				98127FD92492C647009EB99F /* Pointer.swift in Sources */,
 				98FD91BD244FF9980050AEF2 /* WError.swift in Sources */,
 				9864BC1824620D590009523B /* FAppUser.swift in Sources */,
-				9864BC21246226210009523B /* DatabaseSchema.swift in Sources */,
+				9864BC21246226210009523B /* FDatabaseSchema.swift in Sources */,
 				9864BC03245F57B50009523B /* DrinkingSession.swift in Sources */,
 				98FD91BB244FF9980050AEF2 /* DocumentQuery.swift in Sources */,
 				9864BBF9245F34B80009523B /* Account.swift in Sources */,
@@ -490,6 +493,7 @@
 				98FD91B9244FF9980050AEF2 /* FIRApp.swift in Sources */,
 				98FD91B0244FF9980050AEF2 /* FIRBlackout.swift in Sources */,
 				9864BC09245F748A0009523B /* FIRDrinkType.swift in Sources */,
+				98127FDD24959B74009EB99F /* FWeakDict.swift in Sources */,
 				9864BBFF245F37F20009523B /* Blackout.swift in Sources */,
 				9864BC0D2460F4F00009523B /* UserSettings.swift in Sources */,
 				9864BC1624620D4E0009523B /* FFriend.swift in Sources */,
