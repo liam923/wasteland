@@ -12,7 +12,14 @@ public class FAccount: FObservableObject, Account {
     public let displayName: String? = nil
     public let photoURL: URL? = nil
     
-    init(id: String) {
+    /// Initialize a new FAccount object corresponding to the user with the given id.
+    /// If auto-refresh is set to `true`, then this object will listen for changes from the database.
+    /// - Parameters:
+    ///   - id: the user id of the account
+    ///   - autoRefresh: whether or not this object should refresh on its own
+    init(id: String, autoRefresh: Bool = false) {
         self.id = id
+        
+        // TODO: auto refresh
     }
 }

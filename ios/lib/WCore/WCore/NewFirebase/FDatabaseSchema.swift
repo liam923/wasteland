@@ -8,7 +8,7 @@
 
 import MapKit
 import CodableFirebase
-import Firebase
+import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 // MARK: DTOs
@@ -25,8 +25,8 @@ struct FDrinkingSessionDTO: Codable {
     public var openTime: Field<Timestamp>
     /// The time at which this drinking session closed or will close.
     public var closeTime: Field<Timestamp>
-    /// A map of ids of users to drinks had by that user in this drinking session.
-    public var drinks: Field<[String: [FDrinkDTO]]>
+    /// A map of drink ids to drinks for all drinks had in this drinking session.
+    public var drinks: Field<[String: FDrinkDTO]>
     /// The ids of users who are currently in this drinking session.
     public var currentMembers: Field<[String]>
     /// The ids of users who were in this drinking session at any time.
@@ -37,6 +37,8 @@ struct FDrinkingSessionDTO: Codable {
 
 /// A document representing a drink
 struct FDrinkDTO: Codable {
+    /// The id of the user who had the drink.
+    public var drinker: Field<String>
     /// The time at which the drink was had, if known.
     public var time: Field<Date?>
     /// The location at which the drink was had, if known.
@@ -86,6 +88,32 @@ enum FDrinkTypeDTO: String, Codable {
 struct FFriendshipsDTO: Codable {
     /// The ids of the user's friends.
     var friendships: Field<[String]>
+}
+
+/// A document storing information on a blackout.
+struct FBlackoutDTO: Codable {
+    /// The time of the first blackout report.
+    var startTime: Field<Timestamp>
+    /// The time at which the blackout will end.
+    var endTime: Field<Timestamp>
+    /// A list of blackout reports.
+    var reports: Field<[FReportDTO]>
+    /// A list of dissenting blackout reports.
+    var dissents: Field<[FReportDTO]>
+    /// The id of the user reported as blacked out.
+    var blackoutUser: Field<String>
+}
+
+/// An object representing a blackout report or dissent.
+struct FReportDTO: Codable {
+    /// A unique identifier for this report.
+    var id: Field<String>
+    /// The id of the user who made the report.
+    var reporter: Field<String>
+    /// When the report was made.
+    var time: Field<Timestamp>
+    /// Where the report was made.
+    var location: Field<GeoPoint>
 }
 
 /// A document storing a user's settings

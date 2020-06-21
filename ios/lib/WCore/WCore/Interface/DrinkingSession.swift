@@ -105,6 +105,8 @@ public extension DrinkingSession {
 /// A drink had by someone.
 public struct Drink: HashedIdentifiable {
     public let id: String
+    /// The id of the user who had the drink.
+    public let drinker: String
     /// The time at which the drink was had, if recorded.
     public let time: Date?
     /// The location where the drink was had, if recorded.

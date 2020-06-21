@@ -188,8 +188,8 @@
 				9864BC20246226210009523B /* FDatabaseSchema.swift */,
 				9864BC1B24620D7A0009523B /* FDrinkingSession.swift */,
 				9864BC1524620D4E0009523B /* FFriend.swift */,
-				98127FDC24959B74009EB99F /* FWeakDict.swift */,
 				98127FDE2495AEF0009EB99F /* FObservableObject.swift */,
+				98127FDC24959B74009EB99F /* FWeakDict.swift */,
 			);
 			path = NewFirebase;
 			sourceTree = "<group>";

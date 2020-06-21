@@ -26,6 +26,8 @@ public final class FApp: FObservableObject, App {
     private var registeredFriends = FWeakDict<String, FFriend>()
     /// A map of drinking session ids to drinking session objects that should refresh.
     private var registeredDrinkingSessions = FWeakDict<String, FDrinkingSession>()
+    /// A map of blackout ids to blackout objects that should refresh.
+    private var registeredBlackouts = FWeakDict<String, FBlackout>()
     
     /// Get an account object for the user with the given id.
     /// - Parameter id: the id of the user to get
@@ -34,7 +36,7 @@ public final class FApp: FObservableObject, App {
         if let account = registeredAccounts[id] {
             return account
         } else {
-            let account = FAccount(id: id)
+            let account = FAccount(id: id, autoRefresh: true)
             registeredAccounts[id] = account
             return account
         }
@@ -47,20 +49,44 @@ public final class FApp: FObservableObject, App {
         if let friend = registeredFriends[id] {
             return friend
         } else {
-            let friend = FFriend(id: id)
+            let friend = FFriend(id: id, autoRefresh: true)
             registeredFriends[id] = friend
             return friend
         }
     }
     
+    /// Get a drinking session object for the drinking session with the given id.
+    /// - Parameter id: the id of the drinking session to get
+    /// - Returns: a drinking session object associated with the drinking session with the given id that will refresh
+    /// automatically
     func drinkingSession(withId id: String) -> FDrinkingSession {
         if let drinkingSession = registeredDrinkingSessions[id] {
             return drinkingSession
         } else {
-            let drinkingSession = FDrinkingSession(id: id)
+            let drinkingSession = FDrinkingSession(id: id, autoRefresh: true)
             registeredDrinkingSessions[id] = drinkingSession
             return drinkingSession
         }
+    }
+    
+    /// Get a blackout object for the blackout with the given id.
+    /// - Parameter id: the id of the blackout to get
+    /// - Returns: a blackout object associated with the blackout with the given id that will refresh automatically
+    func blackout(withId id: String) -> FBlackout {
+        if let blackout = registeredBlackouts[id] {
+            return blackout
+        } else {
+            let blackout = FBlackout(id: id, autoRefresh: true)
+            registeredBlackouts[id] = blackout
+            return blackout
+        }
+    }
+    
+    /// Update the FApp with the user's friendlist in order to continue listening to the user's friends and their
+    /// drinking sessions.
+    /// - Parameter friends: the user ids of the app user's friends
+    func setListeners(forFriendlist friends: Set<String>) {
+        
     }
     
     // MARK: App conformance

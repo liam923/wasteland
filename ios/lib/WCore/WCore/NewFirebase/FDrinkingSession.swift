@@ -18,8 +18,22 @@ public class FDrinkingSession: FObservableObject, DrinkingSession {
     public let historicMembers: Set<String> = Set()
     public let invites: Set<Invite> = Set()
     
-    init(id: String) {
+    /// Initialize a new FDrinkingSession object corresponding to the given id.
+    /// If auto-refresh is set to `true`, then this object will listen for changes from the database.
+    /// - Parameters:
+    ///   - id: the user id of the drinking session
+    ///   - autoRefresh: whether or not this object should refresh on its own
+    init(id: String, autoRefresh: Bool = false) {
         self.id = id
+        
+        // TODO: auto refresh
+    }
+    
+    /// Update the fields of this class based on the given DTO.
+    /// - Parameter model: the DTO to update the class based on;
+    /// `nil` is interpreted as the object having been deleted
+    func set(fromModel model: FDrinkingSessionDTO?) {
+        
     }
     
     public func addDrink(type: DrinkType?, time: Date?, location: CLLocationCoordinate2D?) { }

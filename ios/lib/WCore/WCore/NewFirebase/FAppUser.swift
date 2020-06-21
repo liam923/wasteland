@@ -29,6 +29,20 @@ public class FAppUser: FObservableObject, AppUser {
         self.receive(from: self.superFriend)
     }
     
+    /// Update the fields of this class based on the given DTO.
+    /// - Parameter model: the DTO to update the class based on;
+    /// `nil` is interpreted as the object having been deleted
+    func set(fromModel model: FFriendshipsDTO?) {
+        
+    }
+    
+    /// Update the fields of this class based on the given DTO.
+    /// - Parameter model: the DTO to update the class based on;
+    /// `nil` is interpreted as the object having been deleted
+    func set(fromModel model: FUserSettingsDTO?) {
+        
+    }
+    
     public func sendFriendRequest(toUserWithId id: String, completion: (WError?) -> Void) { }
     
     public func respondToFriendRequest(fromUserWithId id: String, accept: Bool, completion: (WError?) -> Void) { }
