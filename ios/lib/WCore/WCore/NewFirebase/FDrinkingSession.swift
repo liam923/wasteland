@@ -9,7 +9,7 @@
 import MapKit
 
 /// An implementation of DrinkingSession using firebase.
-public class FDrinkingSession: DrinkingSession {
+public class FDrinkingSession: FObservableObject, DrinkingSession {
     public let id: String
     public let openTime: Date = Date()
     public let closeTime: Date = Date()

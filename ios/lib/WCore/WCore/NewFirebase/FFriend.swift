@@ -9,8 +9,7 @@
 import MapKit
 
 /// An implementation of Friend using firebase.
-public class FFriend: Friend {
-    // TODO: sink change events
+public class FFriend: FObservableObject, Friend {
     private let superAccount: FAccount
     
     public let location: CLLocationCoordinate2D? = nil
@@ -21,6 +20,8 @@ public class FFriend: Friend {
     
     init(id: String) {
         self.superAccount = FAccount(id: id)
+        super.init()
+        self.receive(from: superAccount)
     }
     
     public func fetchHistoricDrinkingSessions(from: Date,

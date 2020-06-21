@@ -7,7 +7,7 @@
 //
 
 /// An implementation of Account using firebase.
-public class FAccount: Account {
+public class FAccount: FObservableObject, Account {
     public let id: String
     public let displayName: String? = nil
     public let photoURL: URL? = nil

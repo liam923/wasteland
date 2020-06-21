@@ -9,23 +9,24 @@
 import MapKit
 
 /// An implementation of AppUser using firebase.
-public class FAppUser: AppUser {
+public class FAppUser: FObservableObject, AppUser {
     public typealias GAccount = FAccount
     public typealias GFriend = FFriend
     
-    // TODO: sink change events
     private let superFriend: FFriend
     
     public let userSettings: UserSettings = UserSettings(allowBlackoutReportsFrom: Set(),
                                                          blackoutReportsBlacklist: Set(),
                                                          blackoutNotificationsFrom: Set(),
                                                          drinkNotificationsFrom: Set())
-    public let sentFriendRequests: Set<String> = Set()
+    public var sentFriendRequests: Set<String> = Set()
     public let receivedFriendRequests: Set<String> = Set()
     public let receivedDrinkingSessionInvites: Set<String> = Set()
     
     init(id: String) {
         self.superFriend = FFriend(id: id)
+        super.init()
+        self.receive(from: self.superFriend)
     }
     
     public func sendFriendRequest(toUserWithId id: String, completion: (WError?) -> Void) { }

@@ -7,7 +7,7 @@
 //
 
 /// An implementation of Blackout using firebase.
-public class FBlackout: Blackout {
+public class FBlackout: FObservableObject, Blackout {
     public let id: String = ""
     public let startTime: Date = Date()
     public let endTime: Date = Date()

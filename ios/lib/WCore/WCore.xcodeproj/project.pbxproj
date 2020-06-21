@@ -10,6 +10,7 @@
 		2FC98FFC537951805FF132A5 /* Pods_WCore_WCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF054CE18D172F46F4AE10B8 /* Pods_WCore_WCoreTests.framework */; };
 		98127FD92492C647009EB99F /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127FD82492C647009EB99F /* Pointer.swift */; };
 		98127FDD24959B74009EB99F /* FWeakDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127FDC24959B74009EB99F /* FWeakDict.swift */; };
+		98127FDF2495AEF0009EB99F /* FObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127FDE2495AEF0009EB99F /* FObservableObject.swift */; };
 		981A4EE2245DD5BF00F701B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 981A4EE1245DD5BF00F701B9 /* GoogleService-Info.plist */; };
 		9864BBF5245F314E0009523B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBF4245F314E0009523B /* App.swift */; };
 		9864BBF7245F34680009523B /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBF6245F34680009523B /* AppUser.swift */; };
@@ -63,6 +64,7 @@
 		91928C39F6E5885F5AE8488A /* Pods-WCore-WCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCore-WCoreTests.release.xcconfig"; path = "Target Support Files/Pods-WCore-WCoreTests/Pods-WCore-WCoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		98127FD82492C647009EB99F /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
 		98127FDC24959B74009EB99F /* FWeakDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWeakDict.swift; sourceTree = "<group>"; };
+		98127FDE2495AEF0009EB99F /* FObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FObservableObject.swift; sourceTree = "<group>"; };
 		981A4EE1245DD5BF00F701B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9864BBF4245F314E0009523B /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		9864BBF6245F34680009523B /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				9864BC1B24620D7A0009523B /* FDrinkingSession.swift */,
 				9864BC1524620D4E0009523B /* FFriend.swift */,
 				98127FDC24959B74009EB99F /* FWeakDict.swift */,
+				98127FDE2495AEF0009EB99F /* FObservableObject.swift */,
 			);
 			path = NewFirebase;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				98127FD92492C647009EB99F /* Pointer.swift in Sources */,
 				98FD91BD244FF9980050AEF2 /* WError.swift in Sources */,
 				9864BC1824620D590009523B /* FAppUser.swift in Sources */,
+				98127FDF2495AEF0009EB99F /* FObservableObject.swift in Sources */,
 				9864BC21246226210009523B /* FDatabaseSchema.swift in Sources */,
 				9864BC03245F57B50009523B /* DrinkingSession.swift in Sources */,
 				98FD91BB244FF9980050AEF2 /* DocumentQuery.swift in Sources */,

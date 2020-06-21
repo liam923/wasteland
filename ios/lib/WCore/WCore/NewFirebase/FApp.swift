@@ -6,15 +6,17 @@
 //  Copyright © 2020 Liam Stevenson. All rights reserved.
 //
 
-import Firebase
+import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
 import GoogleSignIn
 
 /// An implementation of App using firebase.
-public final class FApp: App {
+public final class FApp: FObservableObject, App {
     // MARK: Singleton
     
     public static let core: FApp = FApp()
-    private init() { }
+    private override init() { }
     
     // MARK: Object management
     

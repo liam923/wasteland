@@ -15,8 +15,21 @@ struct FWeakDict<K: Hashable, V: AnyObject> {
             return dict[key]?.unbox
         }
         set {
-            dict[key]?.unbox = newValue
+            if let newValue = newValue {
+                dict[key] = WeakBox(newValue)
+            } else {
+                dict[key] = nil
+            }
         }
+    }
+    
+    @discardableResult
+    mutating func removeValue(forKey key: K) -> V? {
+        return self.dict.removeValue(forKey: key)?.unbox
+    }
+    
+    var values: [V] {
+        return self.dict.values.compactMap { $0.unbox }
     }
 }
 
