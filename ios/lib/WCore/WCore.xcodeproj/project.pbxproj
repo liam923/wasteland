@@ -12,6 +12,8 @@
 		98127FDD24959B74009EB99F /* FWeakDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127FDC24959B74009EB99F /* FWeakDict.swift */; };
 		98127FDF2495AEF0009EB99F /* FObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127FDE2495AEF0009EB99F /* FObservableObject.swift */; };
 		981A4EE2245DD5BF00F701B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 981A4EE1245DD5BF00F701B9 /* GoogleService-Info.plist */; };
+		9823DDFB24A04AD00056B839 /* FQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9823DDFA24A04AD00056B839 /* FQuery.swift */; };
+		9823DDFD24A04D0C0056B839 /* FArrayQueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9823DDFC24A04D0C0056B839 /* FArrayQueryManager.swift */; };
 		9864BBF5245F314E0009523B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBF4245F314E0009523B /* App.swift */; };
 		9864BBF7245F34680009523B /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBF6245F34680009523B /* AppUser.swift */; };
 		9864BBF9245F34B80009523B /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BBF8245F34B80009523B /* Account.swift */; };
@@ -31,6 +33,7 @@
 		9864BC21246226210009523B /* FDatabaseSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864BC20246226210009523B /* FDatabaseSchema.swift */; };
 		987DF8EC245CF9D300E3B22F /* SignInDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987DF8EB245CF9D300E3B22F /* SignInDelegate.swift */; };
 		987DF8F2245D1F5300E3B22F /* WCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD9173244FEF550050AEF2 /* WCoreTests.swift */; };
+		98FC2EB824A2813D00E65D48 /* FArrayQueryManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC2EB724A2813D00E65D48 /* FArrayQueryManagerTests.swift */; };
 		98FD916F244FEF550050AEF2 /* WCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98FD9165244FEF550050AEF2 /* WCore.framework */; };
 		98FD91AF244FF9980050AEF2 /* WCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 98FD919F244FF9970050AEF2 /* WCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98FD91B0244FF9980050AEF2 /* FIRBlackout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD91A0244FF9980050AEF2 /* FIRBlackout.swift */; };
@@ -66,6 +69,8 @@
 		98127FDC24959B74009EB99F /* FWeakDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWeakDict.swift; sourceTree = "<group>"; };
 		98127FDE2495AEF0009EB99F /* FObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FObservableObject.swift; sourceTree = "<group>"; };
 		981A4EE1245DD5BF00F701B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9823DDFA24A04AD00056B839 /* FQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FQuery.swift; sourceTree = "<group>"; };
+		9823DDFC24A04D0C0056B839 /* FArrayQueryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FArrayQueryManager.swift; sourceTree = "<group>"; };
 		9864BBF4245F314E0009523B /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		9864BBF6245F34680009523B /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		9864BBF8245F34B80009523B /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -84,6 +89,7 @@
 		9864BC1B24620D7A0009523B /* FDrinkingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDrinkingSession.swift; sourceTree = "<group>"; };
 		9864BC20246226210009523B /* FDatabaseSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDatabaseSchema.swift; sourceTree = "<group>"; };
 		987DF8EB245CF9D300E3B22F /* SignInDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDelegate.swift; sourceTree = "<group>"; };
+		98FC2EB724A2813D00E65D48 /* FArrayQueryManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FArrayQueryManagerTests.swift; sourceTree = "<group>"; };
 		98FD9165244FEF550050AEF2 /* WCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98FD916E244FEF550050AEF2 /* WCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98FD9173244FEF550050AEF2 /* WCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCoreTests.swift; sourceTree = "<group>"; };
@@ -190,6 +196,8 @@
 				9864BC1524620D4E0009523B /* FFriend.swift */,
 				98127FDE2495AEF0009EB99F /* FObservableObject.swift */,
 				98127FDC24959B74009EB99F /* FWeakDict.swift */,
+				9823DDFA24A04AD00056B839 /* FQuery.swift */,
+				9823DDFC24A04D0C0056B839 /* FArrayQueryManager.swift */,
 			);
 			path = NewFirebase;
 			sourceTree = "<group>";
@@ -232,6 +240,7 @@
 			children = (
 				98FD9173244FEF550050AEF2 /* WCoreTests.swift */,
 				98FD9175244FEF550050AEF2 /* Info.plist */,
+				98FC2EB724A2813D00E65D48 /* FArrayQueryManagerTests.swift */,
 			);
 			path = WCoreTests;
 			sourceTree = "<group>";
@@ -484,9 +493,11 @@
 				987DF8EC245CF9D300E3B22F /* SignInDelegate.swift in Sources */,
 				98127FD92492C647009EB99F /* Pointer.swift in Sources */,
 				98FD91BD244FF9980050AEF2 /* WError.swift in Sources */,
+				9823DDFB24A04AD00056B839 /* FQuery.swift in Sources */,
 				9864BC1824620D590009523B /* FAppUser.swift in Sources */,
 				98127FDF2495AEF0009EB99F /* FObservableObject.swift in Sources */,
 				9864BC21246226210009523B /* FDatabaseSchema.swift in Sources */,
+				9823DDFD24A04D0C0056B839 /* FArrayQueryManager.swift in Sources */,
 				9864BC03245F57B50009523B /* DrinkingSession.swift in Sources */,
 				98FD91BB244FF9980050AEF2 /* DocumentQuery.swift in Sources */,
 				9864BBF9245F34B80009523B /* Account.swift in Sources */,
@@ -517,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				987DF8F2245D1F5300E3B22F /* WCoreTests.swift in Sources */,
+				98FC2EB824A2813D00E65D48 /* FArrayQueryManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

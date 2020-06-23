@@ -17,6 +17,7 @@ public class FDrinkingSession: FObservableObject, DrinkingSession {
     public let currentMembers: Set<String> = Set()
     public let historicMembers: Set<String> = Set()
     public let invites: Set<Invite> = Set()
+    public internal(set) var deleted: Bool = false
     
     /// Initialize a new FDrinkingSession object corresponding to the given id.
     /// If auto-refresh is set to `true`, then this object will listen for changes from the database.
@@ -25,8 +26,10 @@ public class FDrinkingSession: FObservableObject, DrinkingSession {
     ///   - autoRefresh: whether or not this object should refresh on its own
     init(id: String, autoRefresh: Bool = false) {
         self.id = id
+        self.autoRefresh = autoRefresh
+        super.init()
         
-        // TODO: auto refresh
+        self.updateAutoRefresh()
     }
     
     /// Update the fields of this class based on the given DTO.
@@ -49,4 +52,18 @@ public class FDrinkingSession: FObservableObject, DrinkingSession {
     public func leave(purgeHistory: Bool, completion: (WError?) -> Void) { }
     
     public func purgeHistory(completion: (WError?) -> Void) { }
+    
+    // MARK: Auto Refresh
+    
+    /// Whether or not this object should auto refresh.
+    var autoRefresh: Bool {
+        didSet {
+            self.updateAutoRefresh()
+        }
+    }
+    
+    /// Update class to start/continue/stop auto refreshing, based on the autoRefresh property.
+    private func updateAutoRefresh() {
+        // TODO
+    }
 }

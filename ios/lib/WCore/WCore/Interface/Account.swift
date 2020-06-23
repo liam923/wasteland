@@ -12,4 +12,6 @@ public protocol Account: ObservableObject, HashedIdentifiable where ID == String
     var displayName: String? { get }
     /// The url to the user's profile photo.
     var photoURL: URL? { get }
+    /// Whether or not this user has been deleted.
+    var deleted: Bool { get }
 }

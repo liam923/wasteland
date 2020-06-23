@@ -22,6 +22,8 @@ public protocol Blackout: ObservableObject, HashedIdentifiable where ID == Strin
     var dissents: [Report<GAccount>] { get }
     /// The user reported as blacked out.
     var blackoutUser: GAccount { get }
+    /// Whether or not this blackout has been deleted.
+    var deleted: Bool { get }
     
     /// Report confirmation of or dissention with the given blackout.
     /// This action will fail if their settings restrict you from reporting them as blacked out.

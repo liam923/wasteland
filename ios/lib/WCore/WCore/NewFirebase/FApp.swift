@@ -20,24 +20,31 @@ public final class FApp: FObservableObject, App {
     
     // MARK: Object management
     
-    /// A map of user ids to corresponding account objects that should refresh.
-    private var registeredAccounts = FWeakDict<String, FAccount>()
-    /// A map of user ids to corresponding friend objects that should refresh.
-    private var registeredFriends = FWeakDict<String, FFriend>()
-    /// A map of drinking session ids to drinking session objects that should refresh.
-    private var registeredDrinkingSessions = FWeakDict<String, FDrinkingSession>()
-    /// A map of blackout ids to blackout objects that should refresh.
-    private var registeredBlackouts = FWeakDict<String, FBlackout>()
+    /// A map of user ids to corresponding account objects that should refresh on their own.
+    private var weakRegisteredAccounts = FWeakDict<String, FAccount>()
+    /// A map of user ids to corresponding friend objects that should refresh on their own.
+    private var weakRegisteredFriends = FWeakDict<String, FFriend>()
+    /// A map of drinking session ids to drinking session objects that should refresh on their own.
+    private var weakRegisteredDrinkingSessions = FWeakDict<String, FDrinkingSession>()
+    /// A map of blackout ids to blackout objects that should refresh on their own.
+    private var weakRegisteredBlackouts = FWeakDict<String, FBlackout>()
+    
+    /// A map of user ids to corresponding friend objects whose refreshing in managed.
+    private var strongRegisteredFriends = [String: FFriend]()
+    /// A map of drinking session ids to drinking session objects whose refreshing in managed.
+    private var strongRegisteredDrinkingSessions = [String: FDrinkingSession]()
+    /// A map of blackout ids to blackout objects whose refreshing in managed.
+    private var strongRegisteredBlackouts = [String: FBlackout]()
     
     /// Get an account object for the user with the given id.
     /// - Parameter id: the id of the user to get
     /// - Returns: an account object associated with the user with the given id that will refresh automatically
     func account(withId id: String) -> FAccount {
-        if let account = registeredAccounts[id] {
+        if let account = weakRegisteredAccounts[id] {
             return account
         } else {
             let account = FAccount(id: id, autoRefresh: true)
-            registeredAccounts[id] = account
+            weakRegisteredAccounts[id] = account
             return account
         }
     }
@@ -46,11 +53,13 @@ public final class FApp: FObservableObject, App {
     /// - Parameter id: the id of the friend to get
     /// - Returns: a friend object associated with the user with the given id that will refresh automatically
     func friend(withId id: String) -> FFriend {
-        if let friend = registeredFriends[id] {
+        if let friend = weakRegisteredFriends[id] {
+            return friend
+        } else if let friend = strongRegisteredFriends[id] {
             return friend
         } else {
             let friend = FFriend(id: id, autoRefresh: true)
-            registeredFriends[id] = friend
+            weakRegisteredFriends[id] = friend
             return friend
         }
     }
@@ -60,11 +69,13 @@ public final class FApp: FObservableObject, App {
     /// - Returns: a drinking session object associated with the drinking session with the given id that will refresh
     /// automatically
     func drinkingSession(withId id: String) -> FDrinkingSession {
-        if let drinkingSession = registeredDrinkingSessions[id] {
+        if let drinkingSession = weakRegisteredDrinkingSessions[id] {
+            return drinkingSession
+        } else if let drinkingSession = strongRegisteredDrinkingSessions[id] {
             return drinkingSession
         } else {
             let drinkingSession = FDrinkingSession(id: id, autoRefresh: true)
-            registeredDrinkingSessions[id] = drinkingSession
+            weakRegisteredDrinkingSessions[id] = drinkingSession
             return drinkingSession
         }
     }
@@ -73,11 +84,13 @@ public final class FApp: FObservableObject, App {
     /// - Parameter id: the id of the blackout to get
     /// - Returns: a blackout object associated with the blackout with the given id that will refresh automatically
     func blackout(withId id: String) -> FBlackout {
-        if let blackout = registeredBlackouts[id] {
+        if let blackout = weakRegisteredBlackouts[id] {
+            return blackout
+        } else if let blackout = strongRegisteredBlackouts[id] {
             return blackout
         } else {
             let blackout = FBlackout(id: id, autoRefresh: true)
-            registeredBlackouts[id] = blackout
+            weakRegisteredBlackouts[id] = blackout
             return blackout
         }
     }

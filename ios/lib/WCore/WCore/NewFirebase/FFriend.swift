@@ -11,6 +11,14 @@ import MapKit
 /// An implementation of Friend using firebase.
 public class FFriend: FObservableObject, Friend {
     private let superAccount: FAccount
+    public internal(set) var deleted: Bool {
+        get {
+            return superAccount.deleted
+        }
+        set {
+            superAccount.deleted = newValue
+        }
+    }
     
     public let location: CLLocationCoordinate2D? = nil
     public let locationAsOf: Date? = nil
@@ -25,10 +33,11 @@ public class FFriend: FObservableObject, Friend {
     ///   - autoRefresh: whether or not this object should refresh on its own
     init(id: String, autoRefresh: Bool = false) {
         self.superAccount = FAccount(id: id, autoRefresh: autoRefresh)
+        self.autoRefresh = autoRefresh
         super.init()
         self.receive(from: superAccount)
         
-        // TODO: auto refresh
+        self.updateAutoRefresh()
     }
     
     /// Update the fields of this class based on the given DTO.
@@ -49,4 +58,18 @@ public class FFriend: FObservableObject, Friend {
     public var id: String { return superAccount.id }
     public var displayName: String? { return superAccount.displayName }
     public var photoURL: URL? { return superAccount.photoURL }
+    
+    // MARK: Auto Refresh
+    
+    /// Whether or not this object should auto refresh.
+    var autoRefresh: Bool {
+        didSet {
+            self.updateAutoRefresh()
+        }
+    }
+    
+    /// Update class to start/continue/stop auto refreshing, based on the autoRefresh property.
+    private func updateAutoRefresh() {
+        // TODO
+    }
 }

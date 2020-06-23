@@ -23,6 +23,8 @@ public protocol DrinkingSession: ObservableObject, HashedIdentifiable where ID =
     var historicMembers: Set<String> { get }
     /// Invitations for people to join this drinking session that have been sent.
     var invites: Set<Invite> { get }
+    /// Whether or not this drinking session has been deleted.
+    var deleted: Bool { get }
     
     /// Record a drink had by the active user in this drinking session.
     /// - Parameters:
