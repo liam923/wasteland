@@ -11,7 +11,7 @@ import MapKit
 /// An implementation of Friend using firebase.
 public class FFriend: FObservableObject, Friend {
     private let superAccount: FAccount
-    public internal(set) var deleted: Bool {
+    public internal(set) var deleted: Bool { // should only be set by encapsulating classes
         get {
             return superAccount.deleted
         }
@@ -61,6 +61,8 @@ public class FFriend: FObservableObject, Friend {
     
     // MARK: Auto Refresh
     
+    private var document: FDocument<FUserDTO>?
+    
     /// Whether or not this object should auto refresh.
     var autoRefresh: Bool {
         didSet {
@@ -70,6 +72,15 @@ public class FFriend: FObservableObject, Friend {
     
     /// Update class to start/continue/stop auto refreshing, based on the autoRefresh property.
     private func updateAutoRefresh() {
-        // TODO
+        if self.autoRefresh {
+            if self.document == nil {
+                let documentReference = FApp.core.db.collection(FUserDTO.collectionId).document(self.id)
+                self.document = FDocument(document: documentReference,
+                                          className: "FFriend",
+                                          listener: { [weak self] (model) in self?.set(fromModel: model) })
+            }
+        } else {
+            self.document = nil
+        }
     }
 }

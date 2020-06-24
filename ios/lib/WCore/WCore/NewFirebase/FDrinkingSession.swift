@@ -17,7 +17,7 @@ public class FDrinkingSession: FObservableObject, DrinkingSession {
     public let currentMembers: Set<String> = Set()
     public let historicMembers: Set<String> = Set()
     public let invites: Set<Invite> = Set()
-    public internal(set) var deleted: Bool = false
+    public private(set) var deleted: Bool = false
     
     /// Initialize a new FDrinkingSession object corresponding to the given id.
     /// If auto-refresh is set to `true`, then this object will listen for changes from the database.
@@ -55,15 +55,28 @@ public class FDrinkingSession: FObservableObject, DrinkingSession {
     
     // MARK: Auto Refresh
     
+    var document: FDocument<FDrinkingSessionDTO>?
+    
     /// Whether or not this object should auto refresh.
     var autoRefresh: Bool {
         didSet {
-            self.updateAutoRefresh()
+            if self.autoRefresh != oldValue {
+                self.updateAutoRefresh()
+            }
         }
     }
     
     /// Update class to start/continue/stop auto refreshing, based on the autoRefresh property.
     private func updateAutoRefresh() {
-        // TODO
+        if self.autoRefresh {
+            if self.document == nil {
+                let documentReference = FApp.core.db.collection(FDrinkingSessionDTO.collectionId).document(self.id)
+                self.document = FDocument(document: documentReference,
+                                          className: "FDrinkingSession",
+                                          listener: { [weak self] (model) in self?.set(fromModel: model) })
+            }
+        } else {
+            self.document = nil
+        }
     }
 }

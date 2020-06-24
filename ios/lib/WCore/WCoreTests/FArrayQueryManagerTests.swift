@@ -12,7 +12,7 @@ import XCTest
 class FArrayQueryManagerTests: XCTestCase {
     func testSetArray() {
         var callbacks = [Set<Int>]()
-        let manager = FArrayQueryManager(queryCreator: { (cluster: Set<Int>) -> [FQuery<Int>] in
+        let manager = FArrayQueryManager(queryCreator: { (cluster: Set<Int>) -> [Any] in
             callbacks.append(cluster)
             return []
         }, clusterSizeLimit: 3)

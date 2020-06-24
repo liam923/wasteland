@@ -14,7 +14,7 @@ public class FAppUser: FObservableObject, AppUser {
     public typealias GFriend = FFriend
     
     private let superFriend: FFriend
-    public internal(set) var deleted: Bool {
+    public private(set) var deleted: Bool {
         get {
             return superFriend.deleted
         }

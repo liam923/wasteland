@@ -11,7 +11,7 @@ public class FAccount: FObservableObject, Account {
     public let id: String
     public let displayName: String? = nil
     public let photoURL: URL? = nil
-    public internal(set) var deleted: Bool = false
+    public internal(set) var deleted: Bool = false // should only be set by encapsulating classes
     
     /// Initialize a new FAccount object corresponding to the user with the given id.
     /// If auto-refresh is set to `true`, then this object will listen for changes from the database.
@@ -31,12 +31,14 @@ public class FAccount: FObservableObject, Account {
     /// Whether or not this object should auto refresh.
     var autoRefresh: Bool {
         didSet {
-            self.updateAutoRefresh()
+            if self.autoRefresh != oldValue {
+                self.updateAutoRefresh()
+            }
         }
     }
     
     /// Update class to start/continue/stop auto refreshing, based on the autoRefresh property.
     private func updateAutoRefresh() {
-        // TODO
+        // FAccount does not auto refresh
     }
 }

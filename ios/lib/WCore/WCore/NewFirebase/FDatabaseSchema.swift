@@ -15,12 +15,18 @@ import FirebaseFirestoreSwift
 
 /// A document holding user information that is visible to the user's friends.
 struct FUserDTO: Codable {
+    static let collectionId = "users"
+    
+    /// The id of the user.
+    public var id: Field<String>
     /// The last reported location of the user, or nil if there is no recently reported location.
     public var location: Field<GeoPoint?>
 }
 
 /// A document representing a drinking session.
 struct FDrinkingSessionDTO: Codable {
+    static let collectionId = "drinkingSessions"
+    
     /// The time at which this drinking session was opened.
     public var openTime: Field<Timestamp>
     /// The time at which this drinking session closed or will close.
@@ -92,6 +98,8 @@ struct FFriendshipsDTO: Codable {
 
 /// A document storing information on a blackout.
 struct FBlackoutDTO: Codable {
+    static let collectionId = "blackouts"
+    
     /// The time of the first blackout report.
     var startTime: Field<Timestamp>
     /// The time at which the blackout will end.

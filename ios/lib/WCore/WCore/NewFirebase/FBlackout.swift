@@ -14,7 +14,7 @@ public class FBlackout: FObservableObject, Blackout {
     public let reports: [Report<FAccount>] = []
     public let dissents: [Report<FAccount>] = []
     public let blackoutUser: FAccount = FAccount(id: "")
-    public internal(set) var deleted: Bool = false
+    public private(set) var deleted: Bool = false
     
     /// Initialize a new FBlackout object corresponding to the given id.
     /// If auto-refresh is set to `true`, then this object will listen for changes from the database.
@@ -40,15 +40,28 @@ public class FBlackout: FObservableObject, Blackout {
     
     // MARK: Auto Refresh
     
+    var document: FDocument<FBlackoutDTO>?
+    
     /// Whether or not this object should auto refresh.
     var autoRefresh: Bool {
         didSet {
-            self.updateAutoRefresh()
+            if self.autoRefresh != oldValue {
+                self.updateAutoRefresh()
+            }
         }
     }
     
     /// Update class to start/continue/stop auto refreshing, based on the autoRefresh property.
     private func updateAutoRefresh() {
-        // TODO
+        if self.autoRefresh {
+            if self.document == nil {
+                let documentReference = FApp.core.db.collection(FBlackoutDTO.collectionId).document(self.id)
+                self.document = FDocument(document: documentReference,
+                                          className: "FBlackout",
+                                          listener: { [weak self] (model) in self?.set(fromModel: model) })
+            }
+        } else {
+            self.document = nil
+        }
     }
 }

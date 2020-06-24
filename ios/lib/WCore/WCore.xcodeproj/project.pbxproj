@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2FC98FFC537951805FF132A5 /* Pods_WCore_WCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF054CE18D172F46F4AE10B8 /* Pods_WCore_WCoreTests.framework */; };
+		9808DDCB24A3F9AC00709C3F /* FDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9808DDCA24A3F9AC00709C3F /* FDocument.swift */; };
 		98127FD92492C647009EB99F /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127FD82492C647009EB99F /* Pointer.swift */; };
 		98127FDD24959B74009EB99F /* FWeakDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127FDC24959B74009EB99F /* FWeakDict.swift */; };
 		98127FDF2495AEF0009EB99F /* FObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127FDE2495AEF0009EB99F /* FObservableObject.swift */; };
@@ -65,6 +66,7 @@
 		2E867CFEE79F4EC71B724C29 /* Pods-WCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCoreTests.debug.xcconfig"; path = "Target Support Files/Pods-WCoreTests/Pods-WCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		835DDFA5268A8E2EE6817D08 /* Pods-WCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCore.debug.xcconfig"; path = "Target Support Files/Pods-WCore/Pods-WCore.debug.xcconfig"; sourceTree = "<group>"; };
 		91928C39F6E5885F5AE8488A /* Pods-WCore-WCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WCore-WCoreTests.release.xcconfig"; path = "Target Support Files/Pods-WCore-WCoreTests/Pods-WCore-WCoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		9808DDCA24A3F9AC00709C3F /* FDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FDocument.swift; sourceTree = "<group>"; };
 		98127FD82492C647009EB99F /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
 		98127FDC24959B74009EB99F /* FWeakDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FWeakDict.swift; sourceTree = "<group>"; };
 		98127FDE2495AEF0009EB99F /* FObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FObservableObject.swift; sourceTree = "<group>"; };
@@ -190,14 +192,15 @@
 				9864BC1324620CE80009523B /* FAccount.swift */,
 				9864BC1124620BE50009523B /* FApp.swift */,
 				9864BC1724620D590009523B /* FAppUser.swift */,
+				9823DDFC24A04D0C0056B839 /* FArrayQueryManager.swift */,
 				9864BC1924620D6D0009523B /* FBlackout.swift */,
 				9864BC20246226210009523B /* FDatabaseSchema.swift */,
+				9808DDCA24A3F9AC00709C3F /* FDocument.swift */,
 				9864BC1B24620D7A0009523B /* FDrinkingSession.swift */,
 				9864BC1524620D4E0009523B /* FFriend.swift */,
 				98127FDE2495AEF0009EB99F /* FObservableObject.swift */,
-				98127FDC24959B74009EB99F /* FWeakDict.swift */,
 				9823DDFA24A04AD00056B839 /* FQuery.swift */,
-				9823DDFC24A04D0C0056B839 /* FArrayQueryManager.swift */,
+				98127FDC24959B74009EB99F /* FWeakDict.swift */,
 			);
 			path = NewFirebase;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				987DF8EC245CF9D300E3B22F /* SignInDelegate.swift in Sources */,
 				98127FD92492C647009EB99F /* Pointer.swift in Sources */,
 				98FD91BD244FF9980050AEF2 /* WError.swift in Sources */,
+				9808DDCB24A3F9AC00709C3F /* FDocument.swift in Sources */,
 				9823DDFB24A04AD00056B839 /* FQuery.swift in Sources */,
 				9864BC1824620D590009523B /* FAppUser.swift in Sources */,
 				98127FDF2495AEF0009EB99F /* FObservableObject.swift in Sources */,

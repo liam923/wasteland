@@ -8,14 +8,14 @@
 
 /// Manages queries designed to use arrays that can be longer than the max allowed length within a query (10).
 /// `T` is the type of objects in the array.
-class FArrayQueryManager<T: Hashable, Model: Codable> {
-    typealias QueryCreator = (Set<T>) -> [FQuery<Model>]
+class FArrayQueryManager<T: Hashable> {
+    typealias QueryCreator = (Set<T>) -> [Any]
     
     private let queryCreator: QueryCreator
     private let clusterSizeLimit: Int
     
     private var vals = Set<T>()
-    private var outstandingQueries: [(Set<T>, [FQuery<Model>])] = []
+    private var outstandingQueries: [(Set<T>, [Any])] = []
     
     /// Initialize an FArrayQueryManager.
     /// - Parameter queryCreator: given a set of up to 10 array items, creates one or more queries and returns
